@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      HOWTO: Create an animated gif from a video with command line tools &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="HOWTO: Create an animated gif from a video with command line tools" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sometimes I see a few seconds of a video I’m watching and I think that it’d make a great animated gif. But because I don’t always have access to a bunch of graphics software, and because I might be using my Ubuntu or OS X box, it’s nice to have a process that works with widely- and freely-available free software command line tools. So I’ve worked out a process that uses the command line and requires only the programs mplayer, imagemagick, and gifsicle. Here’s how it goes:" />
+<meta property="og:description" content="Sometimes I see a few seconds of a video I’m watching and I think that it’d make a great animated gif. But because I don’t always have access to a bunch of graphics software, and because I might be using my Ubuntu or OS X box, it’s nice to have a process that works with widely- and freely-available free software command line tools. So I’ve worked out a process that uses the command line and requires only the programs mplayer, imagemagick, and gifsicle. Here’s how it goes:" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-10-22T06:29:13-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HOWTO: Create an animated gif from a video with command line tools" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2012-10-22T06:29:13-04:00","datePublished":"2012-10-22T06:29:13-04:00","description":"Sometimes I see a few seconds of a video I’m watching and I think that it’d make a great animated gif. But because I don’t always have access to a bunch of graphics software, and because I might be using my Ubuntu or OS X box, it’s nice to have a process that works with widely- and freely-available free software command line tools. So I’ve worked out a process that uses the command line and requires only the programs mplayer, imagemagick, and gifsicle. Here’s how it goes:","headline":"HOWTO: Create an animated gif from a video with command line tools","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools/"},"url":"https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">HOWTO: Create an animated gif from a video with command line tools</h2>
+  <time datetime="2012-10-22T06:29:13-04:00" class="post-date">22 Oct 2012</time>
+  <p>Sometimes I see a few seconds of a video I’m watching and I think that it’d make a great animated gif. But because I don’t always have access to a bunch of graphics software, and because I might be using my Ubuntu or OS X box, it’s nice to have a process that works with widely- and freely-available free software command line tools. So I’ve worked out a process that uses the command line and requires only the programs <code class="language-plaintext highlighter-rouge">mplayer</code>, <code class="language-plaintext highlighter-rouge">imagemagick</code>, and <code class="language-plaintext highlighter-rouge">gifsicle</code>. Here’s how it goes:</p>
+
+<ol>
+  <li>
+    <p>Make sure you have the programs installed. On Ubuntu (or most anything Debian-based with large enough repositories — these are common programs) it should just be a matter of</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">sudo apt-get install mplayer imagemagick gifsicle</code></p>
+    </blockquote>
+
+    <p>On Mac OS X, first install the <a href="http://mxcl.github.com/homebrew/">Homebrew package manager</a>, and then install these programs with</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">brew install mplayer imagemagick gifsicle</code></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Isolate the segment of video you want to clip out. You’re just looking for a timestamp, so you can do this in any video player. Once you’ve got a rough clip selected, use <code class="language-plaintext highlighter-rouge">mplayer</code> to export that to image files. You can use the following line to do that (there are some example values in there that I’ll explain afterward):</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">mplayer -ao null -ss 0:02:06 -endpos 5 -vo gif89a:outdir=gif videofile.mp4</code></p>
+    </blockquote>
+
+    <p>Here’s what each flag means.</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">-ao</code> means audio output. It’s set to null, because there’s no sound.</li>
+      <li><code class="language-plaintext highlighter-rouge">-ss</code> is the start position. What follows is the H:MM:SS timestamp of the beginning of the clip you want.</li>
+      <li><code class="language-plaintext highlighter-rouge">-endpos</code> is the end position of the clip, in seconds. So here I’ve taken out a 5 second clip.</li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">-vo</code> is the video output. The next bit says to output gifs (that’s <code class="language-plaintext highlighter-rouge">gif89a</code> into the directory called “gif”. You can put them into whatever directory you want of course.</p>
+
+        <p>For some reason the I don’t have the gif89a video output driver installed on my OS X computer, so I instead use <code class="language-plaintext highlighter-rouge">png</code> or <code class="language-plaintext highlighter-rouge">jpeg</code> in the place of <code class="language-plaintext highlighter-rouge">gif89a</code> up there. Your mileage may vary.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>You now should have a directory full of stills. In case you used any other format to output them, I use one line of imagemagick’s <code class="language-plaintext highlighter-rouge">mogrify</code> to convert them:</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">mogrify -format gif *.png</code></p>
+    </blockquote>
+  </li>
+  <li>Then go through and remove the images at the start and the end that you don’t want in the final gif. Sometimes I cheat on the command line here, and just look at all the pictures with Preview or Image Viewer and delete the ones I don’t need.</li>
+  <li>
+    <p>Finally, use <code class="language-plaintext highlighter-rouge">gifsicle</code> to wrap it all up into an animated gif. I usually start with the line</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">gifsicle --colors=256 --delay=4 --loopcount=0 --dither -O3 *.gif &gt; animation.gif</code></p>
+    </blockquote>
+
+    <p>and then tweak the parameters from there. Different source material calls for different settings, and I try to keep the final output as small as possible.</p>
+  </li>
+</ol>
+
+<p>If you make a lot of gifs and like to mess with a lot of values, it might make sense for you to do it graphically. But this flow works pretty well for me.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

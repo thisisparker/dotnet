@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/oracle.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/oracle.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">You wouldn’t reimplement an API</title><link href="https://thisisparker.github.io/dotnet/2016/05/you-wouldnt-reimplement-an-api/" rel="alternate" type="text/html" title="You wouldn’t reimplement an API" /><published>2016-05-23T01:31:25-04:00</published><updated>2016-05-23T01:31:25-04:00</updated><id>https://thisisparker.github.io/dotnet/2016/05/you-wouldnt-reimplement-an-api</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2016/05/you-wouldnt-reimplement-an-api/"><![CDATA[<p>I’ve been attending (and livetweeting) the <a href="https://www.eff.org/deeplinks/2016/05/stakes-are-high-oracle-v-google-public-has-already-lost-big">Oracle v. Google jury trial</a> for the last two weeks, and have had a lot of conversations and made a lot of jokes about it. One joke that went surprisingly well was an image I made and tweeted without context:</p>
+
+<blockquote>
+  <p><a href="https://t.co/EuUZSH9PKh">pic.twitter.com/EuUZSH9PKh</a></p>
+
+  <p>— Parker Higgins (@xor) <a href="https://twitter.com/xor/status/731241298993152000">May 13, 2016</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>In fact, the picture got enough retweets and replies that I decided to make <a href="https://twitter.com/xor/status/733102946188066818">stickers</a>. And <a href="https://teespring.com/you-wouldnt-reimplement-an-api">t-shirts</a>. And each of those things have gotten more attention than I expected. It’s been really exciting! I don’t have a distribution plan for the stickers besides handing them out in person (and self-addressed stamped envelopes to me at EFF), but there will be more than 300 t-shirts out there in the world. That blows my <a href="https://parkerhiggins.net/2015/01/making-alice-bob-tees/">Alice &amp; Bob design</a> out of the water.</p>
+
+<p>All this for being a pretty esoteric design. For one thing, the API reimplementation issue being litigated in Oracle is pretty arcane. For another, it relies on <a href="https://www.youtube.com/watch?v=HmZm8vNHBSU">an anti-piracy reference that’s a decade-plus old</a> at this point.</p>
+
+<p>The shirts will be donezo Monday evening—if anybody wants to print their own, here are the high-res source files you can send to a printer or put on a screen yourself. (The first one is white on transparent, so you have to change the background to see it.) I’d love to see your take on it!</p>
+
+<style type="text/css">
+			#gallery-12 {
+				margin: auto;
+			}
+			#gallery-12 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 50%;
+			}
+			#gallery-12 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-12 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+
+<div class="gallery galleryid-1625 gallery-columns-2 gallery-size-medium" id="gallery-12"><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2016/05/reimplementanapi-trans-300x194.png)](https://parkerhiggins.net/wp-content/uploads/2016/05/reimplementanapi-trans.png) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2016/05/reimplementanapi-300x194.png)](https://parkerhiggins.net/wp-content/uploads/2016/05/reimplementanapi.png) </dt></dl>  
+ </div>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="google" /><category term="oracle" /><category term="stickers" /><category term="t-shirts" /><summary type="html"><![CDATA[I’ve been attending (and livetweeting) the Oracle v. Google jury trial for the last two weeks, and have had a lot of conversations and made a lot of jokes about it. One joke that went surprisingly well was an image I made and tweeted without context:]]></summary></entry></feed>

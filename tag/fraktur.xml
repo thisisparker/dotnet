@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/fraktur.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/fraktur.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">How does Fraktur degrade across platforms?</title><link href="https://thisisparker.github.io/dotnet/2015/02/fraktur-degrade-across-platforms/" rel="alternate" type="text/html" title="How does Fraktur degrade across platforms?" /><published>2015-02-17T03:03:14-05:00</published><updated>2015-02-17T03:03:14-05:00</updated><id>https://thisisparker.github.io/dotnet/2015/02/fraktur-degrade-across-platforms</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/02/fraktur-degrade-across-platforms/"><![CDATA[<p>The Unicode Consortium, in its ∞ wisdom, decided a long time ago that the <a href="https://en.wikipedia.org/wiki/Fraktur">Fraktur script</a>—that weird old-fashioned German style of text—should <a href="https://en.wikipedia.org/wiki/Fraktur#Fraktur_in_Unicode">not be encoded in its own block</a>, but rather considered a font in which standard latin text can be rendered. That has some implications for ligatures, but that’s beyond the scope of this post and my knowledge.</p>
+
+<p>However, most of the Fraktur alphabet is available <a href="http://www.w3.org/TR/MathML2/1D5.html">deep in the math characters</a> code points. Using a simple conversion tool, like <a href="http://www.panix.com/~eli/unicode/convert.cgi">this text converter</a> I keep bookmarked, you can replace standard characters with those math symbols that resemble them. By doing that, you can copy and paste what looks like formatted text into plain text boxes, and—for example—make jokes with it on Twitter.</p>
+
+<p>Which raises the question of how various platforms support it, and how that support degrades. After all, we’re talking about pretty deep recesses of the Unicode character space, so it can vary pretty wildly.</p>
+
+<p>Earlier tonight I made a <a href="https://twitter.com/xor/status/567543759479373824">joke on Twitter</a> to my friend Noah that used these characters. Here’s how it appeared on my OS X box running Firefox:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/Screen-Shot-2015-02-16-at-11.47.46-PM.png" alt="" /></p>
+
+<p>But here’s how it looked to him on his iPhone:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/noahscreenshot.png" alt="noahscreenshot" /></p>
+
+<p>I wanted to see how it appears on different platforms, so I <a href="https://twitter.com/xor/status/567545787127578624">asked people to send me screenshots</a>, and got a whole bunch of responses. On multiple versions of Windows and different platforms, you get empty boxes:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/B-BUhcGIUAA7TWZ.png" alt="B-BUhcGIUAA7TWZ" /></p>
+
+<p>While on Android, across many different apps, it degrades to the plain latin text!</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/androidscreenshot.png" alt="androidscreenshot" /></p>
+
+<p>I also got evidence that it worked fine on a range of GNU/Linux boxes, every OS X combination I saw, and a Chromebook.</p>
+
+<p>The frustrating result is that not only can you not count on all popular platforms to support these characters, you also can’t count on them to fail the same way. Android removes the context that these are “special” characters, while iOS, Windows, (and, incidentally, <a href="https://en.wikipedia.org/wiki/Sailfish_OS">Sailfish OS</a>) render it completely unreadable.</p>
+
+<p>So I guess don’t use it for mission-critical Twitter jokes.</p>
+
+<p>P.S. If you’ve read this far about Fraktur, you really ought to read about the <a href="https://en.wikipedia.org/wiki/Antiqua%E2%80%93Fraktur_dispute">Antiqua-Fraktur dispute</a>, which is an amazing piece of typographic history.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="fraktur" /><category term="germany" /><category term="twitter" /><category term="typography" /><category term="unicode" /><summary type="html"><![CDATA[The Unicode Consortium, in its ∞ wisdom, decided a long time ago that the Fraktur script—that weird old-fashioned German style of text—should not be encoded in its own block, but rather considered a font in which standard latin text can be rendered. That has some implications for ligatures, but that’s beyond the scope of this post and my knowledge.]]></summary></entry></feed>

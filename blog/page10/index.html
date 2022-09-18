@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page10/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page10/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page9/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page11/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page10/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/10/vegetation-wants-to-be-free-a-wikicon-talk-on-pomological-watercolors/">
+        Vegetation Wants To Be Free, a Wikicon talk on pomological watercolors
+      </a>
+    </h2>
+
+    <time datetime="2015-10-13T13:12:57-04:00" class="post-date">13 Oct 2015</time>
+
+    <p>I spoke last weekend at Wikicon USA about the several months I’ve spent learning about—and making more publicly available—the <a href="https://parkerhiggins.net/2015/04/us-government-release-7584-fruit-pictures/">pomological watercolor collection I wrote about</a> in these pages last April. The talk is now online, and is about 20 minutes (and a bit frenetic).</p>
+
+<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/dD8RQB9-2VI" width="560"></iframe>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/09/limiting-javascript-to-secure-origins-in-firefox/">
+        Limiting Javascript to secure origins in Firefox
+      </a>
+    </h2>
+
+    <time datetime="2015-09-28T23:08:39-04:00" class="post-date">28 Sep 2015</time>
+
+    <p>I’m a Firefox user, but I was very interested to read Chris Palmer’s <a href="https://noncombatant.org/2014/03/11/privacy-and-security-settings-in-chrome/">guide to privacy and security settings in Chrome</a>. One thing he did that really intrigued me was enabling Javascript only on secure sites. It ends up being a pretty good default not just because it prevents attacks that rely on Javascript injection—like the ads that <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">Comcast</a> and <a href="http://webpolicy.org/2015/08/25/att-hotspots-now-with-advertising-injection/">AT&amp;T</a> have inserted into pages accessed on their hotspots, or the <a href="https://www.eff.org/deeplinks/2015/04/china-uses-unencrypted-websites-to-hijack-browsers-in-github-attack">massive man-on-the-side attack</a> the government of China apparently conducted against Github—but also because a site going through the effort to authenticate itself is also a reasonable proxy for the kind of stuff I’d allow anyway.</p>
+
+<p>As far as I can tell, on Firefox that means installing <a href="https://noscript.net/">NoScript, a powerful extension</a> that I’d previously disabled because manually turning on Javascript where I needed it was too much of a hassle. After a few hours of browsing with these settings, it seems to strike the right balance: not exactly <em>no</em> fiddling with permissions, but greatly reduced manual intervention with a lot of unnecessary scripts getting blocked.</p>
+
+<p>The option is in NoScript’s preferences, under <code class="language-plaintext highlighter-rouge">Options &gt; Advanced &gt; HTTPS &gt; Permissions</code>. As long as the global block is on (which it is by default), I found that setting the drop-down menu, “Forbid active web content unless it comes from a secure HTTPS connection” actually works best when set to “Never”—or if you’re a frequent Tor user, to “When using a proxy”. ((This setting is pretty counter-intuitive to me, but if it is set to “Always” I experienced some funny interactions with manual permission changes.)) Then the checkbox below, “Allow HTTPS scripts globally on HTTPS documents”, should be checked.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/09/Screenshot_2015-09-28_20-00-40.png" alt="Screenshot_2015-09-28_20-00-40" /></p>
+
+<p>Of course, this isn’t a perfect guarantee of privacy or security. If you don’t trust the Javascript being served from the authenticated site—because the site operators may be malicious or just incompetent—then this technique won’t help. But it does make browsing much faster across much of the web, and preserve the rich interactivity you’re used to on pages your browser trusts.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/09/200-deeplinks-at-eff/">
+        200 Deeplinks at EFF
+      </a>
+    </h2>
+
+    <time datetime="2015-09-28T01:48:06-04:00" class="post-date">28 Sep 2015</time>
+
+    <p>The article I published about the <a href="https://www.eff.org/deeplinks/2015/09/happy-birthday-everybody-victory-public-domain-asterisk">(qualified) public domain victory in the Happy Birthday case</a> this week was my 200th post on EFF’s blog Deeplinks, an event that—<a href="https://parkerhiggins.net/2013/08/my-first-100-eff-deeplinks/">like the 100th post two years ago</a>—calls for a little reflection. I’ve picked out some of my favorites in posts 101-200, below.</p>
+
+<p>In <a href="https://www.eff.org/deeplinks/2013/08/pushing-perfect-forward-secrecy-important-web-privacy-protection">Pushing For Perfect Forward Secrecy, an Important Web Privacy Protection</a>, I worked with our tech folks to explain a property that actually really matters for cryptography, but at that point—in August 2013—hadn’t really been set out for lay people. Since then it’s been described even better, but for a while this post had the honor of being one of the more widely-shared explainers on the topic.</p>
+
+<p>The post <a href="https://www.eff.org/deeplinks/2013/10/silk-road-case-dont-blame-technology">In the Silk Road Case, Don’t Blame the Technology</a> was published the day the criminal complaint against Ross Ulbricht was released. It goes through some of the technologies that he was alleged to have used, talking about how essential they are for enabling important speech, and how they’ve been demonized before.</p>
+
+<p>It’s more specialized, but <a href="https://www.eff.org/deeplinks/2013/10/mobile-tracking-code-conduct-falls-short-protecting-consumers">Mobile Tracking Code of Conduct Falls Short of Protecting Consumers</a> was a fun combination of legal and technical talk. One of the points I got to make in there was how the space of MAC address hashes is possible to brute force, alongside general concerns about people finding retail mobile tracking creepy.</p>
+
+<p><a href="https://www.eff.org/deeplinks/2014/01/remembering-aaron">Remembering Aaron</a> was a difficult one to write, emotionally. It’s become an important thing for me to look over the work I’m doing, and see how it lines up with his ideals. This post was a chance to do that across the whole organization, and speculate what he might have thought about the developments in this space in the year since his death.</p>
+
+<p>There’s maybe no post that I hope more will be vindicated by history than <a href="https://www.eff.org/deeplinks/2013/09/how-bad-supreme-court-decision-might-have-good-constitutional-consequences">How a Bad Supreme Court Decision Could Have Good Constitutional Consequences for Copyright</a>, which is basically a short look at a law review article by Neil Netanel arguing that the Golan decision could render 1201 a violation of the First Amendment.</p>
+
+<p>A pair of articles about TPP written 18 months apart are favorites for different reasons. <a href="https://www.eff.org/deeplinks/2013/12/tpps-attack-artists-termination-rights">The TPP’s Attack on Artists’ Termination Rights</a> was the first thing I co-wrote with Sarah Jeong, and was both obviously correct and intensely aggravating to people who set up camp on “the other side” of copyright issues from EFF. <a href="https://www.eff.org/deeplinks/2015/07/tpp-copyright-trap-our-last-stand-against-undemocratic-international-agreements">TPP’s Copyright Trap</a> is a long look at copyright terms that is one of the most widely shared things I’ve written.</p>
+
+<p>Finally, <a href="https://www.eff.org/deeplinks/2015/02/who-really-owns-your-drones">Who Really Owns Your Drones?</a> is so far my most thorough look at one of The Big Questions about DRM and connected devices. It builds on earlier posts like How DRM Harms Our Computer Security and that weird news story from February about the drone downed on the White House lawn.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/09/howto-diff-pdfs-pixel-by-pixel-on-the-command-line/">
+        HOWTO: Diff PDFs pixel-by-pixel on the command line
+      </a>
+    </h2>
+
+    <time datetime="2015-09-01T22:20:34-04:00" class="post-date">01 Sep 2015</time>
+
+    <p>There was a major order in the Uber class action case today: the class was certified, which means that <a href="http://motherboard.vice.com/read/judge-rules-160000-uber-drivers-can-sue-in-a-class-action">the suit can be on behalf of 160,000 drivers</a>, instead of just the handful putting their names on the documents. Big deal!</p>
+
+<p>Then a few minutes later, the court issued an amended version of the order, but didn’t release a changelog. How is a reader to know which parts are worth looking at?</p>
+
+<p>There are a lot of ways to solve this problem, but I wanted one that would work on the command line, that wouldn’t require much in the way of unusual software (or Adobe), and that wouldn’t depend on having the text embedded in the PDF. Court PDFs usually do have text, but it’s a little unreliable, and in this case the documents were so close that I could compare the pixels of one to the other.</p>
+
+<p>I googled around a bit, and here’s the workflow I decided to follow, adapted from <a href="https://stackoverflow.com/questions/6469157/pdf-compare-on-linux-command-line">this Stack Overflow question’s answers</a>. It assumes you have <code class="language-plaintext highlighter-rouge">pdftk</code> and <code class="language-plaintext highlighter-rouge">imagemagick</code> installed.</p>
+
+<ul>
+  <li>Put both PDFs, file1 and file2, in one directory by themselves, and make a subdirectory called <code class="language-plaintext highlighter-rouge">/out</code> for temporary output.</li>
+  <li>Split, or “burst”, each PDF into its component pages with <code class="language-plaintext highlighter-rouge">pdftk</code>, and put those pages in the <code class="language-plaintext highlighter-rouge">/out</code> directory.</li>
+  <li>Use a bash loop to run <code class="language-plaintext highlighter-rouge">imagemagick</code>‘s compare feature over each pair of pages from file1 and file2, creating a new page for each that just contains the differences highlighted in red.</li>
+  <li>Again using <code class="language-plaintext highlighter-rouge">pdftk</code>, merge all of those diff pages back into one document that uses the original as the background.</li>
+</ul>
+
+<p>In code, that looks like this:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">pdftk file1.pdf burst out/file1---page%03d.pdf&lt;br&gt;&lt;/br&gt;pdftk file2.pdf burst out/file2---page%03d.pdf&lt;br&gt;&lt;/br&gt;for i in {001..###}; do compare out/file1---page$i.pdf out/file2---page$i.pdf -compose src out/file1--file2--diff---page$i.pdf; done&lt;br&gt;&lt;/br&gt;pdftk out/file1--file2--diff*.pdf cat output diff.pdf&lt;br&gt;&lt;/br&gt;pdftk diff.pdf multibackground file1.pdf output compositediff.pdf</code></p>
+</blockquote>
+
+<p>The parts that need to be customized each time are the names of file1 and file2 for the first two lines and the very last line, and the <code class="language-plaintext highlighter-rouge">###</code> needs to be replaced by the number of pages in each document. Other than that, you can let this one rip and end up with a visual diff in just a few seconds!</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/09/diffedpdfpage.png" alt="diffed pdf page" /></p>
+
+<p>You can see how it looks above. This is the only page that changed, and it’s just one footnote.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/">
+        HOWTO: One big file from a YouTube playlist
+      </a>
+    </h2>
+
+    <time datetime="2015-08-25T22:39:33-04:00" class="post-date">25 Aug 2015</time>
+
+    <p>In celebration of the 40th anniversary of the release of <a href="https://en.wikipedia.org/wiki/Born_to_run">Born To Run</a>, I decided to watch Cory Arcangel perform <a href="http://www.coryarcangel.com/things-i-made/2006-008-the-bruce-springsteen-born-to-run-glockenspiel-addendum">his classic Glockenspiel Addendum</a>. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?</p>
+
+<p>Well, the version he posted is in eight parts. Fine for YouTube, but I don’t want to have to click play between each segment, and I don’t want to be interrupted if my Internet goes down. I solved the first problem by <a href="https://www.youtube.com/playlist?list=PL5V1zfjBPBJkSJ2tV0Cu31HAfNTJ3fhAZ">creating a YouTube playlist of the whole concert</a>, but in order to solve the second problem I’d need a local copy.</p>
+
+<p>The <a href="https://rg3.github.io/youtube-dl/">excellent (and public domain!) program <code class="language-plaintext highlighter-rouge">youtube-dl</code></a> can fetch a copy of each of the videos separately, and will even take a playlist link as input. I made myself a <code class="language-plaintext highlighter-rouge">glockenspiel</code> directory, and filled it with eight mp4s.</p>
+
+<p>That’s probably enough for most situations! <code class="language-plaintext highlighter-rouge">mplayer</code> (or your media player of choice) can take a list of files. But I wanted one big mp4, and I wanted to do that without transcoding.</p>
+
+<p>In some cases, the <code class="language-plaintext highlighter-rouge">ffmpeg concat demuxer</code> would probably work. It’s one of three <em>different</em> concat features <a href="https://trac.ffmpeg.org/wiki/Concatenate">documented on the <code class="language-plaintext highlighter-rouge">ffmpeg</code> wiki</a>, and designed for merging file formats that cannot be simply concatenated but that shouldn’t be transcoded. It takes a list of files in the following format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file 'path/to/file1.mp4'
+file 'path/to/file2.mp4'
+</code></pre></div></div>
+
+<p>etc. You can generate that list with a little bash loop:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in ./*.mp4; do echo "file '$f'" &gt;&gt; list.txt; done
+</code></pre></div></div>
+
+<p>And then feed it into the concat demuxer with the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -f concat -i list.txt -c copy output.mp4
+</code></pre></div></div>
+
+<p>If that works for you, great, you’re set. Unfortunately, I ran into a problem: the resulting mp4 file had some weird reference frame issues, resulting in some (but not all) of the video parts to be garbled flashing green frames. ((It’s outside the scope of this post, but the next thing I tried, mkvmerge, created a file with the exact same problem.)) <code class="language-plaintext highlighter-rouge">mplayer</code> kept spitting errors like: <code class="language-plaintext highlighter-rouge">number of reference frames (0+5) exceeds max (3; probably corrupt input), discarding one.</code></p>
+
+<p>I wasn’t going to be able to use the <code class="language-plaintext highlighter-rouge">concat demuxer</code>, but as I mentioned above <code class="language-plaintext highlighter-rouge">ffmpeg</code> has three different concat options. This <a href="http://superuser.com/questions/43588/how-can-i-merge-two-mp4-files-without-losing-quality/522658#522658">Q&amp;A describes a way to place the mp4 files in a new transport stream container</a>, which is one of the kinds of files that can be concatenated with the concat <em>protocol</em>, at the file level. One by one, I made temporary mpeg transport stream files like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1.ts
+</code></pre></div></div>
+
+<p>And then I merged all those files, temp1.ts through temp8.ts, with the following unwieldy command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ffmpeg -i "concat:temp1.ts|temp2.ts|temp3.ts|temp4.ts|temp5.ts|temp6.ts|temp7.ts|temp8.ts" -c copy -bsf:a aac_adtstoasc output.mp4</code></p>
+
+<p>Which works like a charm. Not a totally painless process, but now I’ve got a pretty well merged and not transcoded local version and can watch me some glockenspiel.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page11/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page9/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/android.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/android.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">My Android “personal dictionary”</title><link href="https://thisisparker.github.io/dotnet/2014/01/my-android-personal-dictionary/" rel="alternate" type="text/html" title="My Android “personal dictionary”" /><published>2014-01-09T01:59:18-05:00</published><updated>2014-01-09T01:59:18-05:00</updated><id>https://thisisparker.github.io/dotnet/2014/01/my-android-personal-dictionary</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2014/01/my-android-personal-dictionary/"><![CDATA[<p>I’m having an issue on Android where every time I type the letters D-O-N-T it corrects to “DONT” (and not “don’t”). I can’t figure out to fix that, but in my attempts I came across my personal dictionary of words I’ve added to the spellcheck. I think this list is pretty hilarious. Here it is, in its entirety:</p>
+
+<blockquote>
+  <p>autocorrects<br />
+badass<br />
+Bernal<br />
+Bitcoin<br />
+bitcoin<br />
+btw<br />
+buratta<br />
+crunked<br />
+crypto<br />
+CryptoParty<br />
+deeplinks<br />
+deet<br />
+Diablo<br />
+dogsitting<br />
+Dosa<br />
+ECDHE<br />
+eff<br />
+Effing<br />
+effing<br />
+FOIA<br />
+gottseidank<br />
+hackathon<br />
+Heyo<br />
+Higgs<br />
+javascript<br />
+Kash<br />
+meetup<br />
+Mik<br />
+Nah<br />
+nameservers<br />
+Negging<br />
+Okie-doke<br />
+Oyasumi<br />
+Pac<br />
+Philz<br />
+RFIDs<br />
+Seeya<br />
+seeya<br />
+shabu<br />
+Shotwell<br />
+snapchat<br />
+Snowden<br />
+subreddit<br />
+subtweeting<br />
+Sutro<br />
+Tor<br />
+Webcraft<br />
+wonky<br />
+Y’know<br />
+y’know<br />
+Yan<br />
+Yes’m<br />
+yolo</p>
+</blockquote>
+
+<p>Yeah, that’s pretty much exactly how I talk.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="android" /><summary type="html"><![CDATA[I’m having an issue on Android where every time I type the letters D-O-N-T it corrects to “DONT” (and not “don’t”). I can’t figure out to fix that, but in my attempts I came across my personal dictionary of words I’ve added to the spellcheck. I think this list is pretty hilarious. Here it is, in its entirety:]]></summary></entry><entry><title type="html">Clickwrap privacy isn’t the answer</title><link href="https://thisisparker.github.io/dotnet/2012/02/clickwrap-privacy-isnt-the-answer/" rel="alternate" type="text/html" title="Clickwrap privacy isn’t the answer" /><published>2012-02-27T03:37:16-05:00</published><updated>2012-02-27T03:37:16-05:00</updated><id>https://thisisparker.github.io/dotnet/2012/02/clickwrap-privacy-isnt-the-answer</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2012/02/clickwrap-privacy-isnt-the-answer/"><![CDATA[<p>Two sets of mobile app privacy stories have broken into the mainstream press this month. The first half of the month was dominated by “addressbook-gate”, where Path (and then, it turns out, <a href="http://venturebeat.com/2012/02/14/iphone-address-book/">many other iOS applications</a>) were found to be <a href="http://mclov.in/2012/02/08/path-uploads-your-entire-address-book-to-their-servers.html">uploading and storing users’ phone contact lists to their servers</a>.</p>
+
+<p>In the firestorm that followed, many people — including <a href="http://venturebeat.com/2012/02/15/congress-apple-address-book/">some US Representatives</a> — called on Apple raise the walls of their garden and address the issue by limiting app access to the address book and notifying users when the application requests access. Apple agreed, and will be <a href="http://allthingsd.com/20120215/apple-app-access-to-contact-data-will-require-explicit-user-permission/">introducing those changes in a future version of iOS</a>.</p>
+
+<p>So case closed. Until this last weekend, when the (London) Sunday Times reported that many popular mobile apps, including Facebook for Android, were “reading” user text messages. (Incidentally, the Sunday Times article is behind a paywall, and I haven’t seen a copy of the original article.) Extrapolating from <a href="http://www.dailymail.co.uk/news/article-2106627/Internet-firms-access-texts-emails-pictures-spying-smartphone-apps.html">other articles covering the Times “scoop”</a>, it looks like the story is likely about the permissions apps typically request during the installation process.</p>
+
+<p>Apps that overreach in their requested permissions are a bad thing, but they’re <a href="http://online.wsj.com/article/SB10001424052748704368004576027751867039730.html">not new</a>, and they’re not a smoking gun: developers may have legitimate and non-obvious reasons for requesting certain permissions, and they may require them for reasons that aren’t immediately clear to the end user. Facebook, for its part, <a href="http://www.zdnet.com/blog/btl/facebook-flickr-others-accused-of-reading-text-messages/70237">denied</a> “reading of user text messages” and explained that the app requires SMS read/write to test an as-yet-unreleased feature.</p>
+
+<p>These two stories follow different arcs, but the second one certainly seems to complicate the first. The clickwrap privacy policy that Apple agreed to require is exactly the sort of permission screen that has been ignored so consistently that a major newspaper decided to publish it as a scoop.</p>
+
+<p>Raising the garden walls is too easy an answer to a hard question. The response to these two privacy stories makes clear that people want their privacy to be respected, which requires effort and resources on the part of the developer. How do we convince developers that those expenses are worth the cost <em>before</em> a PR fiasco about their privacy practices? I don’t know what the solution is, but it’s not expanding clickwrap privacy policies.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="android" /><category term="facebook" /><category term="ios" /><category term="mobile" /><category term="privacy" /><summary type="html"><![CDATA[Two sets of mobile app privacy stories have broken into the mainstream press this month. The first half of the month was dominated by “addressbook-gate”, where Path (and then, it turns out, many other iOS applications) were found to be uploading and storing users’ phone contact lists to their servers.]]></summary></entry><entry><title type="html">Voluntary obsolescence: checking out of the upgrade cycle</title><link href="https://thisisparker.github.io/dotnet/2012/01/voluntary-obsolescence-checking-out-of-the-upgrade-cycle/" rel="alternate" type="text/html" title="Voluntary obsolescence: checking out of the upgrade cycle" /><published>2012-01-16T01:43:37-05:00</published><updated>2012-01-16T01:43:37-05:00</updated><id>https://thisisparker.github.io/dotnet/2012/01/voluntary-obsolescence-checking-out-of-the-upgrade-cycle</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2012/01/voluntary-obsolescence-checking-out-of-the-upgrade-cycle/"><![CDATA[<p>This week I purchased a new cell phone. I’ve been using my current phone, an HTC Desire Z (dubbed the G2 by T-Mobile in the US), for a little over a year and it’s time for an upgrade.</p>
+
+<p>Or maybe it’s a sidegrade. Instead of buying the newest model on the market (or waiting for one of the half a million or so introduced at CES this month) I re-bought the <a href="https://en.wikipedia.org/wiki/Nexus_One">Nexus One</a>, a phone released almost two years ago.</p>
+
+<p>I bought my first Nexus One directly from Google when it came out, and it quickly became my all-time favorite phone. The hardware fits me perfectly — just the right weight, great screen and buttons. It’s had two follow-ups in the Nexus S and the Galaxy Nexus, but neither one has struck me the same way. Because of its background, as the first “Google Experience” phone, it fell into the hands of a lot of able hackers, and so has great community support and quick releases for the <a href="http://www.cyanogenmod.com/">CyanogenMod</a> and <a href="http://www.whispersys.com/">Whisper Systems</a> software I like to use.</p>
+
+<p>When that Nexus One was stolen in November 2010, I thought I’d appreciate the upgrade. But while the phone I got featured some souped-up specs and an upgraded OS, I just didn’t like the experience as much.</p>
+
+<p>So for now, I’ve chosen to check out of the upgrade cycle and stick with a device that I know works for me. It’s tempting to think I’ll be out of some loop, but the truth is, the hardware I need for my phone is not that greatly different from what I needed two years ago.</p>
+
+<p>Keeping off of the high-end upgrade cycle — because really, having the shiniest phone in your pocket is not a one-time choice, but a commitment to regular upgrades — is cheaper, less disappointing, and less likely to contribute to a mountain of stuff in my house that is just too expensive to throw away. Much better, if you know what works, to stick with it.</p>
+
+<p>Of course, there are other approaches. Lore Sjöberg, a writer for Wired, wrote about <a href="http://www.wired.com/underwire/2009/10/alt-text-cult/">founding the Cult of the Somewhat Delayed</a> a few years back. His cult would consist of people who kept on top of the latest advances in technology and culture, but with a two-year offset. This month, devotees would be checking out the movies, news, and gadgets from January 2010, which makes my new phone a crazy device from the future.</p>
+
+<p>Those not ready to take the two-year plunge might check out <a href="http://lastyearsmodel.org/">Last Year’s Model</a>, a project to get people to hold on to their devices a little longer. They advertise their MySpace page as a way to keep up with the project, which makes me think it’s either a bit out of date, or they’re very committed to the cause.</p>
+
+<p>In any case, I’m happy to live at a time where the progress we can achieve in two years is enough to give the feeling of obsolescence. But I’m also happy to know that I’m not really out of the loop if I decide to skip the upgrade.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="android" /><category term="cell phones" /><category term="gadgets" /><category term="gear" /><category term="nexus one" /><category term="technology" /><summary type="html"><![CDATA[This week I purchased a new cell phone. I’ve been using my current phone, an HTC Desire Z (dubbed the G2 by T-Mobile in the US), for a little over a year and it’s time for an upgrade.]]></summary></entry></feed>

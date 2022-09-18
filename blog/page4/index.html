@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page4/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page4/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page3/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page5/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page4/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/07/linkarchiver-a-new-bot-to-back-up-tweeted-links/">
+        LinkArchiver, a new bot to back up tweeted links
+      </a>
+    </h2>
+
+    <time datetime="2017-07-11T16:10:04-04:00" class="post-date">11 Jul 2017</time>
+
+    <p>Twitter users who want to ensure that the Wayback Machine has stored a copy of the pages they link to can now sign up with <a href="https://twitter.com/linkarchiver"><span class="citation">@LinkArchiver</span></a> to make it happen automatically. <span class="citation">@LinkArchiver</span> is the first project I’ve worked on in my 12-week stay at <a href="https://www.recurse.com/">Recurse Center</a>, where I’m learning to be a better programmer.</p>
+
+<p>The idea for <span class="citation">@LinkArchiver</span> was <a href="https://twitter.com/j4cob/status/883054720260087808">suggested by my friend Jacob</a>. I liked it because it was useful, relatively simple, and combined things I knew (Python wrappers for the Twitter API) with things I didn’t (event-based programming, making a process run constantly in the background, and more). I did not expect it to get as enthusiastic a reaction as it has, but that’s also nice.</p>
+
+<p>The entire bot is <a href="https://github.com/thisisparker/linkarchiver/">one short Python script</a> that uses the Twython library to listen to the <a href="https://dev.twitter.com/streaming/userstreams">Twitter User stream API</a>. This is the first of my Twitter bots that is at all “interactive”—every previous bot used the REST APIs to post, but can not engage with things in their timeline or tweeted at them.</p>
+
+<p>That change meant I had to use a slightly different architecture than I’ve used before. Each of my previous bots were small and self-contained scripts that produced a tweet or two each time they run. That design means I can trigger them with a cron job that runs at regular intervals. By contrast, <span class="citation">@LinkArchiver</span> runs all the time, listening to its timeline and acting when it needs to. It doesn’t have much interactive behavior—when you tweet at it directly, it can reply with a Wayback link, but that’s it—but learning this kind of structure will enable me to do much more interactive bots in the future.</p>
+
+<p>It also required that I figure out how to “daemonize” the script, so that it could run in the background when I wasn’t connected and restart in case it crashed (or when I restart the computer). I found this aspect surprisingly difficult; it seems like a really basic need, but the documentation for how to do this was not especially easy to find. I host my bots on a Digital Ocean box running Ubuntu, so this script is running as a systemd service. The <a href="https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units">Digital Ocean documentation</a> and this <a href="https://www.reddit.com/r/raspberry_pi/comments/4vhofs/creating_a_systemd_daemon_so_you_can_run_a_python/">Reddit tutorial</a> were both very helpful for my figuring it out.</p>
+
+<p>Since launching the bot, I’ve gotten in touch with the folks at the Wayback Machine, and at their request added a custom user-agent. I was worried that the bot would get on their nerves, but they seem to really appreciate it—what a relief. After its first four days online, it’s tracking some 3,400 users and has sent about 25,000 links to the Internet Archive.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/04/building-mastodon-frozen/">
+        Building Mastodon to be frozen
+      </a>
+    </h2>
+
+    <time datetime="2017-04-30T20:21:02-04:00" class="post-date">30 Apr 2017</time>
+
+    <p>As the federated social network Mastodon has surged in popularity over the last month, <a href="https://instances.mastodon.xyz/">more than a thousand instances</a> — ranging from a single user to tens of thousands — have been started by the community.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2017/04/mastodon-logo-282x300.png" alt="" /></p>
+
+<p>That’s a really great development in terms of decentralization and distribution, which bring a lot of benefits, but it also makes it a near certainty that a currently popular instance will go away. It could happen abruptly, if a sysadmin accidentally drops a database, or gradually, if it becomes to expensive or time-consuming to run, but it will happen.</p>
+
+<p>Mastodon developers can make some choices now that could help preserve those communities — if only in a “frozen” form — after they are no longer active. And if done right, it could open up new possibilities for persistent presentation of ephemeral communities.</p>
+
+<p>Specifically, Mastodon can develop a more robust option to export an entire instance in a format that can be served statically. The Mastodon instance would be frozen, in the sense that nobody could sign up or add new content to it, but its links could be preserved and the interactions could be saved. Serving a static version of the site in a dedicated viewer could be done cheaply, and organizations like the Internet Archive would likely step up to host significant defunct communities.</p>
+
+<p>(Twitter sort of has an option like this on the individual level: users can <a href="https://support.twitter.com/articles/20170160">export their own archive</a>, and get a zip file that <em>looks</em> like Twitter but is all local.)</p>
+
+<p>The historical benefits of that kind of feature are obvious to anybody who’s gone through old forums or mailing list posts. But if it were built out as a feature, I think more communities would find new creative ways of using the software. One that immediately comes to mind: Conferences could throw up an instance and create accounts for all the attendees. Once that instance was “frozen,” it’s a record of the backchannel like we haven’t really had before. Or in cases where they’ve gotten clear consent, researchers could parse the data to learn things about how the different ways in which individual communities communicate.</p>
+
+<p>Obviously not every instance would want to get the preservation treatment, and instance admins would likely want to make clear what their long term plans are. And of course, this feature would have to be designed very carefully to respect the privacy preferences of people who participate. But for many networks, the present moment gets all the focus while the real value lies in each of those presents that have now become the past. Most social networks don’t stop to consider that fact. Mastodon, with its community focus, could.</p>
+
+<p>There aren’t that many years of Web (or even Internet) history, but already those years haven’t been kind to online communities. <a href="https://www.wired.com/2010/11/geocities-lives-on-as-massive-torrent-download/">Archiveteam heroics</a> only go so far — designing for the long-term preservation of our spaces should be a priority.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/04/online-communities-threat-new-copyright-decision/">
+        Online communities under threat in new copyright decision
+      </a>
+    </h2>
+
+    <time datetime="2017-04-09T13:19:07-04:00" class="post-date">09 Apr 2017</time>
+
+    <p>A <a href="https://www.eff.org/files/2017/04/08/mavrix-livejournal-9thcir.pdf">Ninth Circuit copyright decision</a> in <em>Mavrix v. LiveJournal</em> could bring nasty implications for online communities, threatening the copyright “safe harbor” provisions that allows those communities to form.</p>
+
+<p>Specifically, the Ninth Circuit has said that volunteer moderators of online communities may be considered “agents” of the platform they’re on, and that if those moderators learn about copyright infringements (or “red flags” that suggest infringements) that it’s like the platform itself learning about them. That’s really important, because platforms can only claim the “safe harbor” provided by the Digital Millennium Copyright Act (DMCA) if they do not have that kind of knowledge.</p>
+
+<p>Being in that safe harbor is generally considered a pre-requesite to operating a large platform for user-generated content. So the concern goes: if platforms can’t allow volunteer moderators to curate communities without incurring massive copyright liability, they may decide to disable community moderation altogether.</p>
+
+<p>Two major caveats here. The first is that the Ninth Circuit didn’t say these moderators <em>are</em> “agents” of the platform. It just said that the lower court was too hasty in saying they were not, and that a trial was necessary to decide. That’s still bad news, though. The companies that run major platforms generally will go to great lengths to avoid the expense and uncertainty of a trial. If a volunteer-moderated community is a magnet for litigation, platforms may decide it’s not worth it.</p>
+
+<p>The second is that defendant LiveJournal’s handling of the situation may have exposed it to more risk than other companies or platforms face. In particular, it hired an active moderator to be the “primary leader” of the community in question. That employee relationship muddies the waters when it comes to agency, though it will be up to the lower court to articulate how exactly that works out.</p>
+
+<p>Still, even if the moderator draws a paycheck from the platform, it seems unreasonable to expect them to approach thorny copyright questions with the nuance of a trained professional. That is especially true when you compare this ruling with the Ninth Circuit’s most recent opinion in <em>Lenz v. Universal</em>, the <a href="https://www.eff.org/cases/lenz-v-universal">“dancing baby” case</a>, which looks down the other end of the copyright gun at takedown notice senders. <a href="https://www.eff.org/deeplinks/2015/09/takedown-senders-must-consider-fair-use-ninth-circuit-rules">Notice senders must consider fair use</a>, but only so far as to form a “subjective good faith belief” about it. If courts don’t require the people sending a takedown notice to form an objectively reasonable interpretation of the law, why should they impose a higher standard on the moderators at platforms handling staggering quantities of user uploads?</p>
+
+<p>But if moderators are a platform’s “agents,” then it runs into trouble if they have actual or “red flag” knowledge of infringements. The Ninth Circuit has instructed the lower court to find out whether the moderators had either. Noting the watermarks on some of the copyrighted images in the case, the court phrased the question of “red flag” knowledge as whether “it would be objectively obvious to a reasonable person that material bearing a generic watermark or a watermark referring to a service provider’s website was infringing.” That’s an important point to watch. Copyright ownership and licensing can be extremely complex — so oversimplifying it to the idea that the presence of a watermark means any use is infringing would have profound negative consequences.</p>
+
+<p>The Ninth Circuit decision kicking it back down to the district court means that these questions are very much in play. And it could already mean, as EFF puts it, that <a href="https://www.eff.org/deeplinks/2017/04/ninth-circuit-sends-message-platforms-use-moderator-go-trial">using moderators means you will have to go all the way to trial</a>.</p>
+
+<p>There’s one more troubling aspect of the opinion that drives home the cost of such a trial: anonymous moderators, whom LiveJournal was previously able to protect from deposition, may now be forced to appear.</p>
+
+<p>The chilling effect here is very serious. <em>Mavrix</em>, already a closely watched case, is poised to attract even more attention as a district court grapples with these big questions. The fate of moderated online communities could hang in the balance.</p>
+
+<p><em>Note: Although I used to work at the Electronic Frontier Foundation, which joined an amicus brief in this case, my views do not represent those of my former employer and also do not constitute legal advice.</em></p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/01/new-twitter-bot-artist-gerhard-richter/">
+        New Twitter bot after artist Gerhard Richter
+      </a>
+    </h2>
+
+    <time datetime="2017-01-26T13:06:35-05:00" class="post-date">26 Jan 2017</time>
+
+    <p>This week I went to the SFMOMA for the first time. It’s great! I spent hours there and felt like I had to rush to see even a fraction of the collection. One of the pieces that really struck me was <a href="https://www.sfmoma.org/artwork/FC.643">Gerhard Richter’s massive 1974 painting “256 Colors”</a> (or “256 Farben” in his original German). I took a picture of it there:</p>
+
+<p><a href="https://parkerhiggins.net/wp-content/uploads/2017/01/img_3465-1.jpg"><img src="https://parkerhiggins.net/wp-content/uploads/2017/01/img_3465-1.jpg" alt="" /></a><br />
+He made a few “256 Colors” and a bunch of other color charts, some of which are more explicitly generative—that is, where the colors and their arrangement are left to chance.</p>
+
+<p>Anyway, that sounded like fun, so I’ve put together a <a href="https://github.com/thisisparker/256farben">small script that creates paintings</a> that look a bit like “256 Colors.” Here’s one that it made:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2017/01/render-1024x555.png" alt="" /></p>
+
+<p>And naturally, I’ve made a Twitter bot that posts them twice a day: <a href="https://twitter.com/256farben">@256farben</a>. Follow along for two daily reminders of the beauty of randomness.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/01/new-bot-i-remember-txt-joe-brainard-i-remember/">
+        New bot: @i_remember_txt, tweeting Joe Brainard&#8217;s &#8220;I Remember&#8221; (1975)
+      </a>
+    </h2>
+
+    <time datetime="2017-01-23T23:31:55-05:00" class="post-date">23 Jan 2017</time>
+
+    <p>Joe Brainard’s 1975 book “I Remember” is an incredible work of poetry. The New Yorker called it <a href="http://www.newyorker.com/magazine/2008/11/03/the-nancy-book">“his miniaturist memoir-poem,”</a> and Paul Auster’s blurb for the 2001 edition gives a good sense of it:</p>
+
+<blockquote>
+  <p><em>I Remember</em> is a masterpiece. One by one, the so-called important books of our time will be forgotten, but Joe Brainard’s modest little gem will endure. In simple, forthright, declarative sentences, he charts the map of the human soul and permanently alters the way we look at the world. <em>I Remember</em> is both uproariously funny and deeply moving. It is also one of the few totally original books I have ever read.</p>
+</blockquote>
+
+<p>Those simple declarative sentences—almost all of which begin with “I remember…”—would have been a shock as a book, but today they have the strange familiarity of status updates from your most nostalgic friend.</p>
+
+<p>So when Avery Trufelman asked <a href="https://twitter.com/trufelman/status/820687962266402816">if somebody could make a bot</a> that tweeted his “memories,” I jumped at the chance. And the resulting bot, <a href="https://twitter.com/i_remember_txt">@i_remember_txt</a>, fits in great in between other tweets.</p>
+
+<p><a href="https://twitter.com/i_remember_txt/status/823404900193181696"><img src="https://parkerhiggins.net/wp-content/uploads/2017/01/Screenshot_2017-01-23_20-28-35.png" alt="" /></a></p>
+
+<p>Per usual, <a href="https://github.com/thisisparker/i-remember-txt">the code is online</a> and comments are welcome. It’s pretty straightforward. One thing I did this time which was pretty cool: in the case of memories that were longer than a single tweet, it does <a href="https://twitter.com/i_remember_txt/status/822229699153645568">threaded “tweetstorms”</a> of up to 4-5 in a row.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page5/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page3/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

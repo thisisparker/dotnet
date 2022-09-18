@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Getting the SoundCloud Record button to work in Ubuntu &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Getting the SoundCloud Record button to work in Ubuntu" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy Omid, who is a SoundCloud developer, has found a solution." />
+<meta property="og:description" content="Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy Omid, who is a SoundCloud developer, has found a solution." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-09-01T00:08:02-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Getting the SoundCloud Record button to work in Ubuntu" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2011-09-01T00:08:02-04:00","datePublished":"2011-09-01T00:08:02-04:00","description":"Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy Omid, who is a SoundCloud developer, has found a solution.","headline":"Getting the SoundCloud Record button to work in Ubuntu","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/"},"url":"https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Getting the SoundCloud Record button to work in Ubuntu</h2>
+  <time datetime="2011-09-01T00:08:02-04:00" class="post-date">01 Sep 2011</time>
+  <p>Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy <a href="http://twitter.com/omidaladini">Omid</a>, who is a SoundCloud developer, has found a solution.</p>
+
+<p>It turns out the problem is caused by a “Linux-specific security feature” (read: <a href="https://bugs.adobe.com/jira/browse/FP-1211">bug</a> [login required]) that prevents a Flash settings dialogue from appearing when wmode=opaque is used. In any case, there are a few easy workarounds.</p>
+
+<p>If you’ve got the flash-player-properties package installed (which, at least on Ubuntu, ships separately from the flash-plugin, but is available in the standard repositories), you can add “a1.sndcdn.com” to the allowed sites under the “Camera &amp; Mic” tab of that program.</p>
+
+<p>Otherwise, if you’ve unsuccessfully attempted to record at least once on <a href="http://soundcloud.com/upload">the SoundCloud upload page</a>, you can add a1.sndcdn.com from the Flash player’s <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager06.html">web settings panel</a>. While you’re there, check your security settings!</p>
+
+<p>Hope this is helpful to other SoundCloud users on Linux who haven’t quite been able to get recording working.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

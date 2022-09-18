@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Square&#8217;s security anti-patterns &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Square’s security anti-patterns" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Square dongles really truly make processing credit cards not just easier, but possible for all sorts of groups that didn’t have access before: I’ve bought from bands selling merchandise, taxi drivers, food cart operators, and more. I’m worried, though, that Square also makes credit card fraud easier by teaching credit card users security anti-patterns." />
+<meta property="og:description" content="Square dongles really truly make processing credit cards not just easier, but possible for all sorts of groups that didn’t have access before: I’ve bought from bands selling merchandise, taxi drivers, food cart operators, and more. I’m worried, though, that Square also makes credit card fraud easier by teaching credit card users security anti-patterns." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2012/10/squares-security-anti-patterns/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2012/10/squares-security-anti-patterns/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-10-08T03:38:13-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Square’s security anti-patterns" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2012-10-08T03:38:13-04:00","datePublished":"2012-10-08T03:38:13-04:00","description":"Square dongles really truly make processing credit cards not just easier, but possible for all sorts of groups that didn’t have access before: I’ve bought from bands selling merchandise, taxi drivers, food cart operators, and more. I’m worried, though, that Square also makes credit card fraud easier by teaching credit card users security anti-patterns.","headline":"Square’s security anti-patterns","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2012/10/squares-security-anti-patterns/"},"url":"https://thisisparker.github.io/dotnet/2012/10/squares-security-anti-patterns/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Square&#8217;s security anti-patterns</h2>
+  <time datetime="2012-10-08T03:38:13-04:00" class="post-date">08 Oct 2012</time>
+  <p><a href="https://squareup.com/">Square</a> dongles really truly make processing credit cards not just easier, but possible for all sorts of groups that didn’t have access before: I’ve bought from bands selling merchandise, taxi drivers, food cart operators, and more. I’m worried, though, that Square also makes credit card fraud easier by teaching credit card users security <a href="https://en.wikipedia.org/wiki/Anti-pattern">anti-patterns</a>.</p>
+
+<p><a href="https://parkerhiggins.net/wp-content/uploads/2012/10/square-reader.jpg"><img src="https://parkerhiggins.net/wp-content/uploads/2012/10/square-reader.jpg" alt="" title="Square reader on an iPad" /></a></p>
+
+<p>In practice, using a Square reader is pretty similar to using any other credit card reader. At the money part of the transaction, you hand your card to the vendor or swipe it yourself through a little dongle hooked up to the headphone jack of an iOS or Android device. Then you enter your email, if you want a receipt sent to you, and sign with your finger on the screen.</p>
+
+<p>That’s the standard description. But it could also be described as handing your credit card to a stranger with a <a href="https://en.wikipedia.org/wiki/Credit_card_fraud#Skimming">skimmer</a>, and then giving him your signature. That’s what makes it an anti-pattern: it has become commonly used, but is counter-productive to security efforts.</p>
+
+<p>In the overwhelming majority of cases, both parties are honest, and nothing goes wrong. But it’s easy to imagine a few ways it could go wrong. For one thing, if the vendor is dishonest, he could intentionally record the data and use it or sell it later. That’s how a standard skimmer works, and the same problem exists every time you hand your card to the waiter at a restaurant.</p>
+
+<p>Even if both parties are honest though, they are trusting the integrity of the software. I haven’t heard of it yet, but again it’s not too hard to imagine malware that attacks exploits in, say, Android or iOS themselves, and surreptitiously records and sends the card data to the attacker. Such malware could target a wide swath of devices and transactions, and would be more difficult to pinpoint as the source of the data leak.</p>
+
+<p>Unlike the first scenario, this one is exacerbated in the Square era. Previously, <a href="https://www.networkworld.com/news/2011/030311-cybercriminals-targeting-point-of-sale.html?page=1">malware targeting point-of-sale devices had to be very specialized</a>. Now, though, point-of-sale devices are general purpose computers and vulnerable to commonly known exploits. And in many scenarios, they’re used for other purposes, too, exposing them to more attack vectors.</p>
+
+<p>Really, though, the problem here is not with Square, but with the structure of credit card security. Our card numbers are a secret, and the only information required to carry out many transactions, but we also entrust them with every stranger we make a payment to.</p>
+
+<p>We used to address this issue by an ad hoc security-by-point-of-sale system. If somebody had an official point-of-sale system, our intuition said they were trustworthy, and that was pretty robust. But it’s failing the same way that, say, <a href="https://www.schneier.com/blog/archives/2007/10/security_by_let.html">security-by-letterhead</a> has failed. Technology has made attacks we’ve dismissed as prohibitively difficult much easier, and we need to change our behavior to reflect that.</p>
+
+<hr />
+
+<p>photo: <a href="http://www.flickr.com/photos/cdharrison/4991885743/in/photostream/">The infamous Square card reader</a>. used under <a href="http://creativecommons.org/licenses/by/2.0/deed.en">CC BY</a></p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

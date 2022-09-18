@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      HOWTO: One big file from a YouTube playlist &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="HOWTO: One big file from a YouTube playlist" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In celebration of the 40th anniversary of the release of Born To Run, I decided to watch Cory Arcangel perform his classic Glockenspiel Addendum. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?" />
+<meta property="og:description" content="In celebration of the 40th anniversary of the release of Born To Run, I decided to watch Cory Arcangel perform his classic Glockenspiel Addendum. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-25T22:39:33-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HOWTO: One big file from a YouTube playlist" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2015-08-25T22:39:33-04:00","datePublished":"2015-08-25T22:39:33-04:00","description":"In celebration of the 40th anniversary of the release of Born To Run, I decided to watch Cory Arcangel perform his classic Glockenspiel Addendum. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?","headline":"HOWTO: One big file from a YouTube playlist","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/"},"url":"https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">HOWTO: One big file from a YouTube playlist</h2>
+  <time datetime="2015-08-25T22:39:33-04:00" class="post-date">25 Aug 2015</time>
+  <p>In celebration of the 40th anniversary of the release of <a href="https://en.wikipedia.org/wiki/Born_to_run">Born To Run</a>, I decided to watch Cory Arcangel perform <a href="http://www.coryarcangel.com/things-i-made/2006-008-the-bruce-springsteen-born-to-run-glockenspiel-addendum">his classic Glockenspiel Addendum</a>. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?</p>
+
+<p>Well, the version he posted is in eight parts. Fine for YouTube, but I don’t want to have to click play between each segment, and I don’t want to be interrupted if my Internet goes down. I solved the first problem by <a href="https://www.youtube.com/playlist?list=PL5V1zfjBPBJkSJ2tV0Cu31HAfNTJ3fhAZ">creating a YouTube playlist of the whole concert</a>, but in order to solve the second problem I’d need a local copy.</p>
+
+<p>The <a href="https://rg3.github.io/youtube-dl/">excellent (and public domain!) program <code class="language-plaintext highlighter-rouge">youtube-dl</code></a> can fetch a copy of each of the videos separately, and will even take a playlist link as input. I made myself a <code class="language-plaintext highlighter-rouge">glockenspiel</code> directory, and filled it with eight mp4s.</p>
+
+<p>That’s probably enough for most situations! <code class="language-plaintext highlighter-rouge">mplayer</code> (or your media player of choice) can take a list of files. But I wanted one big mp4, and I wanted to do that without transcoding.</p>
+
+<p>In some cases, the <code class="language-plaintext highlighter-rouge">ffmpeg concat demuxer</code> would probably work. It’s one of three <em>different</em> concat features <a href="https://trac.ffmpeg.org/wiki/Concatenate">documented on the <code class="language-plaintext highlighter-rouge">ffmpeg</code> wiki</a>, and designed for merging file formats that cannot be simply concatenated but that shouldn’t be transcoded. It takes a list of files in the following format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file 'path/to/file1.mp4'
+file 'path/to/file2.mp4'
+</code></pre></div></div>
+
+<p>etc. You can generate that list with a little bash loop:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in ./*.mp4; do echo "file '$f'" &gt;&gt; list.txt; done
+</code></pre></div></div>
+
+<p>And then feed it into the concat demuxer with the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -f concat -i list.txt -c copy output.mp4
+</code></pre></div></div>
+
+<p>If that works for you, great, you’re set. Unfortunately, I ran into a problem: the resulting mp4 file had some weird reference frame issues, resulting in some (but not all) of the video parts to be garbled flashing green frames. ((It’s outside the scope of this post, but the next thing I tried, mkvmerge, created a file with the exact same problem.)) <code class="language-plaintext highlighter-rouge">mplayer</code> kept spitting errors like: <code class="language-plaintext highlighter-rouge">number of reference frames (0+5) exceeds max (3; probably corrupt input), discarding one.</code></p>
+
+<p>I wasn’t going to be able to use the <code class="language-plaintext highlighter-rouge">concat demuxer</code>, but as I mentioned above <code class="language-plaintext highlighter-rouge">ffmpeg</code> has three different concat options. This <a href="http://superuser.com/questions/43588/how-can-i-merge-two-mp4-files-without-losing-quality/522658#522658">Q&amp;A describes a way to place the mp4 files in a new transport stream container</a>, which is one of the kinds of files that can be concatenated with the concat <em>protocol</em>, at the file level. One by one, I made temporary mpeg transport stream files like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1.ts
+</code></pre></div></div>
+
+<p>And then I merged all those files, temp1.ts through temp8.ts, with the following unwieldy command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ffmpeg -i "concat:temp1.ts|temp2.ts|temp3.ts|temp4.ts|temp5.ts|temp6.ts|temp7.ts|temp8.ts" -c copy -bsf:a aac_adtstoasc output.mp4</code></p>
+
+<p>Which works like a charm. Not a totally painless process, but now I’ve got a pretty well merged and not transcoded local version and can watch me some glockenspiel.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

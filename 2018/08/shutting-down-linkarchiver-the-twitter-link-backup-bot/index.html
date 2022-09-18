@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Shutting down @LinkArchiver, the Twitter link backup bot &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Shutting down @LinkArchiver, the Twitter link backup bot" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After a little over a year of service, @LinkArchiver, the Twitter bot that automatically made Internet Archive backups of the links you tweeted, has archived its last link. In that time it archived somewhere around 7.2 million links total from about 9,000 users.((“Quote tweets” are treated like links to tweets, and constituted about a third of the total links. Something like 4.8 million links backed up were at domains other than Twitter.)) The last link it archived was this LA Times story about Verizon throttling California firefighters, tweeted on Thursday morning." />
+<meta property="og:description" content="After a little over a year of service, @LinkArchiver, the Twitter bot that automatically made Internet Archive backups of the links you tweeted, has archived its last link. In that time it archived somewhere around 7.2 million links total from about 9,000 users.((“Quote tweets” are treated like links to tweets, and constituted about a third of the total links. Something like 4.8 million links backed up were at domains other than Twitter.)) The last link it archived was this LA Times story about Verizon throttling California firefighters, tweeted on Thursday morning." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2018/08/shutting-down-linkarchiver-the-twitter-link-backup-bot/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2018/08/shutting-down-linkarchiver-the-twitter-link-backup-bot/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-08-26T18:13:52-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Shutting down @LinkArchiver, the Twitter link backup bot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2018-08-26T18:13:52-04:00","datePublished":"2018-08-26T18:13:52-04:00","description":"After a little over a year of service, @LinkArchiver, the Twitter bot that automatically made Internet Archive backups of the links you tweeted, has archived its last link. In that time it archived somewhere around 7.2 million links total from about 9,000 users.((“Quote tweets” are treated like links to tweets, and constituted about a third of the total links. Something like 4.8 million links backed up were at domains other than Twitter.)) The last link it archived was this LA Times story about Verizon throttling California firefighters, tweeted on Thursday morning.","headline":"Shutting down @LinkArchiver, the Twitter link backup bot","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2018/08/shutting-down-linkarchiver-the-twitter-link-backup-bot/"},"url":"https://thisisparker.github.io/dotnet/2018/08/shutting-down-linkarchiver-the-twitter-link-backup-bot/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Shutting down @LinkArchiver, the Twitter link backup bot</h2>
+  <time datetime="2018-08-26T18:13:52-04:00" class="post-date">26 Aug 2018</time>
+  <p>After a little over a year of service, @LinkArchiver, the Twitter bot that <a href="https://parkerhiggins.net/2017/07/linkarchiver-a-new-bot-to-back-up-tweeted-links/">automatically made Internet Archive backups</a> of the links you tweeted, has archived its last link. In that time it archived somewhere around 7.2 million links total from about 9,000 users.((“Quote tweets” are treated like links to tweets, and constituted about a third of the total links. Something like 4.8 million links backed up were at domains other than Twitter.)) The last link it archived was <a href="http://www.latimes.com/local/lanow/la-me-ln-data-throttling-20180822-story.html">this LA Times story about Verizon throttling California firefighters</a>, <a href="https://twitter.com/elizs/status/1032644299144527872">tweeted on Thursday morning</a>.</p>
+
+<p>LinkArchiver stopped working this week when <a href="https://twittercommunity.com/t/details-and-what-to-expect-from-the-api-deprecations-this-week-on-august-16-2018/110746">Twitter turned off the User Stream API</a> that it relied on. Under the hood, LinkArchiver was only looking at its timeline, so it could use Twitter’s built-in following features to make its user list. Since that API change, it can’t pull down a “stream” of its timeline, and so would have to be redesigned to continue to work.</p>
+
+<p>Even as this project is shutting down, I consider it a pretty major success. I am very grateful to Jacob Hoffman-Andrews for <a href="https://twitter.com/j4cob/status/883054720260087808">pitching me the underlying idea</a>. Writing <a href="https://github.com/thisisparker/linkarchiver/">the code</a> (and seeing it get an enthusiastic reception) was a great way to kick off my time at Recurse Center last summer. I’m also grateful to Ben Cotton who gave it a <a href="https://opensource.com/article/17/7/linkarchiver-automatically-submits-links-internet-archive">nice write-up at opensource.com</a> when it launched.</p>
+
+<p>I’ve had a few people ask me about archiving and backup options now that this is no longer available. I’m considering doing something similar for Mastodon, or for plain RSS feeds, but I also don’t want to downplay the fact that Internet Archive does a very good job of running the Wayback Machine crawler, and so the main value I can add is adding a personal layer. In any future work on things like LinkArchiver, I’d want to keep track of that.</p>
+
+<p>There’s also a way to do a Twitter redesign with existing APIs, probably. Instead of getting a stream from Twitter that pinged on new tweet events, it could request new tweets at regular intervals, using an API that’s still operational. If somebody wants to write that, they’re welcome to, but <a href="https://slate.com/technology/2018/08/twitters-new-developer-guidelines-might-end-fun-bot-accounts.html">given the way Twitter is</a>, I’m not eager to do so.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

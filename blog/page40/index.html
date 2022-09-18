@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page40/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page40/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page39/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page41/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page40/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2012/03/problems-around-me/">
+        Problems around me
+      </a>
+    </h2>
+
+    <time datetime="2012-03-31T22:55:56-04:00" class="post-date">31 Mar 2012</time>
+
+    <p>There’s no denying the creepy factor in “<a href="http://girlsaround.me/">Girls Around Me</a>“, the iPhone app that until yesterday <a href="http://www.cultofmac.com/157641/this-creepy-app-isnt-just-stalking-women-without-their-knowledge-its-a-wake-up-call-about-facebook-privacy/">displayed the public Facebook data of women checking in nearby on Foursquare</a>. The creepiness was obvious enough that <a href="http://bits.blogs.nytimes.com/2012/03/30/girls-around-me-ios-app-takes-creepy-to-a-new-level/">Foursquare pulled the app’s API access</a>, rendering the service mostly useless. But in doing so, they’ve addressed a symptom, and not the underlying disease.</p>
+
+<p>A year and a half ago, Eric Butler released a widely-discussed Firefox extension called “<a href="http://codebutler.com/firesheep">Firesheep</a>“, which exploited a known weakness in many popular websites. The effect was that users could get one-click access to the accounts of other users making unencrypted connections to popular sites like Facebook or Twitter on public networks.</p>
+
+<p>Firesheep worked so spectacularly because <a href="https://www.eff.org/deeplinks/2010/10/message-firesheep-baaaad-websites-implement">the problem it exploited was well-known among experts</a> but poorly understood among the general public. That is to say, the problem was low-hanging fruit: even though the technology needed to hijack user sessions using cookies transmitted in the clear was universally available to the geeks with the expertise to use it, even popular sites had felt little pressure from their userbase to address the underlying problem. All Firesheep had to do was put a more usable interface on the well-understood tools, and it could catch the attention of people who weren’t previously interested in understanding the issue.</p>
+
+<p>The problem that Girls Around Me has identified has the same combination of near-universal recognition in expert circles and general confusion outside of them. Most users cannot understand the privacy settings on most social networks. Worse, social network operators have a commercial incentive to make their settings deliberately confusing, and <a href="http://www.antipope.org/charlie/blog-static/2012/03/not-an-april-fool-1.html">even to induce user “over-sharing”</a>.</p>
+
+<p>So, then, <a href="https://twitter.com/#!/thisisparker/status/186235412061233152">Girls Around Me is to privacy settings what Firesheep was to security practices</a>: a tool, usable by the general public, that makes an underlying problem understandable. ((Other entries in this field include <a href="http://pleaserobme.com/">Please Rob Me</a>, <a href="http://www.youhavedownloaded.com/">You Have Downloaded</a>, and even EFF’s <a href="https://panopticlick.eff.org/">Panopticlick</a>.))</p>
+
+<p>But once you understand the two problems, the difference between them is clear. The solution to the Firesheep problem — that sites were not using, or not using by default, encrypted connections after initial log-ins — is simple: use established encryption by default. ((In the interim, too, savvy users could install <a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a> and protect their own connections with websites that supported encryption.)) Put another way, addressing the issue just required a bit of attention, expertise, and resources.</p>
+
+<p>By contrast, the Girls Around Me problem is part of a fundamental trade-off in the way centralized corporate social networks work today. And the cost of addressing it is correspondingly high. It comes down to users controlling how their data is collected and used, a premise antithetical to the business of advertising companies like Facebook and Google.</p>
+
+<p>But until it happens, and until default settings are protective of user privacy, nothing can prevent creepy situations like Girls Around Me from popping up. As long as these situations look like Girls Around Me — a publicly available application that depends on consistent API access, creeps everybody out, and gets written up in major publications — Facebook, Foursquare, et al, can address it with after-the-fact API cut-offs. But nothing prevents, say, individuals with the know-how from rolling their own stalker apps and flying under the radar.</p>
+
+<p>If you ask me, that’s the creepy part.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2012/03/radio-silence-this-american-life/">
+        Radio silence: the empty space in This American Life
+      </a>
+    </h2>
+
+    <time datetime="2012-03-20T02:55:19-04:00" class="post-date">20 Mar 2012</time>
+
+    <p>There’s a common saying in jazz that it’s not about the notes you play, but the notes you don’t play. ((It’s sometimes attributed to Miles Davis, but who knows.))</p>
+
+<p>This American Life did an impressive thing with their most recent episode, <a href="http://www.thisamericanlife.org/radio-archives/episode/460/retraction">Retraction</a>, which was entirely dedicated to retracting <a href="http://www.thisamericanlife.org/radio-archives/episode/454/mr-daisey-and-the-apple-factory">an earlier episode about Apple and their Chinese production facilities</a>.</p>
+
+<p>Not only did they make an extremely compelling hour of radio about something that is really an internal affair, but they were also unusually symmetrical in their retraction; that is, they’ve given it as much space and prominence as the original story, which is admirable.</p>
+
+<p>One aspect that makes the episode so interesting is the amount of silence they’ve left in the interview. When lies come to light, it’s an uncomfortable experience for everybody involved. This American Life did a great job of capturing that discomfort, and left more awkward silence than I’ve ever heard on a radio show. To get back to that jazz saying, it was the words they weren’t saying, the rests and pauses, that really told the story.</p>
+
+<p>In that spirit, I’ve made a supercut of some of the longest expanses of silence on the show. I recommend listening to the full program. If you’ve already done that, you may find this interesting.</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F40345507&amp;show_artwork=false" width="100%"></iframe>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2012/03/a-modest-defense-of-qr-codes/">
+        A modest defense of QR codes
+      </a>
+    </h2>
+
+    <time datetime="2012-03-19T04:32:59-04:00" class="post-date">19 Mar 2012</time>
+
+    <p>I’m sort of a QR code anti-hipster: I was into them <a href="http://ramisayar.com/enough-with-the-qr-codes/">before they were uncool</a>. I actually think they’re a really nifty encoding that’s easy to read and write with the right tools, and useful for a handful of situations. But they’re <a href="http://wtfqrcodes.com/">so widely misused</a> in marketing that most people never get to see one used properly.</p>
+
+<p>But there is a way to use them properly! It’s just not the way marketers have been doing it. When is a QR code the right tool for the job? Well, it’s helpful to think about the limitations of the codes in the first place, instead of just wedging it in to every ad and package design.</p>
+
+<h4 id="the-limitations">The limitations</h4>
+
+<ul>
+  <li><strong>They look like <a href="http://robotbarf.com/">robot barf</a>.</strong> It’s true. So don’t count on it being a positive addition to packaging or ad design. If it’s useful that’s great, but it’s not a design element.</li>
+  <li><strong>They’re almost impossible to memorize.</strong> It seems to me like a pretty bad idea to put a company or personal URL in a form that human beings can’t read. If people are already taking out their phones to scan, it’s a missed opportunity for them to write out the domain.</li>
+  <li><strong>They are only scannable in limited circumstances.</strong> Like when people have a scanner app installed, data signal, are stationary relative to the code, and have time to take out and futz with their phone.</li>
+  <li><strong>Almost nobody uses them.</strong> Even I know this.</li>
+</ul>
+
+<h4 id="other-properties">Other properties</h4>
+
+<ul>
+  <li><strong>They use robust error correction.</strong> So there won’t be any typos or misread messages.</li>
+  <li><strong>They add an extra requirement to decoding text.</strong> For marketing purposes, this is terrible. But in some circumstances, it can be useful to know that the decoder can choose not to read the message.</li>
+  <li><strong>They’re easy to generate and scan.</strong> It doesn’t require much processing to encode or decode QR, and they can be made and read locally, without server access.</li>
+  <li><strong>It’s easy to scan a lot of codes in a row.</strong> Scanning the first code involves taking the phone out of your pocket, selecting the app, and focusing the camera. But from there, the marginal cost is very low on additional codes.</li>
+</ul>
+
+<p>Now, if the people using these codes thought about these qualities and picked them only when appropriate, there’d be no problem and no backlash. But alas. When might these be a good tool?</p>
+
+<h4 id="nice-uses">Nice uses</h4>
+
+<ul>
+  <li><strong>Cryptographic fingerprint checking.</strong> I use a great open source Android app called <a href="https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms">TextSecure</a>, which allows you to exchange encrypted SMS with other users. But because it’s public key encryption, you have to verify the other person’s fingerprint. Fortunately, you can each just generate and scan QR codes to do so: in this case the alternative isn’t typing in a URL, but manually verifying 64 or so characters.</li>
+  <li><strong>Sending links directly to your phone.</strong> <a href="https://code.google.com/p/chrometophone/">Chrome to Phone</a> has provided a nice alternative to this usage, but it doesn’t always do the job. Sometimes a QR code is the best way to get a URL, usually a long one, right over to the phone.</li>
+  <li><strong>Selecting some items from a list of many.</strong> In South Korea, Tesco allows shoppers to <a href="http://www.geek.com/articles/mobile/koreas-tesco-reinvents-grocery-shopping-with-qr-code-stores-20110628/">scan codes on items in a subway ad in order to purchase them</a>. Here the low marginal cost of code scanning comes in handy. Once the phone’s out, it makes sense to quickly scan each of them.</li>
+  <li><strong>When “voluntary security” is an element.</strong> Weakly protecting secrets like the answers to quiz questions or hints/spoilers for a game calls for encoding that is easy to decode when wanted, and difficult until then. As long as the user isn’t accessing the content from her smartphone itself, a QR code could useful.</li>
+  <li><strong>Accessing data which requires many dynamic URL parameters.</strong> Because it’s easy to generate QR codes for any length of URL, it could be really nifty to generate them on the spot for URLs that wouldn’t be easy to type in but that wouldn’t make sense to shorten in advance, as with URLs with many parameters. That could happen if, say, a person has selected and scanned a bunch of objects and she wants to see them in a virtual cart, or has filled out a form at an offline kiosk and needs to send the data up through their phone.</li>
+</ul>
+
+<p>The point is, as maligned as QR codes have been recently, there are some jobs for which they’re just right. But as Jaron Lanier is quoted on the back of <a href="http://www.amazon.com/The-Information-Diet-Conscious-Consumption/dp/1449304680/">The Information Diet</a>, “There is no such thing as a tool that is good even if used without conscious consideration.” The marketing guys have spoken, and they’re not ready to provide a counter-example.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2012/03/britannica-bookstores-and-bundled-values/">
+        Britannica, bookstores, and bundle failure
+      </a>
+    </h2>
+
+    <time datetime="2012-03-18T22:56:08-04:00" class="post-date">18 Mar 2012</time>
+
+    <p>Tim Carmody’s <a href="http://www.wired.com/epicenter/2012/03/wikipedia-didnt-kill-brittanica-windows-did/">Wired opinion piece about Wikipedia, Windows, and the Britannica</a> is the best piece of commentary to come out of the vaunted encyclopedia’s announcement this week that they’re <a href="http://www.britannica.com/blogs/2012/03/change/">discontinuing their print edition</a> to focus on their online product.</p>
+
+<p>Not to diminish Wikipedia’s importance in the encyclopedia world and Britannica’s decision, but there are a lot of reasons why a choice made in 1768 to distribute 32 volumes of printed book might be worth re-evaluating in 2012. Wikipedia’s open and collaborative authorship <a href="https://en.wikipedia.org/wiki/Wikipedia:Errors_in_the_Encyclop%C3%A6dia_Britannica_that_have_been_corrected_in_Wikipedia">certainly has its advantages</a>, but Carmody identifies a more important difference between the two organizations: Britannica’s business depended on the books being seen as a “marker of prestige.” As the PC toppled the encyclopedia as the “purchasable ‘edge’ for over-anxious parents,” the bundle fell apart and the value proposition no longer made sense for most of the market.</p>
+
+<p>Far from being <a href="http://gigaom.com/2012/03/14/encyclopedias-are-like-journalism-its-better-when-they-are-open/">the inevitable victory of open over closed</a> then, Britannica’s announcement represents the complex result of values decoupled. This story is especially important for independent bookstores and public libraries to understand; they are subject to the same forces.</p>
+
+<p>A little over two years ago, Clay Shirky wrote a great essay about <a href="http://www.shirky.com/weblog/2009/11/local-bookstores-social-hubs-and-mutualization/">local bookstores as a social hub</a> that speaks to this problem. In both cases, sales numbers are easily measured and easy to fixate on, but they are secondary to factors that are much less easily measured. For Britannica consumers, there’s the value of owning a 32-volume printed encyclopedia. That value might just not exist anymore; if that’s true, they’ve made the right decision to move away from a printed edition. (It’s probably true. According to <a href="http://mediadecoder.blogs.nytimes.com/2012/03/13/after-244-years-encyclopaedia-britannica-stops-the-presses/">the New York Times article about the announcement</a>, less than 1% of Britannica’s revenue was coming from print sales.)</p>
+
+<p>But there are still many compelling arguments for the side-effect values of a bookstore or library as an inviting physical space dedicated to the exchange of information, even as communities and their information consumption preferences change. Keeping the bookstore’s ability to deliver these values coupled with the sale of paper books would be a mistake.</p>
+
+<p>Institutions like bookstores and libraries (and newspapers, record labels, movie studios, etc.) are all dealing to a greater or lesser extent with the problem of bundle failure. That is to say: they can no longer count on subsidizing the real value they deliver with more monetizable ancillary functions. Instead, they have to take a critical look at what people value about them and figure out how to charge for it.</p>
+
+<p>I’m sure it was a hard decision after a quarter millennium of print, but Britannica made the right move jettisoning a product that people weren’t interested in to focus on the one that they were. I really want bookstores and libraries to continue to succeed in the years to come, in no small part because I value the products and services they provide that I can’t directly pay for. I hope they can do the introspection to separate their core values from their most easily-measured ones in order to make the difficult decisions to make it work.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2012/03/token-gestures/">
+        Token gestures
+      </a>
+    </h2>
+
+    <time datetime="2012-03-05T03:52:42-05:00" class="post-date">05 Mar 2012</time>
+
+    <p>I’ve been thinking a lot about two different kinds of tokens lately. One is a fare token, which I’ve been thinking about as it relates to public transit and locational privacy. Another is a currency token, which has come up in the last few weeks as I’m reading <cite>Debt</cite> by David Graeber. Obviously there’s some overlap there, but thinking about the ways in which they differ has been really interesting, and there’s enough weird history of each to fill a Thomas Pynchon novel.</p>
+
+<p>Fare tokens are intriguing as artifacts of a transit system, which are pretty much always interesting to me. Like system maps, which I’ve also <a href="https://parkerhiggins.net/2010/12/metro-maps-kindle-screensaver/">thought about a bit</a>, fare tokens are necessarily unique to one place and provide a physical history of that system’s character and aesthetic. They’re also ephemeral, anonymous, and completely commoditized. There’s some sort of paradox there: something inherently interesting about objects that are so non-descript. (Rick Prelinger put it well in a <a href="https://www.nytimes.com/2012/03/04/technology/internet-archives-repository-collects-thousands-of-books.html?pagewanted=all">story in the New York Times this weekend</a>: “As time passes, the works we tried to junk often prove more interesting than the ones we chose to save.”)</p>
+
+<p>As a privacy-preserving technology, fare tokens are great. Entrance into a public transit system should be a question of authorization: are you permitted to do what you’re trying to do? The answer to that should only be contingent on whether or not you’ve paid the fare, which is a piece of data the token can communicate just fine. Too often, though, fare systems first ask who you are. Swiping (or tapping) a fare card gives the system an identifier, which it runs against a database to see whether that identifier is tied to a paid fare. There are tempting reasons to go with the latter scheme — a lost card can be replaced because the value is recorded, and the system can gather and use data about riding patterns in order to target improvements — but there’s a trade-off with rider privacy.</p>
+
+<p>(To my mind, the trade-off is akin to that between database loyalty programs, like Target’s <a href="https://www.nytimes.com/2012/02/19/magazine/shopping-habits.html?pagewanted=all">recently documented “Guest ID” system</a> and punch-card loyalty programs. Both provide rewards to return customers, but one is more privacy-friendly and generates less monetizable data.)</p>
+
+<p>Of course, another issue with letting customers carry around the authorization information in their own token is that it depends on the issuer’s ability to reliably generate and verify their own tokens. One interesting anecdote I found out about this weekend was the <a href="https://en.wikipedia.org/wiki/New_York_City_Subway#Token_War_with_Connecticut">New York City “Token War”</a> with Connecticut. Tokens for Connecticut Turnpike tolls were the same size and shape as NYC subway fares but cost much less, which led to Connecticut Turnpike tokens ending up in NYCTA collection boxes. Connecticut promised to change the shape of their tokens, but failed to do so for years. I’m not sure how it ended: <a href="https://en.wikipedia.org/wiki/New_York_City_Subway#cite_note-token_war-63">one NY Times article</a> cited on the issue’s Wikipedia page but unavailable online suggests it happened when Connecticut discontinued their toll charges and paid the NYCTA for all the collected tokens; <a href="http://www.nytimes.com/1988/01/04/opinion/no-need-for-a-new-token-war.html">another article available online</a> says it ended when the NYCTA rewired their turnstiles.</p>
+
+<p>On the other hand, you’ve got currency tokens, which make up the field of “<a href="https://en.wikipedia.org/wiki/Exonumia">exonumia</a>“. These tokens are like coins, but issued by somebody other than the government. Sometimes these tokens really take off, as in the case of the Strachan and Co Trade Tokens that were <a href="http://www.tokencoins.com/main.htm">South Africa’s first circulating indigenous currency</a>. ((It’s not often that Wikipedia disappoints, but I can’t find any real information there about these coins. Instead, there’s a charmingly Web 1.0 site, which I really like.))</p>
+
+<p>In the US, there were a series of “<a href="https://en.wikipedia.org/wiki/Hard_times_token">hard-times tokens</a>” which circulated as currency between about 1833 and 1843, and were only officially outlawed in 1857. One of the most prominent examples was the endearingly named <a href="https://en.wikipedia.org/wiki/Feuchtwanger_Cent">Feuchtwanger cent</a>, which is now pretty collectible by exonumismatists. Lewis Feuchtwanger’s story is interesting for his persistence in minting these coins and his attempts to get them recognized officially. His appeals to Congress give the story a <cite>Mr. Smith Goes to Washington</cite> vibe — a film whose plot also turns on a coin, albeit a tossed one.</p>
+
+<p>In any case, the parallels between these hard-times tokens and cryptocurrencies like bitcoin seem straightforward, but they’re not ones I’ve seen pointed out elsewhere. Bitcoin’s got <a href="http://krugman.blogs.nytimes.com/2011/09/07/golden-cyberfetters/">some</a> <a href="http://www.technologyreview.com/computing/38392/">problems</a>, but supporters who’ve read <cite>Cryptonomicon</cite> are quick to point out the benefits: things like anonymous transactions, the ground-up minting and lack of reliance on a centralized nation-state, and the security of the currency against counterfeiting. These are laudable goals, and maybe last delivered on in the hard times era. Lewis Feuchtwanger would be proud.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page41/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page39/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Ripping CDs like a nerd in Mac OS X &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Ripping CDs like a nerd in Mac OS X" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I haven’t ripped a CD in a long time, so tonight when I had occasion to, I was at a loss for the right method. I used to rip CDs mostly on a computer that runs Ubuntu, but I no longer have an external optical drive, so I was stuck using my Mac. Here are my (loose) requirements:" />
+<meta property="og:description" content="I haven’t ripped a CD in a long time, so tonight when I had occasion to, I was at a loss for the right method. I used to rip CDs mostly on a computer that runs Ubuntu, but I no longer have an external optical drive, so I was stuck using my Mac. Here are my (loose) requirements:" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2013/10/ripping-cds-like-a-nerd-in-mac-os-x/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2013/10/ripping-cds-like-a-nerd-in-mac-os-x/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-10-10T02:10:07-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ripping CDs like a nerd in Mac OS X" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2013-10-10T02:10:07-04:00","datePublished":"2013-10-10T02:10:07-04:00","description":"I haven’t ripped a CD in a long time, so tonight when I had occasion to, I was at a loss for the right method. I used to rip CDs mostly on a computer that runs Ubuntu, but I no longer have an external optical drive, so I was stuck using my Mac. Here are my (loose) requirements:","headline":"Ripping CDs like a nerd in Mac OS X","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2013/10/ripping-cds-like-a-nerd-in-mac-os-x/"},"url":"https://thisisparker.github.io/dotnet/2013/10/ripping-cds-like-a-nerd-in-mac-os-x/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Ripping CDs like a nerd in Mac OS X</h2>
+  <time datetime="2013-10-10T02:10:07-04:00" class="post-date">10 Oct 2013</time>
+  <p>I haven’t ripped a CD in a long time, so tonight when I had occasion to, I was at a loss for the right method. I used to rip CDs mostly on a computer that runs Ubuntu, but I no longer have an external optical drive, so I was stuck using my Mac. Here are my (loose) requirements:</p>
+
+<ul>
+  <li>No iTunes. I’m sure they’ve improved the ripping and encoding process a lot since I last checked, but I just can’t stand using the software.</li>
+  <li>The rip has to be pretty secure. Truthfully, I don’t really have a way of verifying this paranoia, but I want to at least see a log that shows possible errors.</li>
+  <li>Output must be lossless, or at least output the lossless step. I want to rip, and then I want to optionally encode, but I don’t want to have the encoder determined by the ripper. FLAC is acceptable, and a mountable disc image is even better.</li>
+  <li>Finally, I’d prefer a command line interface. And obviously free software.</li>
+</ul>
+
+<p>I looked at a number of options. I used to use <a href="https://code.google.com/p/rubyripper/">rubyripper</a>, which is super paranoid about ripping and checking, but I had a vague recollection that last time I had some compilation issues. Since it’s not in very active development, I decided to keep looking around.</p>
+
+<p>I tried using <a href="https://code.google.com/p/abcde/">abcde</a>, which I’ve used before on Ubuntu, and it worked fine but got inconsistent track names. I’m sure this is something I could debug, but I was eager to try other options.</p>
+
+<p>Finally, I settled on <a href="http://tmkk.undo.jp/xld/index_e.html">XLD</a>. It’s got its own error-checking system, but can also use cdparanoia. It’s built to be easily extensible on the encoder side, so it can output in most any format now and in the future. It’s got a command-line interface and a very subdued GUI. Most importantly, it handled everything I threw at it, including one fairly scratched disc, with no problems.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

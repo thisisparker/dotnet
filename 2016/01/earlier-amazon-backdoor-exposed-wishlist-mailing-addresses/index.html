@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Amazon backdoor exposed wishlist mailing addresses &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Amazon backdoor exposed wishlist mailing addresses" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="There’s an article circulating right now about how Amazon customer service can be exploited to reveal targeted mailing addresses. I discovered and reported a similar vulnerability in December of 2014, which was reported to me as fixed in May of 2015. I haven’t publicly documented that process until now." />
+<meta property="og:description" content="There’s an article circulating right now about how Amazon customer service can be exploited to reveal targeted mailing addresses. I discovered and reported a similar vulnerability in December of 2014, which was reported to me as fixed in May of 2015. I haven’t publicly documented that process until now." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2016/01/earlier-amazon-backdoor-exposed-wishlist-mailing-addresses/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2016/01/earlier-amazon-backdoor-exposed-wishlist-mailing-addresses/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-01-24T23:15:22-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Amazon backdoor exposed wishlist mailing addresses" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2016-01-24T23:15:22-05:00","datePublished":"2016-01-24T23:15:22-05:00","description":"There’s an article circulating right now about how Amazon customer service can be exploited to reveal targeted mailing addresses. I discovered and reported a similar vulnerability in December of 2014, which was reported to me as fixed in May of 2015. I haven’t publicly documented that process until now.","headline":"Amazon backdoor exposed wishlist mailing addresses","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2016/01/earlier-amazon-backdoor-exposed-wishlist-mailing-addresses/"},"url":"https://thisisparker.github.io/dotnet/2016/01/earlier-amazon-backdoor-exposed-wishlist-mailing-addresses/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Amazon backdoor exposed wishlist mailing addresses</h2>
+  <time datetime="2016-01-24T23:15:22-05:00" class="post-date">24 Jan 2016</time>
+  <p>There’s an article circulating right now about how <a href="https://medium.com/@espringe/amazon-s-customer-service-backdoor-be375b3428c4#.hqxfxuajw">Amazon customer service can be exploited to reveal targeted mailing addresses</a>. I discovered and reported a similar vulnerability in December of 2014, which was reported to me as fixed in May of 2015. I haven’t publicly documented that process until now.</p>
+
+<p>The vulnerability I discovered relates to <a href="http://www.amazon.com/gp/registry/search">Amazon wishlists</a>. Users can associate wishlists with a private address, so that people can buy and ship them gifts without having the recipient’s private information. That address should be kept confidential throughout the entire process, but I found that third party shippers—routinely used for Amazon sites outside of the United States—would sometimes include it in confirmation emails.</p>
+
+<p>In particular: I used Amazon.ca to send a book to a friend, and Canada Post delivered her full address to me in an email. In this exchange, Amazon’s confirmation email properly showed my friend’s address as redacted, but Canada Post revealed it in its entirety.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/Screenshot_2016-01-24_19-57-19.png" alt="Amazon confirmation" /></p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/canada-post-confirmation.png" alt="" /></p>
+
+<p>That would be unacceptable in any circumstance. But it’s all the worse because some of the people who use Amazon wishlists are especially vulnerable to targeted harassment. The service is popular, for instance, <a href="http://www.dailydot.com/lifestyle/amazon-sex-worker-wish-lists/">among camgirls and sex workers accepting gifts</a>. I’ve also seen wishlists from Twitter microcelebrities, who get occasional threats and unwanted creepy overtures, as well as wishlists from women who are trying to get some support after leaving an abusive domestic situation. For many of these people, a revealed address can be devastating.</p>
+
+<p>I contacted <a href="http://www.amazon.com/gp/help/customer/display.html/ref=hp_left_sib?ie=UTF8&amp;nodeId=201182150">Amazon Security</a> via email, ((They make a PGP key available, but <a href="http://www.amazon.com/gp/help/customer/display.html?nodeId=200724850">only distribute it over unauthenticated HTTP</a>. All the more reason Amazon should switch to entirely HTTPS.)) and got a confirmation number and a response from a human that it had been assigned to somebody. The fix, introduced in May, seems to simply removed the second confirmation email direct from Canada Post.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/Screenshot_2016-01-24_20-05-52.png" alt="My email to Amazon Security" /></p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/Screenshot_2016-01-24_20-06-23.png" alt="Amazon Security fix" /></p>
+
+<p>Although the five month window to fix this situation seemed too long to me, I didn’t want to go public until it had been addressed. An attacker who knew about this vulnerability could easily exploit it for the cost of the cheapest item on a particular wishlist, and the only fix a user could make was removing their address entirely.</p>
+
+<p>Given that particular combination—easy, cheap exploitation, and no alternative path to security—it seemed irresponsible in this case to disclose the problem publicly. Others may disagree.</p>
+
+<p>This isn’t the first time wishlists have inadvertently leaked address data—it happened <a href="http://wishlistexposed.blogspot.com/">at least once before in 2011</a>. Nor do I know for sure that the fix has been applied worldwide, as I only tested in Canada. Unfortunately, <a href="https://ssd.eff.org/en/module/introduction-threat-modeling">for people who could face threats if their address were revealed</a>, Amazon seems like a dangerous service to share it with.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

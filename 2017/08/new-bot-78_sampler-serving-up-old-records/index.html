@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      New bot: @78_sampler, serving up old records &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="New bot: @78_sampler, serving up old records" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Internet Archive hosts an incredible collection of over 25,000 professionally digitized 78rpm records. The great thing about a catalog that large is that, if you know what you want, you’re likely to find it. On the other hand, if you just want to browse it can be overwhelming and even intimidating. Each item could possibly be a delight, but it’s difficult to even think about individual records in the face of such a huge archive." />
+<meta property="og:description" content="The Internet Archive hosts an incredible collection of over 25,000 professionally digitized 78rpm records. The great thing about a catalog that large is that, if you know what you want, you’re likely to find it. On the other hand, if you just want to browse it can be overwhelming and even intimidating. Each item could possibly be a delight, but it’s difficult to even think about individual records in the face of such a huge archive." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2017/08/new-bot-78_sampler-serving-up-old-records/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2017/08/new-bot-78_sampler-serving-up-old-records/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-11T13:36:49-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="New bot: @78_sampler, serving up old records" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2017-08-11T13:36:49-04:00","datePublished":"2017-08-11T13:36:49-04:00","description":"The Internet Archive hosts an incredible collection of over 25,000 professionally digitized 78rpm records. The great thing about a catalog that large is that, if you know what you want, you’re likely to find it. On the other hand, if you just want to browse it can be overwhelming and even intimidating. Each item could possibly be a delight, but it’s difficult to even think about individual records in the face of such a huge archive.","headline":"New bot: @78_sampler, serving up old records","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2017/08/new-bot-78_sampler-serving-up-old-records/"},"url":"https://thisisparker.github.io/dotnet/2017/08/new-bot-78_sampler-serving-up-old-records/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">New bot: @78_sampler, serving up old records</h2>
+  <time datetime="2017-08-11T13:36:49-04:00" class="post-date">11 Aug 2017</time>
+  <p>The Internet Archive hosts an <a href="https://archive.org/details/georgeblood">incredible collection</a> of over 25,000 <a href="http://great78.archive.org/">professionally digitized 78rpm records</a>. The great thing about a catalog that large is that, if you know what you want, you’re likely to find it. On the other hand, if you just want to browse it can be overwhelming and even intimidating. Each item could possibly be a delight, but it’s difficult to even think about individual records in the face of such a huge archive.</p>
+
+<p>In that sense, would-be browsers face similar challenges with the Great 78 Project as they do with the <a href="https://usdawatercolors.nal.usda.gov/pom/home.xhtml">Pomological Watercolor Collection</a>—an archive <a href="https://parkerhiggins.net/tag/pomological-watercolors/">I’ve worked with a lot</a>. Sensing that similarity, I decided to build a tool like <a href="https://twitter.com/pomological">@pomological</a> to help surface individual records.</p>
+
+<p><span class="citation"><a href="https://twitter.com/78_sampler">@78_sampler</a> tweets every two hours with a randomly selected record from the Archive’s collection. It was important to me that the audio fit smoothly and natively into a Twitter timeline, so I decided to render each tune into a video file using the Archive’s still image of the record as the visual. Twitter limits videos to 2:20—exactly 140 seconds, cute—which is shorter than most 78 tunes, so while rendering the video I truncate the clip at that point with a short audio fade at the end.</span></p>
+
+<p>The <a href="https://github.com/thisisparker/78_sampler">code to do all this</a> is a short Python script which I’ve posted online. It relies on ffmpeg to do the video encoding. Crafting ffmpeg commands is famously convoluted, and it’s a little frustrating to format those commands to be called from Python. Maybe that’s something I’ll do differently in the future but, for now, this works and I can dip my cup into the deep Archive well with a little more ease than before.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

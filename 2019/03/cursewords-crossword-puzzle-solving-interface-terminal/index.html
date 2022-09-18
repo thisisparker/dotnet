@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Introducing: cursewords, a crossword puzzle solving interface for the terminal &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Introducing: cursewords, a crossword puzzle solving interface for the terminal" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’m releasing new software today for solving crossword puzzles in the terminal. cursewords is a small Python program to open, navigate, and solve puzzles stored as .puz files. If you’re a Mac or Linux user, you can install it today by running pip3 install --user cursewords in your terminal, and then use the cursewords command to open a .puz file on your computer." />
+<meta property="og:description" content="I’m releasing new software today for solving crossword puzzles in the terminal. cursewords is a small Python program to open, navigate, and solve puzzles stored as .puz files. If you’re a Mac or Linux user, you can install it today by running pip3 install --user cursewords in your terminal, and then use the cursewords command to open a .puz file on your computer." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2019/03/cursewords-crossword-puzzle-solving-interface-terminal/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2019/03/cursewords-crossword-puzzle-solving-interface-terminal/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:image" content="https://thisisparker.github.io/dotnet/wp-content/uploads/2019/03/Screenshot_2019-03-03_13-05-40.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-03T13:55:35-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://thisisparker.github.io/dotnet/wp-content/uploads/2019/03/Screenshot_2019-03-03_13-05-40.png" />
+<meta property="twitter:title" content="Introducing: cursewords, a crossword puzzle solving interface for the terminal" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2019-03-03T13:55:35-05:00","datePublished":"2019-03-03T13:55:35-05:00","description":"I’m releasing new software today for solving crossword puzzles in the terminal. cursewords is a small Python program to open, navigate, and solve puzzles stored as .puz files. If you’re a Mac or Linux user, you can install it today by running pip3 install --user cursewords in your terminal, and then use the cursewords command to open a .puz file on your computer.","headline":"Introducing: cursewords, a crossword puzzle solving interface for the terminal","image":"https://thisisparker.github.io/dotnet/wp-content/uploads/2019/03/Screenshot_2019-03-03_13-05-40.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2019/03/cursewords-crossword-puzzle-solving-interface-terminal/"},"url":"https://thisisparker.github.io/dotnet/2019/03/cursewords-crossword-puzzle-solving-interface-terminal/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Introducing: cursewords, a crossword puzzle solving interface for the terminal</h2>
+  <time datetime="2019-03-03T13:55:35-05:00" class="post-date">03 Mar 2019</time>
+  <p>I’m releasing <a href="https://github.com/thisisparker/cursewords">new software today for solving crossword puzzles in the terminal</a>. <code class="language-plaintext highlighter-rouge">cursewords</code> is a small Python program to open, navigate, and solve puzzles stored as .puz files. If you’re a Mac or Linux user, you can install it today by running <code class="language-plaintext highlighter-rouge">pip3 install --user cursewords</code> in your terminal, and then use the <code class="language-plaintext highlighter-rouge">cursewords</code> command to open a .puz file on your computer.</p>
+
+<p>In case you’re not a crossword nerd: the .puz file was developed for popular solving software called AcrossLite, and it remains the most popular format for transmitting crosswords online, from independent creators all the way up to the <em>New York Times</em>.</p>
+
+<figure><img src="https://parkerhiggins.net/wp-content/uploads/2019/03/demo.gif" /><figcaption>cursewords in action on my terminal</figcaption></figure>
+
+<p>In fact, many independent puzzle creators <em>only</em> distribute their puzzles as digital files. For example, I subscribe to a handful of excellent puzzle outlets—<a href="https://avxwords.com/#/">American Values Club</a>, <a href="https://inkubatorcrosswords.com/">The Inkubator</a>, <a href="https://www.crosswordnation.com/">Crossword Nation</a>, <a href="http://www.fireballcrosswords.com/">Fireball Crosswords</a>—that don’t offer an online solver or an app like the <em>Times</em> does. As a Linux user, I didn’t have a lot of options to open them: AcrossLite isn’t compatible, Web-based solutions have their limitations, and beyond that, I wanted to be able to introduce fun features like a “downs only” mode that hides the across clues. (You can try it: running <code class="language-plaintext highlighter-rouge">cursewords</code>with the <code class="language-plaintext highlighter-rouge">--downs-only</code> flag activates this very challenging mode.)</p>
+
+<p>But also, I liked the challenge of writing my own software as a way of thinking more about how crosswords are built and how we hold them in our head for navigation. I also love the retro-computing aesthetic that comes with terminal applications, and—while I think this is the first ever terminal crossword client—that it’s mostly based on tech that has remained unchanged for decades. In that way I’ve likened it to efforts to, say, imagine what <a href="https://jalopnik.com/the-greeks-had-the-technology-to-build-a-car-in-60-a-d-5888188">a car built with first-century technology would look like</a>: it’s not necessarily the most useful or the best, but it’s instructive (and in my case, actually works)!</p>
+
+<p>As the name may suggest, <code class="language-plaintext highlighter-rouge">cursewords</code> relies on a famed <a href="https://en.wikipedia.org/wiki/Curses_(programming_library)">programming library called curses</a> that helps to build text-based user interfaces. It is also heavily indebted to <a href="https://github.com/jquast/blessed">a curses wrapper called blessed</a>, and <a href="https://github.com/alexdej/puzpy">a library called puz that reads and writes .puz files</a>.</p>
+
+<p>If you’re interested in <code class="language-plaintext highlighter-rouge">cursewords</code>, please give it a try and let me know how it works for you. I’ve been very interested in how to solve this problem for over a month now and I am excited to talk about it more publicly.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2018/08/shutting-down-linkarchiver-the-twitter-link-backup-bot/">
+          Shutting down @LinkArchiver, the Twitter link backup bot
+          <small><time datetime="2018-08-26T18:13:52-04:00">26 Aug 2018</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/video.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/video.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">He did the monster mosh: automated datamoshing with tweaked GOP lengths</title><link href="https://thisisparker.github.io/dotnet/2017/07/he-did-the-monster-mosh-automated-datamoshing-with-tweaked-gop-lengths/" rel="alternate" type="text/html" title="He did the monster mosh: automated datamoshing with tweaked GOP lengths" /><published>2017-07-21T17:52:32-04:00</published><updated>2017-07-21T17:52:32-04:00</updated><id>https://thisisparker.github.io/dotnet/2017/07/he-did-the-monster-mosh-automated-datamoshing-with-tweaked-gop-lengths</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2017/07/he-did-the-monster-mosh-automated-datamoshing-with-tweaked-gop-lengths/"><![CDATA[<p>After I posted yesterday about my <a href="https://parkerhiggins.net/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/">automated datamoshing experiment</a>, I got a <a href="https://twitter.com/ryanfb/status/888159099413811202">nice message on Twitter from developer and botmaker Ryan Bauman</a> who was able to run my script on his own videos. We talked for a bit about how it could be improved, and I had a major realization that I had to test immediately.</p>
+
+<p>In yesterday’s post I mentioned that the relative prevalence of P-Frames precluded my preferred effect of stills from one video and movement from another. Too much image data was being drawn by the P-Frames for it to really get unrecognizable. I didn’t and still don’t know how to reduce the number of P-Frames per se, but the big realization was I could change the ratio of I-Frames to P-Frames by ratcheting the <a href="https://en.wikipedia.org/wiki/Group_of_pictures">“Group Of Pictures” size</a> way down. That variable determines how often a video includes an I-Frame, and I could set it easily in ffmpeg while re-encoding the source videos.</p>
+
+<p>A normal default GOP size might be 250 frames — which is to say, no more than 10 seconds of video go by without a full I-Frame render. Poking around, I tried changing that number to a few different values to see what works best. Experimentally, a GOP size maximum of 48 frames (once every two seconds) seems to do the trick for two video sources. An excerpt of that video looks like this:</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/TLsT1H7HOs0?rel=0" width="560">  
+</iframe>
+
+<p>What are the constraints on the GOP size? Here, as in many other moments of this project, my considerations are very different from most people’s. In most cases, you want I-Frames to happen frequently enough that cutting and seeking through the video can be relatively precise, but rare enough that the filesize can stay low. Since every I-Frame has to contain a full frame of image data, they can be large.</p>
+
+<p>Because I’m swapping I-Frames at the byte level, and truncating or padding each frame to fit, every I-Frame insertion is a potential source of trouble. You can see in the video above, my encoder struggles in certain places. And given that I’m doing substitution, the closer my GOP gets to 1, the more my mosh-up starts to just look like a slideshow.</p>
+
+<p>For single source videos, where I-Frames are likely to be more similar to each other, I was able to use an even shorter GOP length. Here’s a datamoshed version of the Countdown video with a GOP length of 25 frames.</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/u4YJU4mV-7M?rel=0" width="560"></iframe>
+
+<p>So, in conclusion: messing with GOP sizes means a different number of I-Frames which means more opportunities for hijinks in mangling the videos.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="beyonce" /><category term="mash-ups" /><category term="programming" /><category term="python" /><category term="video" /><summary type="html"><![CDATA[After I posted yesterday about my automated datamoshing experiment, I got a nice message on Twitter from developer and botmaker Ryan Bauman who was able to run my script on his own videos. We talked for a bit about how it could be improved, and I had a major realization that I had to test immediately.]]></summary></entry><entry><title type="html">Making mosh-ups: automated datamoshing from multiple video sources</title><link href="https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/" rel="alternate" type="text/html" title="Making mosh-ups: automated datamoshing from multiple video sources" /><published>2017-07-20T15:19:34-04:00</published><updated>2017-07-20T15:19:34-04:00</updated><id>https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/"><![CDATA[<p>Datamoshing is a glitch art technique applied to videos to intentionally create “pixel bleeding” and other digital motion artifacts. It became popular several years ago when it was used in near-simultaneous music videos by <a href="https://www.youtube.com/watch?v=mvqakws0CeU">Chairlift</a> and <a href="https://www.youtube.com/watch?v=wMH0e8kIZtE">Kanye West</a>. In those cases, and in the tutorials and techniques documented since then, the glitches are typically introduced to a single edited video, and done manually in a visual editing program.</p>
+
+<p>My goal for <a href="https://github.com/thisisparker/automosh/blob/master/automosh.py">this project</a> was to use two separate video sources — to make a “mosh-up,” har har — and to completely automate the merger. The holy grail would be to use all the motion from one video over all the stills of another, to make sort of an animated <a href="https://en.wikipedia.org/wiki/Magic_Eye">Magic Eye</a> effect, but without the eye focus requirement. (Side note: it’s <a href="https://sploid.gizmodo.com/this-amazing-magic-eye-music-video-hides-fun-secret-mov-1513555083">possible and awesome</a> to actually create animated Magic Eyes, but that’s beside the point.)</p>
+
+<p>As you’ll see, I fell a little short of that stretch goal, but still managed to make something that looks pretty cool.</p>
+
+<h2 id="moshed-up-vids">Moshed-up vids</h2>
+
+<p><a href="https://github.com/thisisparker/automosh/blob/master/automosh.py">The script I wrote</a> can create two kinds of datamoshes. The first takes a single video as a source and rearranges some key frames to glitch it out. Here’s an example of one such video, glitching up Beyoncé’s incredible <a href="https://www.youtube.com/watch?v=2XY3AvVgDns">Countdown video</a> with itself. I’ve muted the audio in this upload, but as output from the script it still sounds pretty good.</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/a9iNDj0iaug?rel=0" width="560"></iframe>
+
+<p>The second (and more exciting) kind of data moshes takes a certain kind of key frame from one video and replaces the same kind of frame in another video. All of the motion and some of the “re-drawings” of subsequent frames are pulled out of context, creating an effect that is a little surreal and unsettling. It’s not as precise as the pros do with their manual edits, but it also can automatically combine two sources in a way I’ve never seen before. (Here, I used Countdown again, and moshed it together with <a href="https://www.youtube.com/watch?v=pZ12_E5R3qc">Formation</a>.)</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/SARwUp1P7oQ?rel=0" width="560"></iframe>
+
+<p>Again, I’ve muted the audio, but in this case it would normally play back Partition without any noticeable <a href="https://www.youtube.com/watch?v=56qgO0C82vY">flaws</a>.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>This moshing technique relies on some facts about how the H.264 spec compresses and stores its data. It really is a remarkable standard, and if you’re not familiar it’s absolutely worth reading the tribute that is <a href="https://sidbala.com/h-264-is-magic/">“H.264 is Magic”</a>. The gist is that only a very small portion of frames, dubbed I-Frames, contain all the image data necessary to draw a full screen. The other kinds of frames, P- and B-Frames, have partial screens and “motion” data.</p>
+
+<p>Other popular datamoshing techniques include removing I-Frames altogether or duplicating P-Frames so the same motion is re-applied to an image. In this example, instead, I’m replacing I-Frames with other I-Frames, and I’m doing it simply by copying and pasting the bytes from one into the place of another, truncating or padding out the data so it fits exactly.</p>
+
+<p>The reason I can’t get only the motion from one video and only the “textures” from another is that the P-Frames blend those two types of data together into a single frame. If I could figure out some way to isolate the image data in the frame, or to re-encode a video to consist entirely of I- and B-Frames, I could probably get a wilder effect.</p>
+
+<p>As it stands, the output of this script is a video that <em>plays</em>, but is pretty badly mangled. If you try to play it back in a client that shows you errors, you’ll see a lot of complaints. For compatibility’s sake, I’ve manually transcoded these videos into another format and back.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="beyonce" /><category term="programming" /><category term="python" /><category term="video" /><summary type="html"><![CDATA[Datamoshing is a glitch art technique applied to videos to intentionally create “pixel bleeding” and other digital motion artifacts. It became popular several years ago when it was used in near-simultaneous music videos by Chairlift and Kanye West. In those cases, and in the tutorials and techniques documented since then, the glitches are typically introduced to a single edited video, and done manually in a visual editing program.]]></summary></entry><entry><title type="html">Candidates saying cyber, now with more music</title><link href="https://thisisparker.github.io/dotnet/2016/10/candidates-saying-cyber-now-music/" rel="alternate" type="text/html" title="Candidates saying cyber, now with more music" /><published>2016-10-31T02:20:54-04:00</published><updated>2016-10-31T02:20:54-04:00</updated><id>https://thisisparker.github.io/dotnet/2016/10/candidates-saying-cyber-now-music</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2016/10/candidates-saying-cyber-now-music/"><![CDATA[<p>Building on <a href="https://parkerhiggins.net/2016/09/every-cyber-first-clinton-trump-debate/">the previous cyber-supercut</a>, here’s a new video that incorporates all the cybers from all of the general election debates, both Presidential and Vice-Presidential, set to music from Mr. Robot.</p>
+
+<blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">By popular demand: here&#39;s the presidential and VP candidates saying &quot;cyber&quot; with Mr Robot music in the background <a href="https://t.co/wL3XbAp4HG">pic.twitter.com/wL3XbAp4HG</a></p>&mdash; Parker Higgins (@xor) <a href="https://twitter.com/xor/status/789277493077258240?ref_src=twsrc%5Etfw">October 21, 2016</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="cyber" /><category term="supercut" /><category term="video" /><summary type="html"><![CDATA[Building on the previous cyber-supercut, here’s a new video that incorporates all the cybers from all of the general election debates, both Presidential and Vice-Presidential, set to music from Mr. Robot.]]></summary></entry><entry><title type="html">Supreme Court Data (2015)</title><link href="https://thisisparker.github.io/dotnet/2015/12/supreme-court-data-2015/" rel="alternate" type="text/html" title="Supreme Court Data (2015)" /><published>2015-12-15T21:18:36-05:00</published><updated>2015-12-15T21:18:36-05:00</updated><id>https://thisisparker.github.io/dotnet/2015/12/supreme-court-data-2015</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/12/supreme-court-data-2015/"><![CDATA[<p>Here’s a supercut of all the mentions of the word “data” in last week’s Supreme Court Oral Arguments in <a href="http://www.scotusblog.com/case-files/cases/evenwel-v-abbott/">Evenwel v. Abbott</a>, a case addressing the question of whether the “one-person, one-vote” principle of the Equal Protection Clause allows states to use total population data instead of voter population data in apportioning legislative districts.</p>
+
+<p>Turns out, “data” came up a lot!</p>
+
+<iframe allowfullscreen="" frameborder="0" height="435" loading="lazy" src="https://www.youtube-nocookie.com/embed/EBCxr14AoBA" width="580"></iframe>
+
+<p>This follows a supercut last year of mentions of the word “cloud” in the ABC v. Aereo argument, <a href="https://parkerhiggins.net/2014/04/supreme-court-clouds/">“Supreme Court Clouds (2014)”</a>. The process of making this video was largely similar, though I’ve traded in <code class="language-plaintext highlighter-rouge">mencoder</code> for <code class="language-plaintext highlighter-rouge">ffmpeg</code> for cutting up, modifying, and muxing the video.</p>
+
+<p>This time I thought it’d be nice to include some background music, so I turned to the <a href="https://archive.org/details/musopen-chopin">public domain recordings of various Chopin compositions</a>, created by Musopen. For the video, I used a segment of a <a href="https://archive.org/details/6235_Information_Machine_The_01_29_03_15">1958 educational film about computers</a> made by IBM and sourced from the Prelinger Archive.</p>
+
+<p>Both media sources, as well as the Supreme Court audio, are public domain. (All for different reasons, too: the music because of an intentional waiver of rights; the video because it was not noticed-and-registered and was made in an era that required formalities; and the courtroom audio because of <a href="https://www.law.cornell.edu/uscode/text/17/105">§ 105 barring federal employees from copyright</a> on their official work.)</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="art" /><category term="data" /><category term="mash-ups" /><category term="supercut" /><category term="supreme court" /><category term="video" /><summary type="html"><![CDATA[Here’s a supercut of all the mentions of the word “data” in last week’s Supreme Court Oral Arguments in Evenwel v. Abbott, a case addressing the question of whether the “one-person, one-vote” principle of the Equal Protection Clause allows states to use total population data instead of voter population data in apportioning legislative districts.]]></summary></entry><entry><title type="html">HOWTO: One big file from a YouTube playlist</title><link href="https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/" rel="alternate" type="text/html" title="HOWTO: One big file from a YouTube playlist" /><published>2015-08-25T22:39:33-04:00</published><updated>2015-08-25T22:39:33-04:00</updated><id>https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/"><![CDATA[<p>In celebration of the 40th anniversary of the release of <a href="https://en.wikipedia.org/wiki/Born_to_run">Born To Run</a>, I decided to watch Cory Arcangel perform <a href="http://www.coryarcangel.com/things-i-made/2006-008-the-bruce-springsteen-born-to-run-glockenspiel-addendum">his classic Glockenspiel Addendum</a>. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?</p>
+
+<p>Well, the version he posted is in eight parts. Fine for YouTube, but I don’t want to have to click play between each segment, and I don’t want to be interrupted if my Internet goes down. I solved the first problem by <a href="https://www.youtube.com/playlist?list=PL5V1zfjBPBJkSJ2tV0Cu31HAfNTJ3fhAZ">creating a YouTube playlist of the whole concert</a>, but in order to solve the second problem I’d need a local copy.</p>
+
+<p>The <a href="https://rg3.github.io/youtube-dl/">excellent (and public domain!) program <code class="language-plaintext highlighter-rouge">youtube-dl</code></a> can fetch a copy of each of the videos separately, and will even take a playlist link as input. I made myself a <code class="language-plaintext highlighter-rouge">glockenspiel</code> directory, and filled it with eight mp4s.</p>
+
+<p>That’s probably enough for most situations! <code class="language-plaintext highlighter-rouge">mplayer</code> (or your media player of choice) can take a list of files. But I wanted one big mp4, and I wanted to do that without transcoding.</p>
+
+<p>In some cases, the <code class="language-plaintext highlighter-rouge">ffmpeg concat demuxer</code> would probably work. It’s one of three <em>different</em> concat features <a href="https://trac.ffmpeg.org/wiki/Concatenate">documented on the <code class="language-plaintext highlighter-rouge">ffmpeg</code> wiki</a>, and designed for merging file formats that cannot be simply concatenated but that shouldn’t be transcoded. It takes a list of files in the following format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file 'path/to/file1.mp4'
+file 'path/to/file2.mp4'
+</code></pre></div></div>
+
+<p>etc. You can generate that list with a little bash loop:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in ./*.mp4; do echo "file '$f'" &gt;&gt; list.txt; done
+</code></pre></div></div>
+
+<p>And then feed it into the concat demuxer with the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -f concat -i list.txt -c copy output.mp4
+</code></pre></div></div>
+
+<p>If that works for you, great, you’re set. Unfortunately, I ran into a problem: the resulting mp4 file had some weird reference frame issues, resulting in some (but not all) of the video parts to be garbled flashing green frames. ((It’s outside the scope of this post, but the next thing I tried, mkvmerge, created a file with the exact same problem.)) <code class="language-plaintext highlighter-rouge">mplayer</code> kept spitting errors like: <code class="language-plaintext highlighter-rouge">number of reference frames (0+5) exceeds max (3; probably corrupt input), discarding one.</code></p>
+
+<p>I wasn’t going to be able to use the <code class="language-plaintext highlighter-rouge">concat demuxer</code>, but as I mentioned above <code class="language-plaintext highlighter-rouge">ffmpeg</code> has three different concat options. This <a href="http://superuser.com/questions/43588/how-can-i-merge-two-mp4-files-without-losing-quality/522658#522658">Q&amp;A describes a way to place the mp4 files in a new transport stream container</a>, which is one of the kinds of files that can be concatenated with the concat <em>protocol</em>, at the file level. One by one, I made temporary mpeg transport stream files like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1.ts
+</code></pre></div></div>
+
+<p>And then I merged all those files, temp1.ts through temp8.ts, with the following unwieldy command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ffmpeg -i "concat:temp1.ts|temp2.ts|temp3.ts|temp4.ts|temp5.ts|temp6.ts|temp7.ts|temp8.ts" -c copy -bsf:a aac_adtstoasc output.mp4</code></p>
+
+<p>Which works like a charm. Not a totally painless process, but now I’ve got a pretty well merged and not transcoded local version and can watch me some glockenspiel.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="command line" /><category term="cory arcangel" /><category term="howto" /><category term="video" /><summary type="html"><![CDATA[In celebration of the 40th anniversary of the release of Born To Run, I decided to watch Cory Arcangel perform his classic Glockenspiel Addendum. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?]]></summary></entry><entry><title type="html">Computer Chronicles: Internet</title><link href="https://thisisparker.github.io/dotnet/2015/08/computer-chronicles-internet/" rel="alternate" type="text/html" title="Computer Chronicles: Internet" /><published>2015-08-24T01:40:48-04:00</published><updated>2015-08-24T01:40:48-04:00</updated><id>https://thisisparker.github.io/dotnet/2015/08/computer-chronicles-internet</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/08/computer-chronicles-internet/"><![CDATA[<p>Who says online users are a bunch of anti-social geeks?</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_21-43-54-1024x791.png" alt="" /></p>
+
+<p>That’s the Icon Byte Bar in San Francisco, one of the <a href="http://www.nytimes.com/1995/02/12/magazine/sunday-february-12-1995-when-trends-collide-two-ways-to-get-wired.html">first six or eight “electronic cafes” to open in the mid 1990s</a>, according to rec.food.drink.coffee. And this is <a href="https://archive.org/details/CC1232_internet">another episode of the PBS program Computer Chronicles</a>, where today we’re talking about the Internet.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_21-46-59-1024x791.png" alt="" /></p>
+
+<p>First off, John Markoff explains how “electronic mail” works, and lands some sweet brags in the process. Like, for example, here’s an email he just got from Steve Jobs. And oh yeah, when you’re in his position, you might need some fancy filtering tools, what with getting hundreds or even thousands of electronic mails a day.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-04-02.png" alt="" /></p>
+
+<p>Next we get a look at AnArchie, and a tool for browsing USENET. Also a discussion on security. “I’d be careful putting my password on the ‘Net, I’d pick a password that’s a safe password, and I wouldn’t put my credit card up until there’s security software that will protect the credit card.”</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-10-04.png" alt="" /></p>
+
+<p>Next we talk to Severe Tire Damage, a group of weekend musicians with day jobs at Xerox, Apple, and Digital Equipment, who “upstaged the Rolling Stones by transmitting their own performance over the Internet” <a href="http://www.nytimes.com/1994/11/22/arts/rolling-stones-live-on-internet-both-a-big-deal-and-a-little-deal.html">in November 1994</a>.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-15-07.png" alt="" />“I think what we did was a <em>kind</em> of piracy, like in the early days of people flying airplanes, where you land in some farmer’s field ‘cos you had no place else to go, and it was okay because there weren’t very many airplanes around. There aren’t very many people now who can use the Internet in this way. And so anything goes for now, ‘cos we’re still explorers exploring brand new space and there’s very very few of us.”</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-18-50.png" alt="" /></p>
+
+<p>Compuserve’s Charla Beaverson demos her company’s service, navigating through USENET and some selected popular FTP sites, <a href="https://en.wikipedia.org/wiki/Book_Stacks_Unlimited">like Book Stacks Unlimited</a>. “We can go here and download entire copies of books!” Our host prods, “Assuming it’s public domain stuff—”</p>
+
+<p>Ms. Beaverson assures him, “That’s correct.”</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-21-38.png" alt="" /></p>
+
+<p>“Right now we’re looking at a copy of Air Mosaic.” We’re looking at the Pizza Hut homepage.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-22-52.png" alt="" /></p>
+
+<p>Next we get a tour of the Whole Earth Catalog’s business operations on the ‘Net. “We are as gods and might as well get good at it,” Stewart Brand reminds us. “To offer those electronic transactions, the Catalog’s web service provider had to supply a new level of security using data encryption.” The WELL’s Mark Graham explains: “What we’re seeing now is the integration of this encryption technology with the software people use to access the networks.”</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-27-07.png" alt="" /></p>
+
+<p>Up next: activism online! Congressional scorecards for environmental policy. Wonder if we’ll ever hear from that Dodd fellow again.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-31-08.png" alt="" /></p>
+
+<p>But what if you want to make your own site? Good news: the San Francisco Digital Media Center offers classes for anybody who wants to tell their story online. “In our classes, we’re discussing what the aesthetics of interactivity are. … There is a very complex artistic question to be solved by the people working in this field, and all of it is so new.”</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-33-29.png" alt="" /></p>
+
+<p>For those of you outside of San Francisco, this man will teach you how to use <a href="https://en.wikipedia.org/wiki/HoTMetaL">HoTMetaL</a>.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-36-26.png" alt="" /></p>
+
+<p>“Alright, that’s our look at the Internet—in fact, just a glance at the tip of the cyberspace iceberg.” Thanks, Stewart Cheifet!</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/08/Screenshot_2015-08-23_22-37-59.png" alt="" /></p>
+
+<p>Don’t miss an episode! Subscribe today for just $32.50.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="internet" /><category term="video" /><summary type="html"><![CDATA[Who says online users are a bunch of anti-social geeks?]]></summary></entry><entry><title type="html">Media literacy and #Ferguson livestreams</title><link href="https://thisisparker.github.io/dotnet/2014/08/media-literacy-ferguson-livestreams/" rel="alternate" type="text/html" title="Media literacy and #Ferguson livestreams" /><published>2014-08-18T02:19:01-04:00</published><updated>2014-08-18T02:19:01-04:00</updated><id>https://thisisparker.github.io/dotnet/2014/08/media-literacy-ferguson-livestreams</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2014/08/media-literacy-ferguson-livestreams/"><![CDATA[<p>I’ve been glued to the news unfolding in Ferguson, Missouri all this week. There is <a href="http://www.newyorker.com/news/news-desk/movement-grows-ferguson">a movement growing</a> as a lot of ugly forces in American life are becoming impossible for a certain mainstream to continue ignoring. At the same time, it’s been really remarkable from a media perspective: a lot of the story built on social media, and in a lot of ways that continues to be the most thorough and timely source of information.</p>
+
+<p>Media literacy is more important than ever with a story like this. A lot of the most important sources of info don’t have the traditional trappings of authority; people are independent or reporting from previously unknown organizations, they’re livestreaming or posting photos to Twitter, articles are interspersed with a constant stream of updates.</p>
+
+<p>Readers and viewers need a command of media literacy not just to evaluate what news is timely and important, but also to contribute to the conversation where necessary.</p>
+
+<p>I pulled this clip out of a livestream from <a href="http://www.huffingtonpost.com/2014/08/14/argus-radio-ferguson-protests_n_5679149.html">Argus Radio</a>. I’m not sure most people can do that with the tools they know how to use, which is a real shame. Being able to copy and paste from video like from text is an essential part of media literacy in 2014, and will only get more important.</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="//www.youtube.com/embed/6lOuMQ-apd0" width="560"></iframe>
+
+<p>I use a tool called <code class="language-plaintext highlighter-rouge">youtube-dl</code> to download videos, and then edit with a combination of different pieces of software. If you don’t know where to start, look at the software that comes with your operating system. On Mac OS X, for example, Quicktime Player has some basic trimming and clipping functions to allow for basic editing right out of the box.</p>
+
+<p>It goes beyond video, of course. One journalist, a sports editor in DC, used a Google Maps screencap and what appears to be OS X’s Preview app to make an annotated map of the areas in Ferguson where the major news stories are taking place.</p>
+
+<blockquote>
+  <p><a href="https://twitter.com/hashtag/Ferguson?src=hash">#Ferguson</a> live video feed would be a lot easier to understand with a map. So I made a quick map w/ what I can gather <a href="http://t.co/3JIXDTwGjH">pic.twitter.com/3JIXDTwGjH</a></p>
+
+  <p>— Travis Hughes (@TravisSBN) <a href="https://twitter.com/TravisSBN/statuses/501218173639991298">August 18, 2014</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+<p>And late last week, as many were upset about a proposed Day Of Rage coinciding with an earlier and more community-driven initiative called the National Moment of Silence, my friend Sarah Jeong did a very basic image edit that drove that point home. These things don’t have to be complex; a simple image got this point picked up by major media outlets.</p>
+
+<blockquote>
+  <p>Please RT. Today is not for rage. <a href="https://t.co/to8ruBK502">https://t.co/to8ruBK502</a> <a href="https://twitter.com/hashtag/NMOS14?src=hash">#NMOS14</a> <a href="https://twitter.com/hashtag/DayOfRage?src=hash">#DayOfRage</a> <a href="http://t.co/29rQXQ3GtA">pic.twitter.com/29rQXQ3GtA</a></p>
+
+  <p>— sarah jeong (@sarahjeong) <a href="https://twitter.com/sarahjeong/statuses/499962027247296512">August 14, 2014</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>Different people will find different things that work for them. But if you can’t interact with the media you’re observing, it can be hard to have a voice.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="ferguson" /><category term="media literacy" /><category term="video" /><summary type="html"><![CDATA[I’ve been glued to the news unfolding in Ferguson, Missouri all this week. There is a movement growing as a lot of ugly forces in American life are becoming impossible for a certain mainstream to continue ignoring. At the same time, it’s been really remarkable from a media perspective: a lot of the story built on social media, and in a lot of ways that continues to be the most thorough and timely source of information.]]></summary></entry><entry><title type="html">Former Register of Copyrights says terms are too long</title><link href="https://thisisparker.github.io/dotnet/2012/12/former-register-of-copyrights-says-terms-are-too-long/" rel="alternate" type="text/html" title="Former Register of Copyrights says terms are too long" /><published>2012-12-09T19:33:03-05:00</published><updated>2012-12-09T19:33:03-05:00</updated><id>https://thisisparker.github.io/dotnet/2012/12/former-register-of-copyrights-says-terms-are-too-long</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2012/12/former-register-of-copyrights-says-terms-are-too-long/"><![CDATA[<p>In November 2005, Register of Copyrights Marybeth Peters gave an impressively candid answer about copyright terms being too long, and that she thought such a situation was a “big mistake.” Unfortunately link rot has begun to set in, and it was somewhat difficult for me to track down a copy of the video.</p>
+
+<p>(When <a href="http://boingboing.net/2006/02/21/copyright-office-hea.html">BoingBoing linked to the video</a> in February of 2006, YouTube was in its first year of existence, and far from the ubiquity it’s since achieved. Instead, the post points to AVI, MP4, and MPG files [formerly] hosted on <a href="http://www.ibiblio.org/">iBiblio</a>.)</p>
+
+<p>I was able to dig up a version crawled by the Internet Archive, and have <a href="http://archive.org/details/MarybethPetersFormerUsRegisterOfCopyrightsOnTermsBeingTooLong">posted the video more prominently</a> on that site.</p>
+
+<iframe frameborder="0" height="435" loading="lazy" src="http://archive.org/embed/MarybethPetersFormerUsRegisterOfCopyrightsOnTermsBeingTooLong" width="580"></iframe>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="boingboing" /><category term="copyright" /><category term="cory doctorow" /><category term="marybeth peters" /><category term="video" /><summary type="html"><![CDATA[In November 2005, Register of Copyrights Marybeth Peters gave an impressively candid answer about copyright terms being too long, and that she thought such a situation was a “big mistake.” Unfortunately link rot has begun to set in, and it was somewhat difficult for me to track down a copy of the video.]]></summary></entry><entry><title type="html">Pwn the Drones presentation at HOPE</title><link href="https://thisisparker.github.io/dotnet/2012/07/pwn-the-drones-presentation-at-hope/" rel="alternate" type="text/html" title="Pwn the Drones presentation at HOPE" /><published>2012-07-30T01:16:27-04:00</published><updated>2012-07-30T01:16:27-04:00</updated><id>https://thisisparker.github.io/dotnet/2012/07/pwn-the-drones-presentation-at-hope</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2012/07/pwn-the-drones-presentation-at-hope/"><![CDATA[<iframe allowfullscreen="" frameborder="0" height="428" loading="lazy" src="https://www.youtube-nocookie.com/embed/EXI-rGIq0iw" width="570"></iframe>
+
+<p>Last week my colleague (and fellow <a href="https://twitter.com/drones">@drones</a> operator) Trevor and I had the opportunity to present at the <a href="http://www.hopenumbernine.net/">HOPE9</a> conference at the Hotel Pennsylvania in New York. It was an amazing conference and I was really honored to get to speak there.</p>
+
+<p>Our presentation was titled “<a href="http://www.hopenumbernine.net/schedule/#pwn">Pwn the Drones</a>: A Survey of UAV Hacks and Exploits,” and covered three major points:</p>
+
+<ul>
+  <li>Drones are already in widespread use, and that is set to expand dramatically over the next few years.</li>
+  <li>They do not have the best safety record, and have been compromised in attacks on their ground networks, GPS modules, data transmission, and in kinetic attacks on the aircraft itself. Related systems, such as the control satellites, have also been exploited.</li>
+  <li>Drones have also been used to deliver payloads in other unusual hacks and exploits, by activists, artists, law enforcement agents, and others.</li>
+</ul>
+
+<p>I’ve already cleaned up the talk once to give a shorter version at <a href="http://dorkbot.org/dorkbotsf/archive/201207/">dorkbot sf</a>. It’s so important that information about the capabilities of — and weaknesses in — this drone technology gets more widely understood as these get deployed, so I’m happy to do what I can to help that endeavor.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="drones" /><category term="hope" /><category term="new york" /><category term="trevor timm" /><category term="video" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">The best free culture TED talks</title><link href="https://thisisparker.github.io/dotnet/2011/07/the-best-free-culture-ted-talks/" rel="alternate" type="text/html" title="The best free culture TED talks" /><published>2011-07-24T22:45:38-04:00</published><updated>2011-07-24T22:45:38-04:00</updated><id>https://thisisparker.github.io/dotnet/2011/07/the-best-free-culture-ted-talks</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2011/07/the-best-free-culture-ted-talks/"><![CDATA[<p>My friend <a href="http://partickhammer.com">Patrick Hammer</a> sent around a video of <a href="http://www.youtube.com/watch?v=pFDoCLf96Kg&amp;feature=view_all&amp;list=PL12756B00285CCCD1&amp;index=1">Rebecca MacKinnon’s TED talk</a> about the need for users to take back the Internet. It’s a great talk, and it reminded me of how effective the TED talk format can be at communicating complex ideas to people who don’t want to dive into a monograph or two.</p>
+
+<p>I decided to put together some of the best TED talks I’ve seen that address, somehow, the concept of free culture. Obviously there’s some subjective selection here, and I’m taking submissions, but I think this playlist is a good start.</p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" height="385" width="480"><param name="allowFullScreen" value="true" />&lt;/param&gt;<param name="allowscriptaccess" value="always" />&lt;/param&gt;<param name="src" value="http://www.youtube.com/p/12756B00285CCCD1?version=3&amp;hl=en_US&amp;fs=1" />&lt;/param&gt;<param name="allowfullscreen" value="true" />&lt;/param&gt;</object>
+
+<p>I’d like to include Lawrence Lessig’s talk on “<a href="http://www.youtube.com/watch?v=7Q25-S7jzgs">How creativity is being strangled by the law</a>“, but wouldn’t you know it, the video’s blocked by GEMA in Germany and I can’t add it to a playlist. You can’t make this stuff up.</p>
+
+<p>Let me know what others you’d include!</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="free culture" /><category term="ted" /><category term="video" /><summary type="html"><![CDATA[My friend Patrick Hammer sent around a video of Rebecca MacKinnon’s TED talk about the need for users to take back the Internet. It’s a great talk, and it reminded me of how effective the TED talk format can be at communicating complex ideas to people who don’t want to dive into a monograph or two.]]></summary></entry></feed>

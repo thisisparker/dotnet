@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Making mosh-ups: automated datamoshing from multiple video sources &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Making mosh-ups: automated datamoshing from multiple video sources" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Datamoshing is a glitch art technique applied to videos to intentionally create “pixel bleeding” and other digital motion artifacts. It became popular several years ago when it was used in near-simultaneous music videos by Chairlift and Kanye West. In those cases, and in the tutorials and techniques documented since then, the glitches are typically introduced to a single edited video, and done manually in a visual editing program." />
+<meta property="og:description" content="Datamoshing is a glitch art technique applied to videos to intentionally create “pixel bleeding” and other digital motion artifacts. It became popular several years ago when it was used in near-simultaneous music videos by Chairlift and Kanye West. In those cases, and in the tutorials and techniques documented since then, the glitches are typically introduced to a single edited video, and done manually in a visual editing program." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-20T15:19:34-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Making mosh-ups: automated datamoshing from multiple video sources" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2017-07-20T15:19:34-04:00","datePublished":"2017-07-20T15:19:34-04:00","description":"Datamoshing is a glitch art technique applied to videos to intentionally create “pixel bleeding” and other digital motion artifacts. It became popular several years ago when it was used in near-simultaneous music videos by Chairlift and Kanye West. In those cases, and in the tutorials and techniques documented since then, the glitches are typically introduced to a single edited video, and done manually in a visual editing program.","headline":"Making mosh-ups: automated datamoshing from multiple video sources","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/"},"url":"https://thisisparker.github.io/dotnet/2017/07/making-mosh-ups-automated-datamoshing-from-multiple-video-sources/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Making mosh-ups: automated datamoshing from multiple video sources</h2>
+  <time datetime="2017-07-20T15:19:34-04:00" class="post-date">20 Jul 2017</time>
+  <p>Datamoshing is a glitch art technique applied to videos to intentionally create “pixel bleeding” and other digital motion artifacts. It became popular several years ago when it was used in near-simultaneous music videos by <a href="https://www.youtube.com/watch?v=mvqakws0CeU">Chairlift</a> and <a href="https://www.youtube.com/watch?v=wMH0e8kIZtE">Kanye West</a>. In those cases, and in the tutorials and techniques documented since then, the glitches are typically introduced to a single edited video, and done manually in a visual editing program.</p>
+
+<p>My goal for <a href="https://github.com/thisisparker/automosh/blob/master/automosh.py">this project</a> was to use two separate video sources — to make a “mosh-up,” har har — and to completely automate the merger. The holy grail would be to use all the motion from one video over all the stills of another, to make sort of an animated <a href="https://en.wikipedia.org/wiki/Magic_Eye">Magic Eye</a> effect, but without the eye focus requirement. (Side note: it’s <a href="https://sploid.gizmodo.com/this-amazing-magic-eye-music-video-hides-fun-secret-mov-1513555083">possible and awesome</a> to actually create animated Magic Eyes, but that’s beside the point.)</p>
+
+<p>As you’ll see, I fell a little short of that stretch goal, but still managed to make something that looks pretty cool.</p>
+
+<h2 id="moshed-up-vids">Moshed-up vids</h2>
+
+<p><a href="https://github.com/thisisparker/automosh/blob/master/automosh.py">The script I wrote</a> can create two kinds of datamoshes. The first takes a single video as a source and rearranges some key frames to glitch it out. Here’s an example of one such video, glitching up Beyoncé’s incredible <a href="https://www.youtube.com/watch?v=2XY3AvVgDns">Countdown video</a> with itself. I’ve muted the audio in this upload, but as output from the script it still sounds pretty good.</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/a9iNDj0iaug?rel=0" width="560"></iframe>
+
+<p>The second (and more exciting) kind of data moshes takes a certain kind of key frame from one video and replaces the same kind of frame in another video. All of the motion and some of the “re-drawings” of subsequent frames are pulled out of context, creating an effect that is a little surreal and unsettling. It’s not as precise as the pros do with their manual edits, but it also can automatically combine two sources in a way I’ve never seen before. (Here, I used Countdown again, and moshed it together with <a href="https://www.youtube.com/watch?v=pZ12_E5R3qc">Formation</a>.)</p>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/SARwUp1P7oQ?rel=0" width="560"></iframe>
+
+<p>Again, I’ve muted the audio, but in this case it would normally play back Partition without any noticeable <a href="https://www.youtube.com/watch?v=56qgO0C82vY">flaws</a>.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>This moshing technique relies on some facts about how the H.264 spec compresses and stores its data. It really is a remarkable standard, and if you’re not familiar it’s absolutely worth reading the tribute that is <a href="https://sidbala.com/h-264-is-magic/">“H.264 is Magic”</a>. The gist is that only a very small portion of frames, dubbed I-Frames, contain all the image data necessary to draw a full screen. The other kinds of frames, P- and B-Frames, have partial screens and “motion” data.</p>
+
+<p>Other popular datamoshing techniques include removing I-Frames altogether or duplicating P-Frames so the same motion is re-applied to an image. In this example, instead, I’m replacing I-Frames with other I-Frames, and I’m doing it simply by copying and pasting the bytes from one into the place of another, truncating or padding out the data so it fits exactly.</p>
+
+<p>The reason I can’t get only the motion from one video and only the “textures” from another is that the P-Frames blend those two types of data together into a single frame. If I could figure out some way to isolate the image data in the frame, or to re-encode a video to consist entirely of I- and B-Frames, I could probably get a wilder effect.</p>
+
+<p>As it stands, the output of this script is a video that <em>plays</em>, but is pretty badly mangled. If you try to play it back in a client that shows you errors, you’ll see a lot of complaints. For compatibility’s sake, I’ve manually transcoded these videos into another format and back.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

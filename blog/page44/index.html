@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page44/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page44/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page43/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page45/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page44/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/">
+        Getting the SoundCloud Record button to work in Ubuntu
+      </a>
+    </h2>
+
+    <time datetime="2011-09-01T00:08:02-04:00" class="post-date">01 Sep 2011</time>
+
+    <p>Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy <a href="http://twitter.com/omidaladini">Omid</a>, who is a SoundCloud developer, has found a solution.</p>
+
+<p>It turns out the problem is caused by a “Linux-specific security feature” (read: <a href="https://bugs.adobe.com/jira/browse/FP-1211">bug</a> [login required]) that prevents a Flash settings dialogue from appearing when wmode=opaque is used. In any case, there are a few easy workarounds.</p>
+
+<p>If you’ve got the flash-player-properties package installed (which, at least on Ubuntu, ships separately from the flash-plugin, but is available in the standard repositories), you can add “a1.sndcdn.com” to the allowed sites under the “Camera &amp; Mic” tab of that program.</p>
+
+<p>Otherwise, if you’ve unsuccessfully attempted to record at least once on <a href="http://soundcloud.com/upload">the SoundCloud upload page</a>, you can add a1.sndcdn.com from the Flash player’s <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager06.html">web settings panel</a>. While you’re there, check your security settings!</p>
+
+<p>Hope this is helpful to other SoundCloud users on Linux who haven’t quite been able to get recording working.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2011/07/privacy-public-transportation-berlins-touch-travel-program/">
+        Privacy, public transportation, and Berlin&#8217;s Touch&#038;Travel program
+      </a>
+    </h2>
+
+    <time datetime="2011-07-26T04:44:57-04:00" class="post-date">26 Jul 2011</time>
+
+    <p><a href="http://www.npr.org/blogs/nprberlinblog/2011/07/25/138673758/bvgs-commuter-touch-travel-app-raises-privacy-concerns">NPR Berlin reported today</a> that Berlin’s public transportation authority, <a href="http://www.bvg.de/index.php/en/index.html">the BVG</a>, launched the <a href="http://www.bvg.de/index.php/de/3200/name/Tickets%2B/article/12252.html">Touch&amp;Travel program [de]</a> earlier this month, which allows Vodafone and Telekom customers to use an Android phone or an iPhone to pay for their transport tickets. Participants “check in” while boarding, and confirm their location either through continuous GPS data directly from their phones, or by scanning a QR code at the end points of their trip.</p>
+
+<p>From a privacy perspective, this system stands in stark contrast to the current standard procedure in Berlin. As with nearly all German municipal rail, Berlin subways and buses operate on a <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Proof-of-payment">proof-of-payment system</a>: tickets are required while on board, but are only very occasionally checked.</p>
+
+<p>Apparently, such proof-of-payment systems rose to popularity because of German labor shortages in the 1960s, but they also happen to be extremely respectful of rider privacy ((You can imagine that the labor shortages, and the subsequent manpower restrictions might have served as a constraint that influenced the design of public transportation systems in the same way that Jonathan Zittrain says a lack of financial resources influenced the early design of the Internet (<a href="http://www.youtube.com/watch?v=gKmtmhrfMps&amp;feature=player_detailpage#t=817s">See him explain that at Harvard</a>) )). Because travel and location data is never even collected, there’s no chance of it being cross-referenced against other data sets, given to the government, or sold to corporations. Though tickets may be traced to a buyer’s credit card, their actual use is not tracked, and riders may also pay cash with no penalty, preserving anonymity.</p>
+
+<p>Berlin’s recently launched pilot program has none of these advantages. First, there’s the issue of anonymity: even taking the BVG and Deutsche Bahn at face value that the user data will be “scrubbed” and saved anonymously for only six months — a dubious proposition given the tempting law enforcement and ridership research opportunities of slipping from that stance — there is a huge and growing body of scholarship covering the possibilities of de-anonymizing large data sets. <a href="http://query.nytimes.com/gst/fullpage.html?res=9E0CE3DD1F3FF93AA3575BC0A9609C8B63">AOL search queries</a>, <a href="http://www.cs.utexas.edu/~shmat/netflix-faq.html">Netflix movie ratings</a>, even <a href="http://crypto.stanford.edu/~pgolle/papers/census.html">US Census data</a> have effectively received the de-anonymization treatment.</p>
+
+<p>There’s also the general question of locational privacy: individuals should have the <a href="https://www.eff.org/wp/locational-privacy">“ability to move in public space with the expectation that … their location will not be systematically” recorded</a>. That definition is at odds with the premise of the Touch&amp;Travel program, which is basically consent to systematic tracking in exchange for a more convenient ticket purchase process.</p>
+
+<p>Obviously that convenience is nice, and you only need to experience once the feeling of seeing your train pull away while you’re waiting for your ticket to print to understand the temptation of such a trade. And it’s true that there are occasionally positive outcomes of large-scale surveillance programs — New York City’s MetroCard data has been used in both <a href="http://www.nytimes.com/2008/11/19/nyregion/19metrocard.html?pagewanted=all">legitimate alibis and criminal convictions</a>, and even critics acknowledge that there are <a href="http://www.independent.co.uk/news/uk/crime/the-big-question-are-cctv-cameras-a-waste-of-money-in-the-fight-against-crime-822079.html">a small number of crimes that London’s CCTV system has helped solve</a>. I won’t argue that there are no advantages to such a system, but that they’re outweighed by more subtle and incremental disadvantages. The loss of privacy and anonymity carries a real cost, even if it’s not one that’s immediately tangible.</p>
+
+<p>Berlin’s public transportation system is currently one of the best imaginable in terms of privacy, and implementing a system that strips those benefits away is irresponsible and short-sighted. Further, privacy is a hard thing to introduce into a developed system; Berlin should reject any new solution that doesn’t make adequate consideration of privacy in its basic design, even if it’s a promised eventual addition.</p>
+
+<p>Being mindful of privacy doesn’t require foregoing an update to ticket-buying infrastructure, either. There are <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Digital_credential#Anonymous_digital_credentials_and_pseudonyms">cryptographic techniques for validating credentials anonymously</a> that, while complex and occasionally difficult to understand, can be used to address the current pain points while still preserving privacy and anonymity. A system built with those techniques might not be as straightforward to develop and deploy, but would be invaluable to the people living in and visiting Berlin, and as a model to transportation agencies all over the world.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2011/07/the-best-free-culture-ted-talks/">
+        The best free culture TED talks
+      </a>
+    </h2>
+
+    <time datetime="2011-07-24T22:45:38-04:00" class="post-date">24 Jul 2011</time>
+
+    <p>My friend <a href="http://partickhammer.com">Patrick Hammer</a> sent around a video of <a href="http://www.youtube.com/watch?v=pFDoCLf96Kg&amp;feature=view_all&amp;list=PL12756B00285CCCD1&amp;index=1">Rebecca MacKinnon’s TED talk</a> about the need for users to take back the Internet. It’s a great talk, and it reminded me of how effective the TED talk format can be at communicating complex ideas to people who don’t want to dive into a monograph or two.</p>
+
+<p>I decided to put together some of the best TED talks I’ve seen that address, somehow, the concept of free culture. Obviously there’s some subjective selection here, and I’m taking submissions, but I think this playlist is a good start.</p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" height="385" width="480"><param name="allowFullScreen" value="true" />&lt;/param&gt;<param name="allowscriptaccess" value="always" />&lt;/param&gt;<param name="src" value="http://www.youtube.com/p/12756B00285CCCD1?version=3&amp;hl=en_US&amp;fs=1" />&lt;/param&gt;<param name="allowfullscreen" value="true" />&lt;/param&gt;</object>
+
+<p>I’d like to include Lawrence Lessig’s talk on “<a href="http://www.youtube.com/watch?v=7Q25-S7jzgs">How creativity is being strangled by the law</a>“, but wouldn’t you know it, the video’s blocked by GEMA in Germany and I can’t add it to a playlist. You can’t make this stuff up.</p>
+
+<p>Let me know what others you’d include!</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2011/07/kamake-ukulele-factory-tour/">
+        Touring the Kamake ukulele factory
+      </a>
+    </h2>
+
+    <time datetime="2011-07-10T13:05:03-04:00" class="post-date">10 Jul 2011</time>
+
+    <p><a href="https://parkerhiggins.net/wp-content/uploads/2011/07/kamakasign.jpg"><img src="https://parkerhiggins.net/wp-content/uploads/2011/07/kamakasign-179x300.jpg" alt="" title="Kamaka Sign" /></a>This Tuesday, I had the chance to take a tour of the <a href="http://www.kamakahawaii.com/">Kamaka ukulele factory</a> guided by Fred Kamaka Sr., whose father Samuel Kamaka founded the company in 1916. As a ukulele enthusiast, it was a real blast: Kamakas are some of the best in the world and have been the weapon of choice for, among others, <a href="http://www.youtube.com/watch?v=puSkP3uym5k">Jake Shimabukuro</a> and <a href="http://www.youtube.com/watch?v=G5CkIniOcqs">George Harrison</a>. Even better than the factory and showroom, though, was getting a chance to hear Fred Kamaka tell all kinds of stories about growing up making ukes.</p>
+
+<p>Fred is now 86, and he has been working for the company alongside his older brother Samuel Jr. since about 1930, when he was 5 years old. (On the tour, Fred shows a picture from that era featuring him at 5, working in a store full of ukuleles selling for $5.) It was common practice then, in Hawaii and throughout the country, that sons were workers. Before they started in school, they’d be expected to work all day for their fathers. Fred says he and his brother Samuel considered themselves lucky not to be the sons of bakers, who’d have to be up at 4 each morning to start baking!</p>
+
+<p>Samuel Kamaka Sr., by his son’s description, was an exacting craftsman and didn’t accept cut corners. When the young Fred would make a mistake in the workshop, the botched ukulele would always be called “junk”, and would be thrown out. Fred describes hearing his father use that word “junk” throughout his life — from his deathbed, Samuel Kamaka Sr. insisted that his sons never use the family name on any junk.</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F18630260&amp;show_artwork=true&amp;maxwidth=540&amp;maxheight=810&amp;in=thisisparker%2Fsets%2Ffred-kamaka-ukulele-tour" width="540"></iframe>
+
+<p>Before that meeting, Fred and his brother had served in the military in World War II and were entitled to attend college on the G.I. Bill. They each decided to do that, much to their father’s disappointment: he was counting on them as workers! He cut them off, and they found themselves living on a $25/month allotment from the government, until they found another way to pull in some money.</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F18630259&amp;show_artwork=true&amp;maxwidth=540&amp;maxheight=810&amp;in=thisisparker%2Fsets%2Ffred-kamaka-ukulele-tour" width="540"></iframe>
+
+<p>Kamaka Ukulele continues to be a family business, but Fred and Samuel Jr.’s sons weren’t required to work in the factory growing up. Nevertheless, as ukulele playing became more popular among their friends, they found themselves attracted to the family business:</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F18630261&amp;show_artwork=true&amp;maxwidth=540&amp;maxheight=810&amp;in=thisisparker%2Fsets%2Ffred-kamaka-ukulele-tour" width="540"></iframe>
+
+<p>That generation is now grown, and have children of their own. All told, there are eight children in the next generation of Kamakas, the great-grandchildren of Samuel Kamaka Sr. Fred’s hoping at least four of them will come to work for the family business, now coming up on its 100th anniversary.</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F18630262&amp;show_artwork=true&amp;maxwidth=540&amp;maxheight=810&amp;in=thisisparker%2Fsets%2Ffred-kamaka-ukulele-tour" width="540"></iframe>
+
+<p>The Kamaka factory is a relatively small place, occupying two floors of a medium-sized building for the showroom, office, storage, and factory space. They sell instruments as quickly as they can make them, and new orders take about a month to fulfill. Each ukulele is made of the beautiful and uniquely Hawaiian koa wood, which can only legally be harvested from naturally fallen trees and is accordingly expensive.</p>
+
+<style type="text/css">
+			#gallery-3 {
+				margin: auto;
+			}
+			#gallery-3 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 20%;
+			}
+			#gallery-3 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-3 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+
+<div class="gallery galleryid-303 gallery-columns-5 gallery-size-thumbnail" id="gallery-3"><dl class="gallery-item"> <dt class="gallery-icon portrait"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakasign-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakasign/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour02-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour02/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour03-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour03/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour04-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour04/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour05-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour05/) </dt></dl>  
+<dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour06-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour06/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour07-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour07/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour08-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour08/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour09-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour09/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour10-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour10/) </dt></dl>  
+<dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour11-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour11/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour12-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour12/) </dt></dl><dl class="gallery-item"> <dt class="gallery-icon landscape"> [![](https://parkerhiggins.net/wp-content/uploads/2011/07/kamakatour13-150x150.jpg)](https://parkerhiggins.net/2011/07/kamake-ukulele-factory-tour/kamakatour13/) </dt></dl>   
+ </div>
+<p>Altogether, the Kamaka factory tour is a great one, and I recommend it highly. It’s so great to get to meet guys like Fred Kamaka, who are really living history. He runs the tour just about <a href="http://www.kamakahawaii.com/contact.html">every Tuesday-Friday at 10:30 am</a> — so if you find yourself around Honolulu then, go! Note that they don’t normally sell ukes from the showroom, and don’t sell factory seconds at all. I happened to luck out, and they had a couple for sale on orders that had dropped out, so my father and I each picked up an <a href="http://www.kamakahawaii.com/instruments.html#ukehf2">HF-2</a>. I’ll be writing more about that soon…</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2011/03/put-a-dickens-bar-on-it/">
+        Put a Dickens Bar on it
+      </a>
+    </h2>
+
+    <time datetime="2011-03-25T00:21:46-04:00" class="post-date">25 Mar 2011</time>
+
+    <p>Inspired by a <a href="http://thedickbar.com">handful</a> <a href="http://putadickbaronit.com">of sites</a> that have popped up in the last few weeks to mock a <a href="http://dickbar.org">design change</a> made in the official Twitter app for iPhone, my buddies <a href="http://robb.is">Robb</a> and <a href="http://johndadams.com">Johnny</a> and I have put together a project called <a href="http://thedickensbar.com">the Dickens Bar</a>. The idea is simple — enter the URL of any website, and see it immediately enhanced by the “trending topics” of one of the most popular English novelists of the Victorian Era. See, for example, <a href="http://thedickensbar.com/goto/?url=http%3A%2F%2Fparkerhiggins.net">this very site with Dickens Bar addition</a>.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page45/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page43/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

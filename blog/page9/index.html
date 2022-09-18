@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page9/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page9/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page8/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page10/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page9/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/11/how-many-us-people-are-named-isis/">
+        How many US people are named Isis?
+      </a>
+    </h2>
+
+    <time datetime="2015-11-21T18:48:20-05:00" class="post-date">21 Nov 2015</time>
+
+    <p>The New York Times has reported that, despite the long-standing traditional meaning of the name, <a href="http://www.nytimes.com/2015/11/21/world/europe/when-youre-named-isis-for-the-goddess-not-the-terror-group.html">people named Isis have faced issues</a> ranging from inconveniences to major discrimination in the past several years on the basis of their name. This problem disproportionately affects women, and it’s not just a few cases. What is the scale of people who may be affected?</p>
+
+<p>Using data from the Social Security Administration about birth names and death rates, I estimate that there are 10,620 living people designated female at birth named Isis in the US. ((There is no comparable data for people designated male at birth because the name has not been common enough to be reported.</p>
+
+<p>Obviously, not all people designated female at birth are women, and not all women are designated female at birth. Further, not all people with the name Isis will have it at birth, and not all people born with it will have it as a name now. This is a major limitation of the data. I’ve tried to be as precise as possible throughout this post, but please feel free to suggest corrections.)) The <a href="https://gist.github.com/thisisparker/5f1e9cc4e7ae5687a6a3">full data is available on Github</a>.</p>
+
+<p>According to SSA, <a href="https://www.ssa.gov/OACT/babynames/rankchange.html">the name “Isis” has been in the top 1000 since 1994</a> for people designated female at birth in the US. It peaked in 2005, with 561 new social security card applications in that year.</p>
+
+<p>SSA only makes information on <a href="https://www.ssa.gov/OACT/babynames/limits.html">names outside of the top 1000</a> available as raw data, not through its “explorer.” I downloaded it and pulled the number of Isis births into one document. That would be sufficient to calculate (roughly) the number of people born with the name Isis, but wouldn’t account for how many of these people may no longer be living.</p>
+
+<p>In order to determine that number, I went to another data set from SSA: the <a href="https://www.ssa.gov/oact/STATS/table4c6.html">Actuarial Life Table</a>. ((Thanks for the link, <a href="https://twitter.com/WhatsaTararrel/status/668130752270348289">Alex</a>!)) That dataset includes the percentage of living people at each given age, as of 2011. I fudged the numbers forward, and treated is as if it were 2014 data.</p>
+
+<p>That was the most complex component of the estimation, and it turned out to be mostly unnecessary. The name Isis did not appear to be given to even five babies designated male or female at birth in a single year between 1901 and 1960, ((Though: Social Security card applications were much less common before 1937, so some births may be excluded)) so nearly all US-born people named Isis are under 55 years old and are still alive.</p>
+
+<p>Put in concrete terms: of the estimated 10,715 people in the US named Isis at birth, only about 95 are deceased.</p>
+
+<p>There are serious limitations to this estimation. Among them: it doesn’t account for people born outside of the United States or who did not apply for Social Security cards. The survivorship calculation assumes that the name is evenly distributed across demographics, which is probably not true. It depends on SSA’s treatment of gender as an unchanging binary, which is incorrect. Still, it does provide some insight into the number of people affected by heavy-handed efforts by social media platforms and others to filter out <a href="http://www.vox.com/2015/11/14/9734894/daesh-isis-isil">content related to Daesh</a>.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/11/1000-apple-cultivars-for-the-corpora-project/">
+        1000 apple cultivars for the corpora project
+      </a>
+    </h2>
+
+    <time datetime="2015-11-11T00:45:33-05:00" class="post-date">11 Nov 2015</time>
+
+    <p>The incredible botmaster Darius Kazemi has a <a href="https://github.com/dariusk/corpora">popular GitHub repository called “<code class="language-plaintext highlighter-rouge">corpora</code>“</a>, which contains, well, collections of all kinds of things. It can be really handy to have access to a list of words that all fall into a certain group, and so Kazemi makes it available completely freely and with a <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 waiver</a> to place it in the public domain.</p>
+
+<p>Earlier this week I landed my first contribution to <code class="language-plaintext highlighter-rouge">corpora</code>: a collection of <a href="https://github.com/dariusk/corpora/blob/master/data/foods/apple_cultivars.json">1000 apple varieties, or cultivars</a>, picked from the metadata of the <a href="https://en.wikipedia.org/wiki/Pomological_Watercolor_Collection">USDA Pomological Watercolor collection</a>. They are roughly the 1000 that appear most frequently out of 1500 or so, though a good chunk (200 or so of this corpus, and 700 or so of the overall collection) appear only once.</p>
+
+<p>The names on the list are charming and goofy, and I hope they are useful to somebody. Here are some of my favorite cultivars:</p>
+
+<ul>
+  <li>Newtown Spitzenburg</li>
+  <li>Shiawassee</li>
+  <li>White Winter Pearmain</li>
+  <li>Royal Limbertwig</li>
+  <li>Sops of Wine</li>
+  <li>Peasgood Nonesuch</li>
+  <li>Limber Limb Pippin</li>
+  <li>Hollandberry Admirable</li>
+  <li>Petite Douce Rousse</li>
+  <li>Russian Gravenstein</li>
+  <li>Sweet Nonesuch</li>
+</ul>
+
+<p>It feels like a good way of extending the pomological watercolor work I’ve been doing into a community of artists and botmakers I’d like to support.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/11/interminable-copyrights-and-the-future-history-of-journalism/">
+        Interminable copyrights and the (future) history of journalism
+      </a>
+    </h2>
+
+    <time datetime="2015-11-08T23:53:06-05:00" class="post-date">08 Nov 2015</time>
+
+    <p>Over on Techdirt, I wrote a <a href="https://www.techdirt.com/articles/20151102/16255832697/copyright-terms-how-historical-journalism-is-disappearing.shtml">short piece about how uncertainty surrounding ridiculously long copyright terms</a> is likely keeping newspapers from the 1920s onward out of major archives. We’re very likely in the midst of a sea change in journalism, but future generations may not be able to study what we’re producing and exploring as likely business shifts make the copyright question even thornier. From the article:</p>
+
+<blockquote>
+  <p>In the world of media journalism, we talk a lot about the future. But we can’t have a coherent conversation about that without thinking about the past and the present. And those thoughts, in turn, rely on access to the history that we’ve allowed to be locked up under effectively unlimited copyright restrictions or as orphan works.</p>
+</blockquote>
+
+<p>Per usual, the comments over at Techdirt, too, have been lively.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/10/mad-generation-loss/">
+        Mad Generation Loss
+      </a>
+    </h2>
+
+    <time datetime="2015-10-31T20:35:00-04:00" class="post-date">31 Oct 2015</time>
+
+    <blockquote>
+  <p>Mad generation! down on the rocks of Time!</p>
+</blockquote>
+
+<p>Mad Generation Loss is a project exploring media encoding and the ways in which imperfect copies can descend into a kind of digital madness. It takes an audio file—here, a recording of Allen Ginsberg reading an excerpt from <a href="https://en.wikipedia.org/wiki/Howl">his seminal poem “Howl”</a>—and adds another layer of mp3 encoding to each second of the sound. That is to say, the first second is encoded directly from the original, the next second is re-encoded from that first lossy copy, and the third encoded again.</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230756469&amp;color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false" width="100%"></iframe>
+
+<p>That sort of re-encoding from lossy originals, known as transcoding, is supposed to be avoided. The <a href="https://en.wikipedia.org/wiki/Generation_loss">generation loss</a> builds on itself, and the quality degrades quickly. That effect is exaggerated here by its second-by-second compounding. By the end of the 3:18 recording, Ginsberg’s voice is nearly impossible to pick out among the background noise.</p>
+
+<p>The last seconds of the recording have been transcoded nearly 200 times. All together, the recording represents nearly 20,000 individual mp3 encodes.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/10/ginsberg_glitch19-300x300.jpg" alt="Ginsberg, glitched" />This project takes inspiration from earlier efforts to explore generation loss. <a href="https://en.wikipedia.org/wiki/I_Am_Sitting_in_a_Room">“I Am Sitting In A Room” (1969)</a> by Alvin Lucier was perhaps the earliest, and featured a 4-sentence narration recorded on taped, and re-recorded over and over to hear the tape loss. As the narration notes, that process “smooths out” the irregularities of speech, reflecting instead the rhythm and resonant frequencies of the room of the recording.</p>
+
+<p>More recently, an artist named Canzona documented the process of <a href="http://gizmodo.com/5555359/the-weirdness-of-a-youtube-video-re-uploaded-1000-times">downloading and re-uploading a video to YouTube 1000 times</a>, and the effect of its compound video encoding. He described that project as a tribute to Alvin Lucier.</p>
+
+<p>Unlike those projects, Mad Generation Loss shows the effect of transcoding and loss on a linear recording, not a repeated phrase. The degredation is apparent not from comparing identical inputs and diminished outputs, but from hearing the creep of the telltale white noise and the regular pulse of the mp3s getting stitched together.</p>
+
+<p>The <a href="https://github.com/thisisparker/mad-generation-loss">code to create the Mad Generation Loss audio is freely available under the GPLv3</a>. It is written in Ruby and depends on free software like <code class="language-plaintext highlighter-rouge">lame</code>, <code class="language-plaintext highlighter-rouge">mp3splt</code>, and <code class="language-plaintext highlighter-rouge">mp3wrap</code>. Thanks are due to Eric Mill and Ben Gleitzman for technical assistance (though please do not attribute my sloppy code on them), and to Caroline Sinders and Ethan Chiel for their encouragement.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/10/outline-bling/">
+        Outline Bling
+      </a>
+    </h2>
+
+    <time datetime="2015-10-22T02:56:10-04:00" class="post-date">22 Oct 2015</time>
+
+    <p><img src="https://parkerhiggins.net/wp-content/uploads/2015/10/drake.jpg" alt="drake" /><br />
+I. You used to call me<br />
+ A. on my cell phone<br />
+ B. late night<br />
+ C. when you need my love</p>
+
+<p>II. I know when that hotline bling, that can only mean<br />
+ A. one thing</p>
+
+<p>III. Ever since I left the city you:<br />
+ A. Got a reputation for yourself now</p>
+<ol>
+  <li>Everybody knows</li>
+  <li>I feel left out<br />
+ B. Got me down (and I feel stressed out)<br />
+ C. Started</li>
+  <li>Wearing less</li>
+  <li>Going out more<br />
+ D. (Having) glasses of champagne on the dance floor<br />
+ E. Hangin’ with some girls I never seen before<br />
+ F. And me just don’t get along<br />
+ G. Go places where you don’t belong<br />
+ H. Got exactly what you asked for<br />
+ I. Run out of pages in your passport</li>
+</ol>
+
+<p>IV. These days all I do is wonder<br />
+ A. If you’re bending over backwards for someone else<br />
+ B. If you’re rolling backwoods for someone else<br />
+ C. Doing</p>
+<ol>
+  <li>Things I taught you</li>
+  <li>Getting nasty for someone else</li>
+</ol>
+
+<p>V. You don’t need<br />
+ A. No one else<br />
+ B. Nobody else</p>
+
+<p>VI. You<br />
+ A. Should just be yourself<br />
+ B. Right now you’re someone else</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page10/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page8/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

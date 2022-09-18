@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/howto.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/howto.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">Pulling free and open weather data</title><link href="https://thisisparker.github.io/dotnet/2017/09/pulling-free-and-open-weather-data-in-python/" rel="alternate" type="text/html" title="Pulling free and open weather data" /><published>2017-09-22T16:41:19-04:00</published><updated>2017-09-22T16:41:19-04:00</updated><id>https://thisisparker.github.io/dotnet/2017/09/pulling-free-and-open-weather-data-in-python</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2017/09/pulling-free-and-open-weather-data-in-python/"><![CDATA[<p>When I decided to add realtime weather effects to <a href="https://www.twitter.com/choochoobot">@choochoobot</a>, I knew there were a few qualities I wanted to find in a data source. Ideally I would find something free and reliable that didn’t require me to agree to many developer terms or sign up for an API token. Google <a href="https://www.programmableweb.com/news/google-weather-api/2012/08/28">shuttered its undocumented Weather API</a> in 2012, and Yahoo’s offering, which has changed a few times over the years, now requires an account and a consumer key and secret.</p>
+
+<p>It took some poking around but I was eventually successful, and now @choochoobot should correctly show clouds, rain, snow, or thunderstorms, depending on whether observations in New York at the moment it’s tweeting.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2017/09/Screenshot_2017-09-22_15-46-34.png" alt="" /></p>
+
+<p>Current observed weather conditions seems to me like something that should be provided by the government as open data. Fortunately, that intuition was correct: free realtime weather data is openly available, if you know where to look.</p>
+
+<p>The National Weather Service, an agency within NOAA, provides weather observations from stations all over the US in RSS and parseable XML formats. And while parsing XML in Python isn’t exactly pleasant, it’s straightforward enough and I am now able to get qualitative descriptions of the current weather that I can translate into emoji. Here’s <a href="https://github.com/thisisparker/choochoobot/blob/master/choochoogen.py#L62-L86">the relevant code</a>, and here’s how it works:</p>
+
+<ul>
+  <li>Each time @choochoobot tweets, it checks to see whether it’s daytime or nighttime. If it’s nighttime, I skip the weather check and instead calculate the phase and placement of the moon in the sky.</li>
+  <li>If it’s during the day, I make download the <a href="http://w1.weather.gov/xml/current_obs/KNYC.xml">XML file provided by the KNYC weather station</a> in Central Park. You can load the same file in your browser at any point, but you probably have to view-source to see it in a reasonable human-readable format. That’s one of about <a href="http://w1.weather.gov/xml/current_obs/">1,800 locations in US states and territories</a> that the NWS provides information for.</li>
+  <li><span class="citation">@choochoobot</span> then parses the XML file using Python’s built-in <a href="https://docs.python.org/3.5/library/xml.etree.elementtree.html">ElementTree XML API</a>. The relevant field for my purposes is labeled “weather”, which contains a text description of the observed conditions.</li>
+  <li>At least in theory, that phrase will always be one of the 250 or so pre-set descriptions <a href="http://w1.weather.gov/xml/current_obs/weather.php">provided by the the NWS</a>. These are sort of grouped into categories—there’s a pretty clear thunderstorm grouping, and one for hail—but it seems a bit ad hoc. My use requires classifying the observed weather into just four or five buckets with matching emoji; I just made a big list of terms that I’d take to mean “cloudy,” for example, and checked to see whether the observed weather phrase was on that list.</li>
+  <li>Then I pick emoji for the sky, and put the whole tweet together. If the weather is cloudy, I replace the sun emoji with a sun-behind-clouds emoji. Real scientific stuff.</li>
+</ul>
+
+<p>In case it’s useful, I’ve converted the NWS list of <a href="https://github.com/dariusk/corpora/pull/278">weather conditions to JSON</a> and submitted it to Darius Kazemi’s corpora project. Once that gets merged in, those weather conditions will all be available that way.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="bots" /><category term="howto" /><category term="programming" /><category term="python" /><category term="twitter" /><category term="weather" /><summary type="html"><![CDATA[When I decided to add realtime weather effects to @choochoobot, I knew there were a few qualities I wanted to find in a data source. Ideally I would find something free and reliable that didn’t require me to agree to many developer terms or sign up for an API token. Google shuttered its undocumented Weather API in 2012, and Yahoo’s offering, which has changed a few times over the years, now requires an account and a consumer key and secret.]]></summary></entry><entry><title type="html">HOWTO: Diff PDFs pixel-by-pixel on the command line</title><link href="https://thisisparker.github.io/dotnet/2015/09/howto-diff-pdfs-pixel-by-pixel-on-the-command-line/" rel="alternate" type="text/html" title="HOWTO: Diff PDFs pixel-by-pixel on the command line" /><published>2015-09-01T22:20:34-04:00</published><updated>2015-09-01T22:20:34-04:00</updated><id>https://thisisparker.github.io/dotnet/2015/09/howto-diff-pdfs-pixel-by-pixel-on-the-command-line</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/09/howto-diff-pdfs-pixel-by-pixel-on-the-command-line/"><![CDATA[<p>There was a major order in the Uber class action case today: the class was certified, which means that <a href="http://motherboard.vice.com/read/judge-rules-160000-uber-drivers-can-sue-in-a-class-action">the suit can be on behalf of 160,000 drivers</a>, instead of just the handful putting their names on the documents. Big deal!</p>
+
+<p>Then a few minutes later, the court issued an amended version of the order, but didn’t release a changelog. How is a reader to know which parts are worth looking at?</p>
+
+<p>There are a lot of ways to solve this problem, but I wanted one that would work on the command line, that wouldn’t require much in the way of unusual software (or Adobe), and that wouldn’t depend on having the text embedded in the PDF. Court PDFs usually do have text, but it’s a little unreliable, and in this case the documents were so close that I could compare the pixels of one to the other.</p>
+
+<p>I googled around a bit, and here’s the workflow I decided to follow, adapted from <a href="https://stackoverflow.com/questions/6469157/pdf-compare-on-linux-command-line">this Stack Overflow question’s answers</a>. It assumes you have <code class="language-plaintext highlighter-rouge">pdftk</code> and <code class="language-plaintext highlighter-rouge">imagemagick</code> installed.</p>
+
+<ul>
+  <li>Put both PDFs, file1 and file2, in one directory by themselves, and make a subdirectory called <code class="language-plaintext highlighter-rouge">/out</code> for temporary output.</li>
+  <li>Split, or “burst”, each PDF into its component pages with <code class="language-plaintext highlighter-rouge">pdftk</code>, and put those pages in the <code class="language-plaintext highlighter-rouge">/out</code> directory.</li>
+  <li>Use a bash loop to run <code class="language-plaintext highlighter-rouge">imagemagick</code>‘s compare feature over each pair of pages from file1 and file2, creating a new page for each that just contains the differences highlighted in red.</li>
+  <li>Again using <code class="language-plaintext highlighter-rouge">pdftk</code>, merge all of those diff pages back into one document that uses the original as the background.</li>
+</ul>
+
+<p>In code, that looks like this:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">pdftk file1.pdf burst out/file1---page%03d.pdf&lt;br&gt;&lt;/br&gt;pdftk file2.pdf burst out/file2---page%03d.pdf&lt;br&gt;&lt;/br&gt;for i in {001..###}; do compare out/file1---page$i.pdf out/file2---page$i.pdf -compose src out/file1--file2--diff---page$i.pdf; done&lt;br&gt;&lt;/br&gt;pdftk out/file1--file2--diff*.pdf cat output diff.pdf&lt;br&gt;&lt;/br&gt;pdftk diff.pdf multibackground file1.pdf output compositediff.pdf</code></p>
+</blockquote>
+
+<p>The parts that need to be customized each time are the names of file1 and file2 for the first two lines and the very last line, and the <code class="language-plaintext highlighter-rouge">###</code> needs to be replaced by the number of pages in each document. Other than that, you can let this one rip and end up with a visual diff in just a few seconds!</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/09/diffedpdfpage.png" alt="diffed pdf page" /></p>
+
+<p>You can see how it looks above. This is the only page that changed, and it’s just one footnote.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="howto" /><category term="pdf" /><summary type="html"><![CDATA[There was a major order in the Uber class action case today: the class was certified, which means that the suit can be on behalf of 160,000 drivers, instead of just the handful putting their names on the documents. Big deal!]]></summary></entry><entry><title type="html">HOWTO: One big file from a YouTube playlist</title><link href="https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/" rel="alternate" type="text/html" title="HOWTO: One big file from a YouTube playlist" /><published>2015-08-25T22:39:33-04:00</published><updated>2015-08-25T22:39:33-04:00</updated><id>https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/08/howto-one-big-file-from-a-youtube-playlist/"><![CDATA[<p>In celebration of the 40th anniversary of the release of <a href="https://en.wikipedia.org/wiki/Born_to_run">Born To Run</a>, I decided to watch Cory Arcangel perform <a href="http://www.coryarcangel.com/things-i-made/2006-008-the-bruce-springsteen-born-to-run-glockenspiel-addendum">his classic Glockenspiel Addendum</a>. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?</p>
+
+<p>Well, the version he posted is in eight parts. Fine for YouTube, but I don’t want to have to click play between each segment, and I don’t want to be interrupted if my Internet goes down. I solved the first problem by <a href="https://www.youtube.com/playlist?list=PL5V1zfjBPBJkSJ2tV0Cu31HAfNTJ3fhAZ">creating a YouTube playlist of the whole concert</a>, but in order to solve the second problem I’d need a local copy.</p>
+
+<p>The <a href="https://rg3.github.io/youtube-dl/">excellent (and public domain!) program <code class="language-plaintext highlighter-rouge">youtube-dl</code></a> can fetch a copy of each of the videos separately, and will even take a playlist link as input. I made myself a <code class="language-plaintext highlighter-rouge">glockenspiel</code> directory, and filled it with eight mp4s.</p>
+
+<p>That’s probably enough for most situations! <code class="language-plaintext highlighter-rouge">mplayer</code> (or your media player of choice) can take a list of files. But I wanted one big mp4, and I wanted to do that without transcoding.</p>
+
+<p>In some cases, the <code class="language-plaintext highlighter-rouge">ffmpeg concat demuxer</code> would probably work. It’s one of three <em>different</em> concat features <a href="https://trac.ffmpeg.org/wiki/Concatenate">documented on the <code class="language-plaintext highlighter-rouge">ffmpeg</code> wiki</a>, and designed for merging file formats that cannot be simply concatenated but that shouldn’t be transcoded. It takes a list of files in the following format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file 'path/to/file1.mp4'
+file 'path/to/file2.mp4'
+</code></pre></div></div>
+
+<p>etc. You can generate that list with a little bash loop:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in ./*.mp4; do echo "file '$f'" &gt;&gt; list.txt; done
+</code></pre></div></div>
+
+<p>And then feed it into the concat demuxer with the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -f concat -i list.txt -c copy output.mp4
+</code></pre></div></div>
+
+<p>If that works for you, great, you’re set. Unfortunately, I ran into a problem: the resulting mp4 file had some weird reference frame issues, resulting in some (but not all) of the video parts to be garbled flashing green frames. ((It’s outside the scope of this post, but the next thing I tried, mkvmerge, created a file with the exact same problem.)) <code class="language-plaintext highlighter-rouge">mplayer</code> kept spitting errors like: <code class="language-plaintext highlighter-rouge">number of reference frames (0+5) exceeds max (3; probably corrupt input), discarding one.</code></p>
+
+<p>I wasn’t going to be able to use the <code class="language-plaintext highlighter-rouge">concat demuxer</code>, but as I mentioned above <code class="language-plaintext highlighter-rouge">ffmpeg</code> has three different concat options. This <a href="http://superuser.com/questions/43588/how-can-i-merge-two-mp4-files-without-losing-quality/522658#522658">Q&amp;A describes a way to place the mp4 files in a new transport stream container</a>, which is one of the kinds of files that can be concatenated with the concat <em>protocol</em>, at the file level. One by one, I made temporary mpeg transport stream files like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1.ts
+</code></pre></div></div>
+
+<p>And then I merged all those files, temp1.ts through temp8.ts, with the following unwieldy command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ffmpeg -i "concat:temp1.ts|temp2.ts|temp3.ts|temp4.ts|temp5.ts|temp6.ts|temp7.ts|temp8.ts" -c copy -bsf:a aac_adtstoasc output.mp4</code></p>
+
+<p>Which works like a charm. Not a totally painless process, but now I’ve got a pretty well merged and not transcoded local version and can watch me some glockenspiel.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="command line" /><category term="cory arcangel" /><category term="howto" /><category term="video" /><summary type="html"><![CDATA[In celebration of the 40th anniversary of the release of Born To Run, I decided to watch Cory Arcangel perform his classic Glockenspiel Addendum. He’s posted videos from a 2008 concert to YouTube, so it should be no problem, right?]]></summary></entry><entry><title type="html">HOWTO: Graph your GPG keyring</title><link href="https://thisisparker.github.io/dotnet/2014/02/howto-graph-your-gpg-keyring/" rel="alternate" type="text/html" title="HOWTO: Graph your GPG keyring" /><published>2014-02-06T01:44:46-05:00</published><updated>2014-02-06T01:44:46-05:00</updated><id>https://thisisparker.github.io/dotnet/2014/02/howto-graph-your-gpg-keyring</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2014/02/howto-graph-your-gpg-keyring/"><![CDATA[<p>We had a keysigning party at work today, and after it finished a few of us were looking for a way to visualize the newly increased signature density. It turns out the best tool for the job is called <a href="http://www.chaosreigns.com/code/sig2dot/">sig2dot</a>, which is available in the Debian repositories (and as a Perl script on its homepage).</p>
+
+<p>Just make sure your keychain is refreshed with the most up-to-date keys (that’s just <code class="language-plaintext highlighter-rouge">gpg --refresh-keys</code>), and then run the script to create a file in <a href="https://en.wikipedia.org/wiki/DOT_language">the DOT language</a>. I had to download the script itself, so I ran:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg --list-sigs | ./sig2dot.pl &gt; keyring.dot
+</code></pre></div></div>
+
+<p>Then, you can use one of a number of programs to render a visual file out of <code class="language-plaintext highlighter-rouge">keyring.dot</code>. If you have the package <code class="language-plaintext highlighter-rouge">graphviz</code> installed, you can use its <code class="language-plaintext highlighter-rouge">dot</code> command, or the <code class="language-plaintext highlighter-rouge">neato</code> command, which behave differently. Here are examples from my own key ring of the two programs in action:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dot -Tpng keyring.dot &gt; keyring.dot.png
+</code></pre></div></div>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2014/02/gphkeyring.dot_.small_.png" alt="Keyring rendered by dot, small" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ neato -Tpng keyring.dot &gt; keyring.neato.png
+</code></pre></div></div>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2014/02/gphkeyring.neato_.small_.png" alt="Keyring rendered by neato, small" /></p>
+
+<p>In both cases, I’ve reduced the size of the graph a lot intentionally so the names are unreadable, but I’m looking at them locally at full size. In each case I’m the bright pink node in the middle. In the second graph, the keysigning party is clear as the dense patch in the top.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="crypto" /><category term="encryption" /><category term="howto" /><summary type="html"><![CDATA[We had a keysigning party at work today, and after it finished a few of us were looking for a way to visualize the newly increased signature density. It turns out the best tool for the job is called sig2dot, which is available in the Debian repositories (and as a Perl script on its homepage).]]></summary></entry><entry><title type="html">HOWTO: Create an animated gif from a video with command line tools</title><link href="https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools/" rel="alternate" type="text/html" title="HOWTO: Create an animated gif from a video with command line tools" /><published>2012-10-22T06:29:13-04:00</published><updated>2012-10-22T06:29:13-04:00</updated><id>https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2012/10/howto-create-an-animated-gif-from-a-video-with-command-line-tools/"><![CDATA[<p>Sometimes I see a few seconds of a video I’m watching and I think that it’d make a great animated gif. But because I don’t always have access to a bunch of graphics software, and because I might be using my Ubuntu or OS X box, it’s nice to have a process that works with widely- and freely-available free software command line tools. So I’ve worked out a process that uses the command line and requires only the programs <code class="language-plaintext highlighter-rouge">mplayer</code>, <code class="language-plaintext highlighter-rouge">imagemagick</code>, and <code class="language-plaintext highlighter-rouge">gifsicle</code>. Here’s how it goes:</p>
+
+<ol>
+  <li>
+    <p>Make sure you have the programs installed. On Ubuntu (or most anything Debian-based with large enough repositories — these are common programs) it should just be a matter of</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">sudo apt-get install mplayer imagemagick gifsicle</code></p>
+    </blockquote>
+
+    <p>On Mac OS X, first install the <a href="http://mxcl.github.com/homebrew/">Homebrew package manager</a>, and then install these programs with</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">brew install mplayer imagemagick gifsicle</code></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Isolate the segment of video you want to clip out. You’re just looking for a timestamp, so you can do this in any video player. Once you’ve got a rough clip selected, use <code class="language-plaintext highlighter-rouge">mplayer</code> to export that to image files. You can use the following line to do that (there are some example values in there that I’ll explain afterward):</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">mplayer -ao null -ss 0:02:06 -endpos 5 -vo gif89a:outdir=gif videofile.mp4</code></p>
+    </blockquote>
+
+    <p>Here’s what each flag means.</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">-ao</code> means audio output. It’s set to null, because there’s no sound.</li>
+      <li><code class="language-plaintext highlighter-rouge">-ss</code> is the start position. What follows is the H:MM:SS timestamp of the beginning of the clip you want.</li>
+      <li><code class="language-plaintext highlighter-rouge">-endpos</code> is the end position of the clip, in seconds. So here I’ve taken out a 5 second clip.</li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">-vo</code> is the video output. The next bit says to output gifs (that’s <code class="language-plaintext highlighter-rouge">gif89a</code> into the directory called “gif”. You can put them into whatever directory you want of course.</p>
+
+        <p>For some reason the I don’t have the gif89a video output driver installed on my OS X computer, so I instead use <code class="language-plaintext highlighter-rouge">png</code> or <code class="language-plaintext highlighter-rouge">jpeg</code> in the place of <code class="language-plaintext highlighter-rouge">gif89a</code> up there. Your mileage may vary.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>You now should have a directory full of stills. In case you used any other format to output them, I use one line of imagemagick’s <code class="language-plaintext highlighter-rouge">mogrify</code> to convert them:</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">mogrify -format gif *.png</code></p>
+    </blockquote>
+  </li>
+  <li>Then go through and remove the images at the start and the end that you don’t want in the final gif. Sometimes I cheat on the command line here, and just look at all the pictures with Preview or Image Viewer and delete the ones I don’t need.</li>
+  <li>
+    <p>Finally, use <code class="language-plaintext highlighter-rouge">gifsicle</code> to wrap it all up into an animated gif. I usually start with the line</p>
+
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">gifsicle --colors=256 --delay=4 --loopcount=0 --dither -O3 *.gif &gt; animation.gif</code></p>
+    </blockquote>
+
+    <p>and then tweak the parameters from there. Different source material calls for different settings, and I try to keep the final output as small as possible.</p>
+  </li>
+</ol>
+
+<p>If you make a lot of gifs and like to mess with a lot of values, it might make sense for you to do it graphically. But this flow works pretty well for me.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="anigif" /><category term="command line" /><category term="gifsicle" /><category term="howto" /><category term="mplayer" /><summary type="html"><![CDATA[Sometimes I see a few seconds of a video I’m watching and I think that it’d make a great animated gif. But because I don’t always have access to a bunch of graphics software, and because I might be using my Ubuntu or OS X box, it’s nice to have a process that works with widely- and freely-available free software command line tools. So I’ve worked out a process that uses the command line and requires only the programs mplayer, imagemagick, and gifsicle. Here’s how it goes:]]></summary></entry><entry><title type="html">HOWTO: Transfer OTR private keys between Adium and Pidgin</title><link href="https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin/" rel="alternate" type="text/html" title="HOWTO: Transfer OTR private keys between Adium and Pidgin" /><published>2012-01-30T04:44:24-05:00</published><updated>2012-01-30T04:44:24-05:00</updated><id>https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin/"><![CDATA[<p>I recently re-installed Ubuntu on my home computer, and wanted to move my office Mac’s Adium OTR key and collected fingerprints over to the new install. I had some trouble, but got it eventually, so I wanted to document the process.</p>
+
+<p>The first step is to make sure you’ve got Pidgin and Pidgin-OTR installed on one computer, and Adium on another.</p>
+
+<p>Adium stores the OTR private key and the fingerprints in</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Application Support/Adium 2.0/Users/Default/otr.private_key
+~/Library/Application Support/Adium 2.0/Users/Default/otr.fingerprints
+
+</code></pre></div></div>
+
+<p>Pidgin, on GNU/Linux, stores the OTR private key and fingerprints in</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.purple/otr.private_key
+~/.purple/otr.fingerprints
+
+</code></pre></div></div>
+
+<p>It’s worth noting that neither application stores these keys encrypted. The threat model assumes that if an attacker has access to your <code class="language-plaintext highlighter-rouge">Adium 2.0</code> or <code class="language-plaintext highlighter-rouge">.purple</code> folder, you’re already compromised. But that means you have to be extra careful about transferring these files from one computer to another: obviously, sending your key in a cleartext e-mail is not a good idea.</p>
+
+<p>Anyway, harmonizing is just a matter of copying both files from one location to another, and then modifying the key slightly to match the format that each program stores it in. I was disappointed at how poorly documented these formats are, but fortunately the always impressive <a href="https://guardianproject.info/">Guardian Project</a> has gone through and documented each program’s file location and format in order to build <a href="https://github.com/guardianproject/otrfileconverter">a tool to convert files between different IM client formats</a>. The tool’s not done, and so far only converts to their <a href="https://guardianproject.info/apps/gibber/">Gibberbot mobile IM client</a>, but the <a href="https://github.com/guardianproject/otrfileconverter/blob/master/README.txt">README</a> contains all the information you need.</p>
+
+<p>In the case of Adium to Pidgin key transfer, which both use the standard <code class="language-plaintext highlighter-rouge">libotrname</code> field, which is an integer in the Adium config file, needs to be changed to the actual account name. The <code class="language-plaintext highlighter-rouge">protocol</code> field needs to be changed from <code class="language-plaintext highlighter-rouge">libpurple-jabber-gtalk</code> (in the case of a GTalk account) to <code class="language-plaintext highlighter-rouge">prpl-jabber</code>.</p>
+
+<p>You may need to turn Pidgin’s OTR plugin off and on again, but it should recognize your key, and all of your verified fingerprints should show up as well.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="adium" /><category term="encryption" /><category term="howto" /><category term="otr" /><category term="pidgin" /><category term="privacy" /><category term="ubuntu" /><summary type="html"><![CDATA[I recently re-installed Ubuntu on my home computer, and wanted to move my office Mac’s Adium OTR key and collected fingerprints over to the new install. I had some trouble, but got it eventually, so I wanted to document the process.]]></summary></entry><entry><title type="html">Getting the SoundCloud Record button to work in Ubuntu</title><link href="https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/" rel="alternate" type="text/html" title="Getting the SoundCloud Record button to work in Ubuntu" /><published>2011-09-01T00:08:02-04:00</published><updated>2011-09-01T00:08:02-04:00</updated><id>https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2011/08/soundcloud-record-button-ubuntu-linux/"><![CDATA[<p>Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy <a href="http://twitter.com/omidaladini">Omid</a>, who is a SoundCloud developer, has found a solution.</p>
+
+<p>It turns out the problem is caused by a “Linux-specific security feature” (read: <a href="https://bugs.adobe.com/jira/browse/FP-1211">bug</a> [login required]) that prevents a Flash settings dialogue from appearing when wmode=opaque is used. In any case, there are a few easy workarounds.</p>
+
+<p>If you’ve got the flash-player-properties package installed (which, at least on Ubuntu, ships separately from the flash-plugin, but is available in the standard repositories), you can add “a1.sndcdn.com” to the allowed sites under the “Camera &amp; Mic” tab of that program.</p>
+
+<p>Otherwise, if you’ve unsuccessfully attempted to record at least once on <a href="http://soundcloud.com/upload">the SoundCloud upload page</a>, you can add a1.sndcdn.com from the Flash player’s <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager06.html">web settings panel</a>. While you’re there, check your security settings!</p>
+
+<p>Hope this is helpful to other SoundCloud users on Linux who haven’t quite been able to get recording working.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="flash" /><category term="howto" /><category term="soundcloud" /><category term="ubuntu" /><summary type="html"><![CDATA[Since it was introduced, the SoundCloud Record button has been hard to get to work in Ubuntu and other GNU/Linux distributions. Fortunately, my buddy Omid, who is a SoundCloud developer, has found a solution.]]></summary></entry></feed>

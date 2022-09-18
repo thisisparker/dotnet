@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page8/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page8/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page7/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page9/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page8/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2016/02/new-square-backgrounds-pomological/">
+        New square backgrounds for @pomological
+      </a>
+    </h2>
+
+    <time datetime="2016-02-06T11:01:41-05:00" class="post-date">06 Feb 2016</time>
+
+    <p>I’m happy to say I’ve fixed the most frequent complaint I’ve gotten about <a href="https://twitter.com/pomological">@pomological</a>: the images, while great, are overwhelmingly in the portrait orientation, making the preview images on many Twitter clients—and especially Twitter.com—kind of lousy.</p>
+
+<p>No more! Beautiful squares on a color hand-picked to match most of the painting backdrops.</p>
+
+<blockquote>
+  <p>panariti grapes, painted by amanda almira newton, 1908 <a href="https://t.co/ve1CHqUhbY">pic.twitter.com/ve1CHqUhbY</a></p>
+
+  <p>— old fruit pictures (@pomological) <a href="https://twitter.com/pomological/status/695884141154291712">February 6, 2016</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>To address this, I had to learn a little about <code class="language-plaintext highlighter-rouge">pillow</code>, the leading Python image library. Now, when the bot downloads a random image from the watercolors, it draws a new neutral-colored box that’s a little longer than the painting’s longest side, and pastes the thing in the center of that.</p>
+
+<p>The hardest part was ensuring the resulting image was in a format that Twitter can understand—especially because this is one of the handful of things that changed in between Python 2 and 3. But I persevered, and read a lot of documentation, and now it’s live.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2016/01/earlier-amazon-backdoor-exposed-wishlist-mailing-addresses/">
+        Amazon backdoor exposed wishlist mailing addresses
+      </a>
+    </h2>
+
+    <time datetime="2016-01-24T23:15:22-05:00" class="post-date">24 Jan 2016</time>
+
+    <p>There’s an article circulating right now about how <a href="https://medium.com/@espringe/amazon-s-customer-service-backdoor-be375b3428c4#.hqxfxuajw">Amazon customer service can be exploited to reveal targeted mailing addresses</a>. I discovered and reported a similar vulnerability in December of 2014, which was reported to me as fixed in May of 2015. I haven’t publicly documented that process until now.</p>
+
+<p>The vulnerability I discovered relates to <a href="http://www.amazon.com/gp/registry/search">Amazon wishlists</a>. Users can associate wishlists with a private address, so that people can buy and ship them gifts without having the recipient’s private information. That address should be kept confidential throughout the entire process, but I found that third party shippers—routinely used for Amazon sites outside of the United States—would sometimes include it in confirmation emails.</p>
+
+<p>In particular: I used Amazon.ca to send a book to a friend, and Canada Post delivered her full address to me in an email. In this exchange, Amazon’s confirmation email properly showed my friend’s address as redacted, but Canada Post revealed it in its entirety.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/Screenshot_2016-01-24_19-57-19.png" alt="Amazon confirmation" /></p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/canada-post-confirmation.png" alt="" /></p>
+
+<p>That would be unacceptable in any circumstance. But it’s all the worse because some of the people who use Amazon wishlists are especially vulnerable to targeted harassment. The service is popular, for instance, <a href="http://www.dailydot.com/lifestyle/amazon-sex-worker-wish-lists/">among camgirls and sex workers accepting gifts</a>. I’ve also seen wishlists from Twitter microcelebrities, who get occasional threats and unwanted creepy overtures, as well as wishlists from women who are trying to get some support after leaving an abusive domestic situation. For many of these people, a revealed address can be devastating.</p>
+
+<p>I contacted <a href="http://www.amazon.com/gp/help/customer/display.html/ref=hp_left_sib?ie=UTF8&amp;nodeId=201182150">Amazon Security</a> via email, ((They make a PGP key available, but <a href="http://www.amazon.com/gp/help/customer/display.html?nodeId=200724850">only distribute it over unauthenticated HTTP</a>. All the more reason Amazon should switch to entirely HTTPS.)) and got a confirmation number and a response from a human that it had been assigned to somebody. The fix, introduced in May, seems to simply removed the second confirmation email direct from Canada Post.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/Screenshot_2016-01-24_20-05-52.png" alt="My email to Amazon Security" /></p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2016/01/Screenshot_2016-01-24_20-06-23.png" alt="Amazon Security fix" /></p>
+
+<p>Although the five month window to fix this situation seemed too long to me, I didn’t want to go public until it had been addressed. An attacker who knew about this vulnerability could easily exploit it for the cost of the cheapest item on a particular wishlist, and the only fix a user could make was removing their address entirely.</p>
+
+<p>Given that particular combination—easy, cheap exploitation, and no alternative path to security—it seemed irresponsible in this case to disclose the problem publicly. Others may disagree.</p>
+
+<p>This isn’t the first time wishlists have inadvertently leaked address data—it happened <a href="http://wishlistexposed.blogspot.com/">at least once before in 2011</a>. Nor do I know for sure that the fix has been applied worldwide, as I only tested in Canada. Unfortunately, <a href="https://ssd.eff.org/en/module/introduction-threat-modeling">for people who could face threats if their address were revealed</a>, Amazon seems like a dangerous service to share it with.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/12/supreme-court-data-2015/">
+        Supreme Court Data (2015)
+      </a>
+    </h2>
+
+    <time datetime="2015-12-15T21:18:36-05:00" class="post-date">15 Dec 2015</time>
+
+    <p>Here’s a supercut of all the mentions of the word “data” in last week’s Supreme Court Oral Arguments in <a href="http://www.scotusblog.com/case-files/cases/evenwel-v-abbott/">Evenwel v. Abbott</a>, a case addressing the question of whether the “one-person, one-vote” principle of the Equal Protection Clause allows states to use total population data instead of voter population data in apportioning legislative districts.</p>
+
+<p>Turns out, “data” came up a lot!</p>
+
+<iframe allowfullscreen="" frameborder="0" height="435" loading="lazy" src="https://www.youtube-nocookie.com/embed/EBCxr14AoBA" width="580"></iframe>
+
+<p>This follows a supercut last year of mentions of the word “cloud” in the ABC v. Aereo argument, <a href="https://parkerhiggins.net/2014/04/supreme-court-clouds/">“Supreme Court Clouds (2014)”</a>. The process of making this video was largely similar, though I’ve traded in <code class="language-plaintext highlighter-rouge">mencoder</code> for <code class="language-plaintext highlighter-rouge">ffmpeg</code> for cutting up, modifying, and muxing the video.</p>
+
+<p>This time I thought it’d be nice to include some background music, so I turned to the <a href="https://archive.org/details/musopen-chopin">public domain recordings of various Chopin compositions</a>, created by Musopen. For the video, I used a segment of a <a href="https://archive.org/details/6235_Information_Machine_The_01_29_03_15">1958 educational film about computers</a> made by IBM and sourced from the Prelinger Archive.</p>
+
+<p>Both media sources, as well as the Supreme Court audio, are public domain. (All for different reasons, too: the music because of an intentional waiver of rights; the video because it was not noticed-and-registered and was made in an era that required formalities; and the courtroom audio because of <a href="https://www.law.cornell.edu/uscode/text/17/105">§ 105 barring federal employees from copyright</a> on their official work.)</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/12/a-twitter-list-of-somebody-elses-timeline/">
+        A Twitter list of somebody else&#8217;s timeline
+      </a>
+    </h2>
+
+    <time datetime="2015-12-13T20:00:58-05:00" class="post-date">13 Dec 2015</time>
+
+    <p>Sometimes I wish I could use Twitter as a different account, and read all the conversations and references that result from the unique list of accounts a person has chosen to follow (sometimes over the course of years!) There’s no “use Twitter as @x” mode yet, so the next best thing is to create a list of all the accounts somebody follows. The public view of that list is, roughly, that person’s main timeline. This came in handy recently as I was <a href="https://twitter.com/xor/status/675514816618885120">trying to follow a basketball game</a>, because I don’t yet follow the kinds of people who make insightful comments about basketball games. ((You could argue it’s like a DIY version of Twitter Moments, where you trust the curation done by an individual user is better than the algorithm, but I won’t be the one making that argument.))</p>
+
+<p>Fortunately, this is a one-liner with the super handy command line program <code class="language-plaintext highlighter-rouge">t</code>. If you don’t have <code class="language-plaintext highlighter-rouge">t</code> installed, I <a href="https://github.com/sferik/t">strongly recommend downloading and configuring it</a> even if you don’t want to do the rest of these steps. It’s just a very useful tool to have in your Twitter toolbelt.</p>
+
+<p>Here’s the <code class="language-plaintext highlighter-rouge">t</code> command:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">t followings OTHERACCOUNT | xargs t list add LISTNAME</code></p>
+</blockquote>
+
+<p>Where <code class="language-plaintext highlighter-rouge">OTHERACCOUNT</code> should be replaced with the name of the account you want to use, and the <code class="language-plaintext highlighter-rouge">LISTNAME</code> should be the name of an existing list. I just made the list through the web interface, which allows me to set it as private.</p>
+
+<p>Important note! If you don’t set it as private, or if you ever make it public, members of the list will get a notification that they’ve been added. People <a href="https://twitter.com/theshrillest/status/675515014506156032">tend to think that’s very weird</a>.</p>
+
+<p>I also like to add the originating account to the list so you can see replies to and from that person.</p>
+
+<p>Finally, some caveats: obviously, you won’t get access to private accounts that user follows. You will see people that user has muted, unless you’ve already muted them. You won’t see notifications that user sees. And of course, if the user has something like Tweetdeck and uses columns other than the “main timeline,” you won’t know. Still, it’s a pretty good way to check out Twitter from somebody else’s point of view.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/11/new-bot-pomological/">
+        New bot: @pomological
+      </a>
+    </h2>
+
+    <time datetime="2015-11-29T15:48:02-05:00" class="post-date">29 Nov 2015</time>
+
+    <p>I’ve unleashed a new bot onto the Twitter timeline today: <a href="https://twitter.com/pomological">@pomological</a> tweets an image and description from the Pomological Watercolor Collection in the USDA’s National Agricultural Library. (As all of my friends and anybody unfortunate to stand near me at parties knows, I’ve worked extensively on <a href="https://parkerhiggins.net/tag/pomological-watercolors/">bringing these watercolors to the public</a>.) These are beautiful images with serious historical significance, so it’s fun to slip them in between everything else happening on Twitter. <a href="https://twitter.com/pomological">You should follow</a>! Here’s the first automated tweet from the account:</p>
+
+<blockquote>
+  <p>muster apples, painted by royal charles steadman, 1924 <a href="https://t.co/gZ72sqO33j">pic.twitter.com/gZ72sqO33j</a></p>
+
+  <p>— old fruit pictures (@pomological) <a href="https://twitter.com/pomological/status/671060578681511936">November 29, 2015</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>For the nerd stuff: the code (such as it is) is <a href="https://github.com/thisisparker/pombot">available on Github</a>. The actual bot doesn’t do much; the trick was getting all the data together in advance so it just has to wake up every three hours and pick from about 7500 statuses to post. One thing that has been super helpful on a lot of these projects is a scrape that <a href="https://twitter.com/riordan">Dave Riordan</a> did earlier this year of the Collection’s page on the USDA site.</p>
+
+<p>On the programming side, I continue to be incredibly pleased with the book <a href="https://automatetheboringstuff.com/"><em>Automate the Boring Stuff With Python</em></a>. I feel like I promote it too much, but it really has been so helpful and has gotten me off the ground on a bunch of projects that I was too intimidated to face before. In this project, the manipulation of CSVs and scraping web pages with BeautifulSoup were done with skills straight out of the book.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page9/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page7/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

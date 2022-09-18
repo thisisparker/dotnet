@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      HOWTO: Transfer OTR private keys between Adium and Pidgin &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="HOWTO: Transfer OTR private keys between Adium and Pidgin" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I recently re-installed Ubuntu on my home computer, and wanted to move my office Mac’s Adium OTR key and collected fingerprints over to the new install. I had some trouble, but got it eventually, so I wanted to document the process." />
+<meta property="og:description" content="I recently re-installed Ubuntu on my home computer, and wanted to move my office Mac’s Adium OTR key and collected fingerprints over to the new install. I had some trouble, but got it eventually, so I wanted to document the process." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-01-30T04:44:24-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HOWTO: Transfer OTR private keys between Adium and Pidgin" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2012-01-30T04:44:24-05:00","datePublished":"2012-01-30T04:44:24-05:00","description":"I recently re-installed Ubuntu on my home computer, and wanted to move my office Mac’s Adium OTR key and collected fingerprints over to the new install. I had some trouble, but got it eventually, so I wanted to document the process.","headline":"HOWTO: Transfer OTR private keys between Adium and Pidgin","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin/"},"url":"https://thisisparker.github.io/dotnet/2012/01/howto-transfer-otr-private-keys-between-adium-and-pidgin/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">HOWTO: Transfer OTR private keys between Adium and Pidgin</h2>
+  <time datetime="2012-01-30T04:44:24-05:00" class="post-date">30 Jan 2012</time>
+  <p>I recently re-installed Ubuntu on my home computer, and wanted to move my office Mac’s Adium OTR key and collected fingerprints over to the new install. I had some trouble, but got it eventually, so I wanted to document the process.</p>
+
+<p>The first step is to make sure you’ve got Pidgin and Pidgin-OTR installed on one computer, and Adium on another.</p>
+
+<p>Adium stores the OTR private key and the fingerprints in</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Application Support/Adium 2.0/Users/Default/otr.private_key
+~/Library/Application Support/Adium 2.0/Users/Default/otr.fingerprints
+
+</code></pre></div></div>
+
+<p>Pidgin, on GNU/Linux, stores the OTR private key and fingerprints in</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.purple/otr.private_key
+~/.purple/otr.fingerprints
+
+</code></pre></div></div>
+
+<p>It’s worth noting that neither application stores these keys encrypted. The threat model assumes that if an attacker has access to your <code class="language-plaintext highlighter-rouge">Adium 2.0</code> or <code class="language-plaintext highlighter-rouge">.purple</code> folder, you’re already compromised. But that means you have to be extra careful about transferring these files from one computer to another: obviously, sending your key in a cleartext e-mail is not a good idea.</p>
+
+<p>Anyway, harmonizing is just a matter of copying both files from one location to another, and then modifying the key slightly to match the format that each program stores it in. I was disappointed at how poorly documented these formats are, but fortunately the always impressive <a href="https://guardianproject.info/">Guardian Project</a> has gone through and documented each program’s file location and format in order to build <a href="https://github.com/guardianproject/otrfileconverter">a tool to convert files between different IM client formats</a>. The tool’s not done, and so far only converts to their <a href="https://guardianproject.info/apps/gibber/">Gibberbot mobile IM client</a>, but the <a href="https://github.com/guardianproject/otrfileconverter/blob/master/README.txt">README</a> contains all the information you need.</p>
+
+<p>In the case of Adium to Pidgin key transfer, which both use the standard <code class="language-plaintext highlighter-rouge">libotrname</code> field, which is an integer in the Adium config file, needs to be changed to the actual account name. The <code class="language-plaintext highlighter-rouge">protocol</code> field needs to be changed from <code class="language-plaintext highlighter-rouge">libpurple-jabber-gtalk</code> (in the case of a GTalk account) to <code class="language-plaintext highlighter-rouge">prpl-jabber</code>.</p>
+
+<p>You may need to turn Pidgin’s OTR plugin off and on again, but it should recognize your key, and all of your verified fingerprints should show up as well.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

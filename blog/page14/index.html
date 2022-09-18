@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page14/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page14/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/page13/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page15/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page14/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/03/new-york-times-keeps-tragedies-ad-free/">
+        How the New York Times keeps tragedies ad-free
+      </a>
+    </h2>
+
+    <time datetime="2015-03-24T19:48:36-04:00" class="post-date">24 Mar 2015</time>
+
+    <p>I was looking at the HTML source of a recent <a href="http://www.nytimes.com/2015/03/25/world/europe/germanwings-crash.html">New York Times story about a tragic plane accident</a>—150 people feared dead—and noticed this meta tag in its head:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;&lt;span class="start-tag"&gt;meta&lt;/span&gt; &lt;span class="attribute-name"&gt;property&lt;/span&gt;="&lt;a class="attribute-value"&gt;ad_sensitivity&lt;/a&gt;" &lt;span class="attribute-name"&gt;content&lt;/span&gt;="&lt;a class="attribute-value"&gt;noads&lt;/a&gt;" /&gt;
+</code></pre></div></div>
+
+<p>There are no Google results for the tag, so it looks like it hasn’t been documented, but it seems like a pretty low-tech way to keep possibly insensitive ads off a very sensitive story—an admirable effort. It’s interesting in part because it’s almost an acknowledgement that ads are invasive and uncomfortable. They cross over into the intolerable range when we’re emotionally vulnerable from a tragic story. Advertisers know this too, and the New York Times might stipulate in contracts they’ll try to keep ads off sensitive pages.</p>
+
+<p>If I had to guess, I’d say this is probably a manual switch in their CMS. It would be interesting to see what sorts of stories get dubbed unfit for ads, though scraping enough article pages to get that information might raise some eyebrows on that side of the paywall.</p>
+
+<p>(This information, by the way, doesn’t have to be exposed for keeping ads off pages they serve. But it could help with debugging, and definitely could be useful for syndication and maybe even displaying in official apps.)</p>
+
+<p>This isn’t the first example of companies declining to advertise against tragedies. Five years ago a user documented that <a href="http://boingboing.net/2009/07/31/how-to-avoid-ads-in.html">Gmail doesn’t show ads on emails that contain words from a certain blacklist</a>, at a certain density—one sensitive word per 167 “normal” words.</p>
+
+<h2 id="update-25-march-the-tragedy-tag">update, 25 March: The Tragedy Tag</h2>
+
+<p>Since I originally posted this yesterday, two interesting things have happened. One is that current and former <em>Times</em> employees have confirmed my guess that this is a manual CMS switch (dating back to at least 2003), and people familiar with the CMSes at other publications like <em>The Guardian</em> have said there are similar systems in place.</p>
+
+<p>The other thing is that the tragic story that prompted this took a turn for the worse, and the deaths that were once suspected have been confirmed. The HTML tag has been updated from <code class="language-plaintext highlighter-rouge">"noads"</code> to <code class="language-plaintext highlighter-rouge">"tragedy"</code>, which employees have confirmed is the third and final position on the switch.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/03/25-treasures-public-domain/">
+        25 treasures from the public domain
+      </a>
+    </h2>
+
+    <time datetime="2015-03-09T04:11:54-04:00" class="post-date">09 Mar 2015</time>
+
+    <p>Throughout the month of February, I thought it would be fun to share something cool from the public domain each day. I didn’t quite hit all 28 days—here and there I’d go a little too long without getting to my computer—but I ended up with a collection of really cool things.</p>
+
+<p>I <a href="https://twitter.com/search?f=realtime&amp;q=from%3Axor%20%23pdtotd&amp;src=typd">shared them on Twitter with the hashtag #pdtotd</a>, which I imagined stood for “public domain thing of the day,” but I never explained what I was doing. My friend Zara took a look at it and guessed it actually stood for “public domain treasure of the day,” which seems like a better fit. Here are some of the things I shared.</p>
+
+<h2 id="1-images-from-the-new-york-world-telegram--sun">1. Images from the New York World-Telegram &amp; Sun</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B8y0hniCMAAwSz_.jpg" alt="B8y0hniCMAAwSz_" /></p>
+
+<p>The NY W-T&amp;S dedicated a <a href="https://commons.wikimedia.org/w/index.php?title=Category:PD_New_York_World-Telegram_%26_Sun">collection of photos to the public domain</a>, including portraits of civil rights leaders like Malcolm X and Dr. Martin Luther King, Jr. This seemed like an appropriate way to kick off Black History Month.</p>
+
+<h2 id="2-extinct-birds-1907">2. Extinct Birds (1907)</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B85jEfzCUAABeKF.jpg" alt="B85jEfzCUAABeKF" /></p>
+
+<p>Beautiful pictures of birds already extinct over a century ago, scanned by the Internet Archive and <a href="https://www.flickr.com/photos/internetarchivebookimages/tags/bookidextinctbirdsatte00roth">hosted on Flickr</a>.</p>
+
+<h2 id="3-anti-suffrage-postcards">3. Anti-Suffrage postcards</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/509c1aa04d102.jpg" alt="509c1aa04d102" /></p>
+
+<p>As I tweeted, the early 20th-century anti-Suffrage movement had “strong misandry game”. These <a href="http://bust.com/i-want-to-vote-but-my-wife-wont-let-me-check-out-these-vintage-suffragist-and-anti-suffrage-postcards.html">historical postcards</a> are interesting artifacts and freely available.</p>
+
+<h2 id="4-highlights-from-the-new-york-public-librarys-maps-collection">4. Highlights from the New York Public Library’s maps collection</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/newyorkmap-1000px.jpg" alt="newyorkmap-1000px" /></p>
+
+<p>NYPL has put <a href="http://digitalcollections.nypl.org/divisions/lionel-pincus-and-princess-firyal-map-division">some 20,000 maps online</a>, with no known restrictions. The Public Domain Review, which I consulted a few times throughout this project, <a href="http://publicdomainreview.org/collections/highlights-from-the-20000-maps-made-freely-available-online-by-new-york-public-library/">picked out some highlights</a>.</p>
+
+<h2 id="5-nasas-apollo-sounds">5. NASA’s Apollo sounds</h2>
+
+<iframe frameborder="no" height="450" loading="lazy" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/55323442&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" width="100%"></iframe>
+
+<p><a href="https://soundcloud.com/nasa/sets/apollo-sounds">Original audio from NASA missions</a>, including the famous “Houston, we’ve had a problem” and of course “One small step for man.”</p>
+
+<h2 id="6-fundamentals-of-rural-surveillance-1993">6. Fundamentals of Rural Surveillance (1993)</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B9NElLlCUAA8xPq.png" alt="B9NElLlCUAA8xPq" /></p>
+
+<p>The Federal Law Enforcement Training Center made this <a href="https://archive.org/details/gov.ntis.ava19234vnb1">somewhat dated PSA on rural surveillance tactics</a>, which I found as part of the Fedflix collection.</p>
+
+<h2 id="7-kunstformen-der-natur-1904">7. Kunstformen der Natur (1904)</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B9SXDOmCMAAzY1B.jpg" alt="B9SXDOmCMAAzY1B" /></p>
+
+<p>Beautiful illustrations from <a href="https://commons.wikimedia.org/wiki/Kunstformen_der_Natur">Ernst Haeckel’s book on natural forms</a>. All available in high resolution from the Wikimedia Commons.</p>
+
+<h2 id="8-unsplash-photos">8. Unsplash photos</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/photo-1415302199888-384f752645d0.jpeg" alt="photo-1415302199888-384f752645d0" /></p>
+
+<p>Every 10 days, <a href="https://unsplash.com/">Unsplash</a> releases 10 new high quality, high-res photos into the public domain. They’ve been doing it for almost two years now, and have quite a collection.</p>
+
+<h2 id="9-landsat8-satellite-photos">9. Landsat8 satellite photos</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/LC80990822015066LGN00.jpg" alt="LC80990822015066LGN00" /></p>
+
+<p>The Landsat photos of Earth show remarkable natural landscapes from above. Charlie Loyd has built <a href="http://sat8.land/">an interface to view the latest photos</a>.</p>
+
+<h2 id="10-the-video-cellar">10. The Video Cellar</h2>
+
+<p>The Video Cellar collects movies that have fallen into the public domain or that were never subject to copyright restrictions, as a <a href="https://www.youtube.com/user/TheVideoCellar/videos?view=0&amp;sort=p&amp;flow=grid">popular YouTube channel</a>.</p>
+
+<h2 id="11-3d-stereograms-of-neanderthal-skulls">11. 3D stereograms of Neanderthal skulls</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/16305712920_120ab0990f_b.jpg" alt="16305712920_120ab0990f_b" /></p>
+
+<p>One of the finds from the Public Domain Review’s excellent essay collection, the <a href="http://publicdomainreview.org/2015/02/11/neanderthals-in-3d-lhomme-de-la-chapelle/">story behind the GIFs</a> is even more impressive than the images themselves.</p>
+
+<h2 id="12-fantasmagori-1908">12. Fantasmagori (1908)</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/9815747855_fc3ce5080e_o.gif" alt="9815747855_fc3ce5080e_o" /></p>
+
+<p>This is probably the <a href="https://archive.org/details/Fantasmagori">first ever animated film</a>, and it’s delightfully silly and strange. It wouldn’t take much to make this feel very modern and new.</p>
+
+<h2 id="13-animal-sounds-from-the-tierstimmenarchiv">13. Animal sounds from the Tierstimmenarchiv</h2>
+
+<p>The Berlin Natural History Museum has an <a href="http://species-id.net/openmedia/Category:Media_by_Tierstimmenarchiv_MfN">animal sounds archive posted online</a>, with 600 sounds from a wide variety of animals. Some are very mundane, but many are quite exotic. (h/t to Zara on this one.)</p>
+
+<h2 id="14-emblems-of-love-in-four-languages-1683">14. Emblems of Love in Four Languages (1683)</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B914dFICUAEV6Gq.jpg" alt="B914dFICUAEV6Gq" /></p>
+
+<p>A <a href="https://archive.org/details/emblemsofloveinf00ayre">book full of pictures of Cupid</a>, etc, posted on Valentine’s Day.</p>
+
+<h2 id="15-thomas-edisons-patent-illustrations">15. Thomas Edison’s patent illustrations</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/14569970970_70dc18ff81_z.jpg" alt="14569970970_70dc18ff81_z" /></p>
+
+<p>Thomas Edison’s patents were <a href="https://secure.flickr.com/photos/internetarchivebookimages/tags/bookidCollectionUnitev1Edis">bound together in a book</a>, which was scanned many years later by the Internet Archive. The illustrations are quite striking.</p>
+
+<h2 id="16-early-us-currency">16. Early US currency</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/US-20-LT-1863-Fr-126b.jpg" alt="US-$20-LT-1863-Fr-126b" /></p>
+
+<p>The <a href="https://en.wikipedia.org/wiki/United_States_twenty-dollar_bill">$20 bill</a> has looked about the same throughout my entire life, but it went through some really significant changes 150 years ago.</p>
+
+<h2 id="17-dot-pictograms">17. DOT pictograms</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/dotpictograms.png" alt="dotpictograms" /></p>
+
+<p>Developed in 1974, <a href="https://en.wikipedia.org/wiki/DOT_pictograms">these images are now a standard</a> visual language. As with most standards, it works better when it’s free for everybody to use.</p>
+
+<h2 id="18-the-usdas-pomological-watercolor-collection">18. The USDA’s Pomological Watercolor Collection</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B-JuVUECUAAly4p.jpg" alt="B-JuVUECUAAly4p" /></p>
+
+<p><a href="http://usdawatercolors.nal.usda.gov/pom/home.xhtml">Over 7,500 watercolors</a> from around the turn of the 20th century, depicting various species of fruits and nuts, and commissioned for the US government. This is an amazing collection.</p>
+
+<h2 id="19-tokaido-gojusan-eki-hachiyama-edyu-1848">19. Tokaido Gojusan-eki Hachiyama Edyu, 1848</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/00405423eac254d0156ff335631c63fb-678x1024.jpg" alt="00405423eac254d0156ff335631c63fb" /></p>
+
+<p>From the National Agricultural Library’s special collection comes this <a href="http://www.nal.usda.gov/exhibits/speccoll/exhibits/show/rare-books/tokaido-gojusan-eki-hachiyama-">1848 book of illustrations</a> of full-size scenes and dwarf potted plants.</p>
+
+<h2 id="20-screenshots-of-the-superfish-vulnerability">20. Screenshots of the Superfish vulnerability</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B-NlUhKIcAA88NS.pnglarge.png" alt="B-NlUhKIcAA88NS.png:large" /></p>
+
+<p>In order to get legitimate information out about this security vulnerability as quickly as possible, @ErrataRob committed <a href="https://twitter.com/ErrataRob/status/568409382070824962">his screenshots</a> to the public domain so journalists writing on deadline wouldn’t have to worry about getting in touch for permission.</p>
+
+<h2 id="21-alex-wilds-insect-shots">21. Alex Wild’s insect shots</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/flysex2.jpg" alt="flysex2" /></p>
+
+<p>Alex Wild does all sorts of insect photography, and has a <a href="http://www.alexanderwild.com/Professional/Public-Domain/">small collection of impressive shots</a> he’s committed to the public domain.</p>
+
+<h2 id="22-free-music-archives-revitalize-music-contest-entries">22. Free Music Archive’s Revitalize Music Contest entries</h2>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/90306532&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false" width="100%"></iframe>
+
+<p>All of the entries to this contest are <a href="http://www.freemusicarchive.org/curator/WFMU/blog/The_Revitalize_Music_Contest">new covers of public domain tunes</a>. Entrants were required to release their new recordings into the public domain as well.</p>
+
+<h2 id="23-cabinet-cards-from-the-houghton-library">23. “Cabinet Cards” from the Houghton Library</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/14799557053_44ba40d1f5_o-1024x683.jpg" alt="14799557053_44ba40d1f5_o" /></p>
+
+<p>Harvard’s Houghton Library has a wacky set of images from the theater collection’s 100,000+ cabinet cards. Some of the <a href="http://publicdomainreview.org/collections/cabinet-card-photographs-from-the-harvard-theatre-collection/">highlights are up at the Public Domain Review</a>.</p>
+
+<h2 id="24-the-fleischer-superman-cartoons">24. The Fleischer Superman cartoons</h2>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Superman_%281940s_cartoons%29#List_of_films">1940s Superman cartoons</a> made at the Fleischer and Famous studios are classics in the genre.</p>
+
+<h2 id="25-birds-of-america-from-the-audubon-society">25. Birds of America from the Audubon Society</h2>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/03/B-5bjPNWsAEp1qH.jpg" alt="B-5bjPNWsAEp1qH" /></p>
+
+<p>The Audubon Society has put high quality scans of prints from its namesake John <a href="http://www.audubon.org/birds-of-america">James Audubon’s book “Birds of America”</a> online.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/02/blurred-lines-trial-starts-today/">
+        &#8220;Blurred Lines&#8221; trial starts today
+      </a>
+    </h2>
+
+    <time datetime="2015-02-24T10:40:01-05:00" class="post-date">24 Feb 2015</time>
+
+    <p>I wrote a <a href="http://ratter.com/copyright-mixtape-how-the-blurred-lines-lawsuit-coul-1686104132">piece for a new-ish publication called</a> <em>Ratter</em> about the impending copyright trial between Pharrell, Robin Thicke, and the estate of Marvin Gaye, about whether the song “Blurred Lines” infringes on “Got To Give It Up.” In particular, the judge has done some unusual things in terms of what is allowable evidence, given that the Gaye song predates the lifting of notice-and-registration requirements, so <em>only</em> the material in the deposited copy of the sheet music is covered by copyright, under the 1909 Act. From my piece:</p>
+
+<blockquote>
+  <p>But in the last week or so, the docket filings have been piling up and the judge has <a href="https://ia801902.us.archive.org/20/items/gov.uscourts.cacd.569559/gov.uscourts.cacd.569559.231.0.pdf">changed course on that position</a>. The Gaye estate had already filed mash-ups of the two songs to demonstrate how similar they were. Perhaps inspired by those recordings, the judge suggested an unusual and uniquely modern twist: both sides could try submitting versions of “Got To Give It Up” that consist of <em>only</em> the copyrighted elements of the song. In other words, both sides should agree how to distil “Got To Give It Up” down to its basic copyrighty essence — a fire mixtape of pure copyrightium.</p>
+
+  <p>Both sides eventually agreed to this condition and edited together the versions of “Got To Give It Up” the jury is likely to hear. If it’s not written down in the sheet music it’s off the table, meaning that the courtroom version of “Got To Give It Up” likely sounds like the MIDI version that auto-played on a Geocities home page, or a rendition by the animatronic band at Chuck E. Cheese.</p>
+</blockquote>
+
+<p>Since that was published, my <em>Ratter</em> editor Kate was able to get and publish a copy of the actual courtroom recordings, and we were relieved to hear <a href="http://ratter.com/heres-the-pivotal-track-of-the-blurred-lines-copyrigh-1686896366">they sound about as weird as we’d hoped</a>.</p>
+
+<p>In a sense, I think this case mirrors <em>Aereo</em>, but for music. That is to say, it’s undisputed that Pharrell and Thicke wanted to emulate the sound of “Got To Give It Up,” and attempted to do so in a way that deliberately complied with the law. One of the perverse outcomes of <em>Aereo</em> is that it creates the sense that a careful compliance with the law might be deemed a violation—”too cute by half,” maybe, or a Rube Goldberg machine. I hope that doesn’t happen with “Blurred Lines,” because it’s the concept of musical influence that would suffer.</p>
+
+<p>Now after several delays, the trial begins today! While I was hoping to make it, I’ll have to watch from afar.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/02/fraktur-degrade-across-platforms/">
+        How does Fraktur degrade across platforms?
+      </a>
+    </h2>
+
+    <time datetime="2015-02-17T03:03:14-05:00" class="post-date">17 Feb 2015</time>
+
+    <p>The Unicode Consortium, in its ∞ wisdom, decided a long time ago that the <a href="https://en.wikipedia.org/wiki/Fraktur">Fraktur script</a>—that weird old-fashioned German style of text—should <a href="https://en.wikipedia.org/wiki/Fraktur#Fraktur_in_Unicode">not be encoded in its own block</a>, but rather considered a font in which standard latin text can be rendered. That has some implications for ligatures, but that’s beyond the scope of this post and my knowledge.</p>
+
+<p>However, most of the Fraktur alphabet is available <a href="http://www.w3.org/TR/MathML2/1D5.html">deep in the math characters</a> code points. Using a simple conversion tool, like <a href="http://www.panix.com/~eli/unicode/convert.cgi">this text converter</a> I keep bookmarked, you can replace standard characters with those math symbols that resemble them. By doing that, you can copy and paste what looks like formatted text into plain text boxes, and—for example—make jokes with it on Twitter.</p>
+
+<p>Which raises the question of how various platforms support it, and how that support degrades. After all, we’re talking about pretty deep recesses of the Unicode character space, so it can vary pretty wildly.</p>
+
+<p>Earlier tonight I made a <a href="https://twitter.com/xor/status/567543759479373824">joke on Twitter</a> to my friend Noah that used these characters. Here’s how it appeared on my OS X box running Firefox:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/Screen-Shot-2015-02-16-at-11.47.46-PM.png" alt="" /></p>
+
+<p>But here’s how it looked to him on his iPhone:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/noahscreenshot.png" alt="noahscreenshot" /></p>
+
+<p>I wanted to see how it appears on different platforms, so I <a href="https://twitter.com/xor/status/567545787127578624">asked people to send me screenshots</a>, and got a whole bunch of responses. On multiple versions of Windows and different platforms, you get empty boxes:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/B-BUhcGIUAA7TWZ.png" alt="B-BUhcGIUAA7TWZ" /></p>
+
+<p>While on Android, across many different apps, it degrades to the plain latin text!</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/androidscreenshot.png" alt="androidscreenshot" /></p>
+
+<p>I also got evidence that it worked fine on a range of GNU/Linux boxes, every OS X combination I saw, and a Chromebook.</p>
+
+<p>The frustrating result is that not only can you not count on all popular platforms to support these characters, you also can’t count on them to fail the same way. Android removes the context that these are “special” characters, while iOS, Windows, (and, incidentally, <a href="https://en.wikipedia.org/wiki/Sailfish_OS">Sailfish OS</a>) render it completely unreadable.</p>
+
+<p>So I guess don’t use it for mission-critical Twitter jokes.</p>
+
+<p>P.S. If you’ve read this far about Fraktur, you really ought to read about the <a href="https://en.wikipedia.org/wiki/Antiqua%E2%80%93Fraktur_dispute">Antiqua-Fraktur dispute</a>, which is an amazing piece of typographic history.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2015/02/earth-elon-please-let-public-domain-space-photos/">
+        Earth to Elon: please let the public domain have space photos
+      </a>
+    </h2>
+
+    <time datetime="2015-02-16T03:55:00-05:00" class="post-date">16 Feb 2015</time>
+
+    <p>It probably goes without saying that I am a strong supporter of <a href="https://www.techdirt.com/articles/20150212/06583630000/dear-elon-musk-please-put-spacex-photos-public-domain.shtml">Techdirt’s call for Elon Musk</a> to release space photos taken by SpaceX into the public domain. It would continue a tradition of unrestricted space photos that began with NASA’s images—necessarily public domain, coming from a U.S. government agency—but which is <a href="http://motherboard.vice.com/read/when-spacex-takes-photos-on-a-nasa-mission-copyright-law-explodes">jeopardized when space photographs come from private companies</a>.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/599px-The_Earth_seen_from_Apollo_17-300x300.jpg" alt="599px-The_Earth_seen_from_Apollo_17" />This is an issue I’ve been vocal about before, and with other contract photographers that NASA uses. (Like for example: it strikes me as just impossibly sad that none of the photos of the retiring shuttle being flown over the US—take <a href="https://www.flickr.com/photos/nasahqphoto/7088014787/">this beautiful shot over D.C.</a>, to pick just one—likely won’t be in the public domain for another century.)</p>
+
+<p>A robust and well-documented space program is a major boon for motivating young people to study science. Images from space have <a href="https://en.wikipedia.org/wiki/The_Blue_Marble#cite_note-NASAmarble-2">formed the basis of major social movements</a>, and been the <a href="http://sb.longnow.org/SB_homepage/WholeEarth_buton.html">target of activism campaigns</a>.</p>
+
+<p>And just generally, it’s an incredibly valuable thing that U.S. government works go straight to the public domain. Lots of other countries don’t have that, despite the common-sense logic behind it: we, the taxpayers, already paid for the work, which requires no additional incentive to be produced. To see that value get chipped away by private deals would be tragic.</p>
+
+<p>All this is to say, society has gotten so much out of media from space being free for all to share, and that shouldn’t end as private companies get access. Please, Elon Musk, commit to releasing photography from SpaceX into the public domain. The future will thank you.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page15/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/page13/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

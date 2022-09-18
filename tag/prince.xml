@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/prince.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/prince.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">Writing the Prince symbol in Unicode</title><link href="https://thisisparker.github.io/dotnet/2013/01/writing-the-prince-symbol-in-unicode/" rel="alternate" type="text/html" title="Writing the Prince symbol in Unicode" /><published>2013-01-25T11:54:45-05:00</published><updated>2013-01-25T11:54:45-05:00</updated><id>https://thisisparker.github.io/dotnet/2013/01/writing-the-prince-symbol-in-unicode</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2013/01/writing-the-prince-symbol-in-unicode/"><![CDATA[<p>In the early 90s, the musician Prince dropped his name and started going by an unpronounceable symbol. He called it “The Love Symbol,” and it’s a combination of the traditional male (♂) and female (♀) symbols.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2013/01/Prince_logo.svg_.png" alt="Prince_logo.svg" /></p>
+
+<p>Apparently (at least according to Wikipedia) <a href="https://en.wikipedia.org/wiki/Prince_(musician)#The_New_Power_Generation.2C_Diamonds_and_Pearls_and_name_change:_1991.E2.80.9394">Warner Bros had to send out floppy disks with a custom font</a> to the music press they hoped would review his record. As a side note, this would be one of my all-time favorite collectibles. A purple (and you know it’d be purple) floppy disk with the Prince font? So great.</p>
+
+<p>Anyway, so the Prince symbol is not eligible for inclusion in Unicode, which “does not encode personal characters, nor does it encode logos.” Still, though, the Unicode geeks on mailing lists have talked about it, charmingly using the shorthand TAFKAP (for The Artist Formerly Known As Prince). <a href="http://www.unicode.org/mail-arch/unicode-ml/Archives-Old/UML019/0611.html">In one 1999 thread</a>, a guy named Marco Cimarosti (<a href="http://web.tiscali.it/marco.cimarosti/">personal homepage, in Italian, last updated 2006</a>) proposed a canonical encoding of the glyph, using these combining characters:</p>
+
+<blockquote>
+  <p>01AC LATIN CAPITAL LETTER T WITH HOOK<br />
+030A COMBINING RING ABOVE<br />
+0335 COMBINING SHORT STROKE OVERLAY<br />
+032C COMBINING CARON BELOW</p>
+</blockquote>
+
+<p>The end result, which will only work if you’re viewing this page in UTF-8 and have proper font support ((If you don’t have the right font, I can recommend <a href="http://users.teilar.gr/~g1951d/">Symbola</a>)) is Ƭ̵̬̊. Rendered large, that’s:<br />
+<span style="font-size: xx-large; line-height: 150%; font-family: Symbola, Helvetica, Arial, sans-serif;">Ƭ̵̬̊</span><br />
+It’s not perfect, and it isn’t very simple to type, but it beats writing out The Artist Formerly Known As Prince each time.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="prince" /><category term="typography" /><category term="unicode" /><summary type="html"><![CDATA[In the early 90s, the musician Prince dropped his name and started going by an unpronounceable symbol. He called it “The Love Symbol,” and it’s a combination of the traditional male (♂) and female (♀) symbols.]]></summary></entry></feed>

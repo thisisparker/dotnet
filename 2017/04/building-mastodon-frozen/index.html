@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Building Mastodon to be frozen &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Building Mastodon to be frozen" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As the federated social network Mastodon has surged in popularity over the last month, more than a thousand instances — ranging from a single user to tens of thousands — have been started by the community." />
+<meta property="og:description" content="As the federated social network Mastodon has surged in popularity over the last month, more than a thousand instances — ranging from a single user to tens of thousands — have been started by the community." />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2017/04/building-mastodon-frozen/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2017/04/building-mastodon-frozen/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-04-30T20:21:02-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building Mastodon to be frozen" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2017-04-30T20:21:02-04:00","datePublished":"2017-04-30T20:21:02-04:00","description":"As the federated social network Mastodon has surged in popularity over the last month, more than a thousand instances — ranging from a single user to tens of thousands — have been started by the community.","headline":"Building Mastodon to be frozen","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2017/04/building-mastodon-frozen/"},"url":"https://thisisparker.github.io/dotnet/2017/04/building-mastodon-frozen/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Building Mastodon to be frozen</h2>
+  <time datetime="2017-04-30T20:21:02-04:00" class="post-date">30 Apr 2017</time>
+  <p>As the federated social network Mastodon has surged in popularity over the last month, <a href="https://instances.mastodon.xyz/">more than a thousand instances</a> — ranging from a single user to tens of thousands — have been started by the community.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2017/04/mastodon-logo-282x300.png" alt="" /></p>
+
+<p>That’s a really great development in terms of decentralization and distribution, which bring a lot of benefits, but it also makes it a near certainty that a currently popular instance will go away. It could happen abruptly, if a sysadmin accidentally drops a database, or gradually, if it becomes to expensive or time-consuming to run, but it will happen.</p>
+
+<p>Mastodon developers can make some choices now that could help preserve those communities — if only in a “frozen” form — after they are no longer active. And if done right, it could open up new possibilities for persistent presentation of ephemeral communities.</p>
+
+<p>Specifically, Mastodon can develop a more robust option to export an entire instance in a format that can be served statically. The Mastodon instance would be frozen, in the sense that nobody could sign up or add new content to it, but its links could be preserved and the interactions could be saved. Serving a static version of the site in a dedicated viewer could be done cheaply, and organizations like the Internet Archive would likely step up to host significant defunct communities.</p>
+
+<p>(Twitter sort of has an option like this on the individual level: users can <a href="https://support.twitter.com/articles/20170160">export their own archive</a>, and get a zip file that <em>looks</em> like Twitter but is all local.)</p>
+
+<p>The historical benefits of that kind of feature are obvious to anybody who’s gone through old forums or mailing list posts. But if it were built out as a feature, I think more communities would find new creative ways of using the software. One that immediately comes to mind: Conferences could throw up an instance and create accounts for all the attendees. Once that instance was “frozen,” it’s a record of the backchannel like we haven’t really had before. Or in cases where they’ve gotten clear consent, researchers could parse the data to learn things about how the different ways in which individual communities communicate.</p>
+
+<p>Obviously not every instance would want to get the preservation treatment, and instance admins would likely want to make clear what their long term plans are. And of course, this feature would have to be designed very carefully to respect the privacy preferences of people who participate. But for many networks, the present moment gets all the focus while the real value lies in each of those presents that have now become the past. Most social networks don’t stop to consider that fact. Mastodon, with its community focus, could.</p>
+
+<p>There aren’t that many years of Web (or even Internet) history, but already those years haven’t been kind to online communities. <a href="https://www.wired.com/2010/11/geocities-lives-on-as-massive-torrent-download/">Archiveteam heroics</a> only go so far — designing for the long-term preservation of our spaces should be a priority.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

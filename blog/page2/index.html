@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      blog &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="blog" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/blog/page2/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/blog/page2/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://thisisparker.github.io/dotnet/blog/" />
+<link rel="next" href="https://thisisparker.github.io/dotnet/blog/page3/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Parker Higgins","url":"https://twitter.com/xor"},"headline":"blog","url":"https://thisisparker.github.io/dotnet/blog/page2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo/">
+        Subtitles for Norway&#8217;s SlowTV train ride to Oslo
+      </a>
+    </h2>
+
+    <time datetime="2018-04-04T22:24:12-04:00" class="post-date">04 Apr 2018</time>
+
+    <p><img src="https://parkerhiggins.net/wp-content/uploads/2018/04/Screenshot_2018-03-23_22-34-01.png" alt="" /></p>
+
+<p>One thing I enjoy is Norway’s public service broadcaster’s production of a train ride from Bergen to Oslo, which was first broadcast in real time, over seven or so hours, in 2009. It’s predictably pretty quiet stuff, but—at least now that it’s on Netflix—there are in fact subtitles of what little dialog there is.</p>
+
+<p>Netflix makes it pretty straightforward to extract the subtitles from a given program, and it stores them according to a very fun standard called <a href="https://en.wikipedia.org/wiki/Timed_Text_Markup_Language">the Timed Text Markup Language, or TTML</a>, which just missed adoption by the WHATWG in favor of a lighter-weight, less-XML spec called <a href="https://en.wikipedia.org/wiki/WebVTT">WebVTT</a>.</p>
+
+<p>Anyway, I pulled out the (very spare) subtitles in that format and wanted to convert them to something a little more usable. So first I converted them to JSON, and produced an array with <a href="https://gist.github.com/thisisparker/c9d42d1e10d7dd1420915ac090a41dd4">an object for every subtitle</a>, and then processed it a little further and created a version where <a href="https://gist.github.com/thisisparker/b03d94c7900415da2b616e1fac5d673d">“adjacent” subtitles are combined into single objects</a>.</p>
+
+<p>The result is nearly as hypnotic as the original video:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    {
+        "begin": "00:17:21",
+        "end": "00:17:23",
+        "text": [
+            "[metallic clang]"
+        ]
+    },
+    {
+        "begin": "00:19:40",
+        "end": "00:19:44",
+        "text": [
+            "[indistinct conversation / woman laughs]"
+        ]
+    },
+    {
+        "begin": "00:19:52",
+        "end": "00:19:54",
+        "text": [
+            "[woman laughs]"
+        ]
+    },
+    {
+        "begin": "00:19:57",
+        "end": "00:20:01",
+        "text": [
+            "[indistinct conversation]"
+        ]
+    },
+    {
+        "begin": "00:21:47",
+        "end": "00:21:48",
+        "text": [
+            "[metallic clang]"
+        ]
+    },
+    {
+        "begin": "00:22:10",
+        "end": "00:22:12",
+        "text": [
+            "[metallic clang]"
+        ]
+}
+</code></pre></div></div>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2018/03/archiving-threatened-outlets-for-the-freedom-of-the-press-foundation/">
+        Archiving threatened outlets for the Freedom of the Press Foundation
+      </a>
+    </h2>
+
+    <time datetime="2018-03-12T23:07:24-04:00" class="post-date">12 Mar 2018</time>
+
+    <p>A little over a month ago, I launched one of the Special Projects I’ve been working on at my new job at the <a href="https://freedom.press">Freedom of the Press Foundation</a>. The <a href="https://archive-it.org/collections/9790">Threatened Outlets collection at Archive-It</a> aims to capture the archives of news sites that we deem vulnerable to “the billionaire problem,” wherein wealthy individuals or organizations can eliminate unflattering coverage through litigation or by purchasing media companies altogether. From <a href="https://freedom.press/news/archiving-alternative-press-threatened-wealthy-buyers/">the launch announcement</a>:</p>
+
+<blockquote>
+  <p>Those efforts help individual journalists. But another important thing we can do to reduce the effectiveness of this kind of attack on press freedom is to commit ourselves to the wholesale preservation of threatened sites.</p>
+
+  <p>In this case, we seek to reduce the “upside” for wealthy individuals and organizations who would eliminate embarrassing or unflattering coverage by purchasing outlets outright. In other words, we hope that sites that can’t simply be made to disappear will show some immunity to the billionaire problem.</p>
+</blockquote>
+
+<p>To my surprise and delight, our launch received some nice and encouraging coverage, in <a href="https://www.wired.com/story/gawker-archives-freedom-of-press-foundation-toast-la-weekly/">WIRED</a>, <a href="https://beta.techcrunch.com/2018/02/01/freedom-of-the-press-foundation-will-preserve-gawkers-archives/">TechCrunch</a>, <a href="https://thenextweb.com/insider/2018/01/31/meet-archivists-saving-alt-news-sites-permanent-deletion/">The Next Web</a>, <a href="https://www.nytimes.com/2018/02/01/business/media/gawker-archives-press-freedom.html">The New York Times</a>, and others. Sometimes when you’ve got your head down on something that feels like a niche topic, it’s nice to come up for air and realize that the general public is interested, too.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/10/the-florida-project-and-questions-of-control/">
+        &#8220;The Florida Project&#8221; and questions of control
+      </a>
+    </h2>
+
+    <time datetime="2017-10-13T17:28:22-04:00" class="post-date">13 Oct 2017</time>
+
+    <p>I had the opportunity to catch the new movie <a href="http://www.imdb.com/title/tt5649144/"><em>The Florida Project</em></a> this week, without any background on how it was made or what it is about. That’s my preferred context for seeing movies, but it does sometimes lead to my feeling a bit adrift in the theater, or—in this case—stressed that something catastrophic was about to go down. Still, I feel like I end up with a better idea of what the movie is actually about if I don’t know the plot going into it. Here’s the trailer, if you want a sense of it.</p>
+
+<iframe allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube-nocookie.com/embed/WwQ-NH1rRT4?rel=0" width="560"></iframe>
+
+<p>That was certainly the case with <em>The Florida Project</em>, which has attracted nearly <a href="https://www.rottentomatoes.com/m/the_florida_project/">universally positive reviews</a> from critics (and some confusion from audiences about the ending). Just about every review I’ve read since seeing the movie describes is as “empathetic,” which is spot on, but none really dive into what the audience is feeling empathy for. This post lays out my explanation, and to do so includes some very minor spoilers. I don’t really think this movie can be “spoiled,” but skip this post if you want to.</p>
+
+<p>To my mind, what the movie does a great job of showing is how people seek spaces where they can be autonomous and in control. It shows children exploring and imagining, but (most importantly) testing out their agency. At the same time, it shows adults, living precarious existences, staking out small pieces of space where they are in charge.</p>
+
+<p>The building manager Bobby is an obvious example, and his arguments with tenants can almost always be framed in this light: whether he’s enforcing the pool rules, confronting unwelcome strangers, or (most tellingly) moving tenants around to prevent them from establishing residency, he is exerting control over his designated space and limiting the autonomy of the people in it. In that last example, too, he alludes to the fact that he’s an agent of another level of power, specifically pointing at the surveillance cameras to explain how his hands are tied.</p>
+
+<p>Halley’s actions in this area are even more illuminating. You can see it best when she gets into conflict with her best friend Ashley. Though Halley doesn’t even know the basis of their argument, she takes it out on her friend by finding a space where Ashley has no autonomy—her workplace—and exercises arbitrary control over her. From that perspective, it’s only a matter of degree when their dispute escalates to violence, and then when Ashley (it’s implied) calls for an intervention by the state.</p>
+
+<p>In that penultimate scene, where Halley is arguing with DCF agents, she makes this unspoken theme somewhat explicit, saying that they’re on her “property.” Throughout the film there are a lot of reasons to think that unit 323 isn’t really Halley’s “property,” but in that moment she reaches for that language to express that she is in control.</p>
+
+<p>The final scene takes that declaration and escalates it to a sort of surreal and metaphorical place. Echoing the film’s tagline (“Find your kingdom”), Moonee and her friend run to a place that feels like their kingdom, where they are the kings. It’s a bit jarring in a film that’s seemed so grounded and “real” to get such a visual metaphor in the closing moments, but it works (and at the same time drives home the juxtaposition between poverty and expensive fantasy that runs under the whole story).</p>
+
+<p>Maybe most movies could be described in these terms—as Octavia Butler said, “all struggles are, essentially, power struggles.” But I think it brings a lot to <em>The Florida Project</em> in particular to think of areas of control and autonomy. The characters shown in the movie are living precarious existences, and seek that kind of control where they can get it. One message from the film is that, where these kinds of spaces aren’t really available, people will find a way to exert control nonetheless. The empathy in this movie is showing the decisions of people who have been rendered powerless in society.</p>
+
+<p>Policies that perpetuate wealth inequality or pervasive surveillance make communities feel that powerlessness. When people talk about those communities “voting against their interests,” it’s worth considering that interest in exercising some kind of control.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/09/pulling-free-and-open-weather-data-in-python/">
+        Pulling free and open weather data
+      </a>
+    </h2>
+
+    <time datetime="2017-09-22T16:41:19-04:00" class="post-date">22 Sep 2017</time>
+
+    <p>When I decided to add realtime weather effects to <a href="https://www.twitter.com/choochoobot">@choochoobot</a>, I knew there were a few qualities I wanted to find in a data source. Ideally I would find something free and reliable that didn’t require me to agree to many developer terms or sign up for an API token. Google <a href="https://www.programmableweb.com/news/google-weather-api/2012/08/28">shuttered its undocumented Weather API</a> in 2012, and Yahoo’s offering, which has changed a few times over the years, now requires an account and a consumer key and secret.</p>
+
+<p>It took some poking around but I was eventually successful, and now @choochoobot should correctly show clouds, rain, snow, or thunderstorms, depending on whether observations in New York at the moment it’s tweeting.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2017/09/Screenshot_2017-09-22_15-46-34.png" alt="" /></p>
+
+<p>Current observed weather conditions seems to me like something that should be provided by the government as open data. Fortunately, that intuition was correct: free realtime weather data is openly available, if you know where to look.</p>
+
+<p>The National Weather Service, an agency within NOAA, provides weather observations from stations all over the US in RSS and parseable XML formats. And while parsing XML in Python isn’t exactly pleasant, it’s straightforward enough and I am now able to get qualitative descriptions of the current weather that I can translate into emoji. Here’s <a href="https://github.com/thisisparker/choochoobot/blob/master/choochoogen.py#L62-L86">the relevant code</a>, and here’s how it works:</p>
+
+<ul>
+  <li>Each time @choochoobot tweets, it checks to see whether it’s daytime or nighttime. If it’s nighttime, I skip the weather check and instead calculate the phase and placement of the moon in the sky.</li>
+  <li>If it’s during the day, I make download the <a href="http://w1.weather.gov/xml/current_obs/KNYC.xml">XML file provided by the KNYC weather station</a> in Central Park. You can load the same file in your browser at any point, but you probably have to view-source to see it in a reasonable human-readable format. That’s one of about <a href="http://w1.weather.gov/xml/current_obs/">1,800 locations in US states and territories</a> that the NWS provides information for.</li>
+  <li><span class="citation">@choochoobot</span> then parses the XML file using Python’s built-in <a href="https://docs.python.org/3.5/library/xml.etree.elementtree.html">ElementTree XML API</a>. The relevant field for my purposes is labeled “weather”, which contains a text description of the observed conditions.</li>
+  <li>At least in theory, that phrase will always be one of the 250 or so pre-set descriptions <a href="http://w1.weather.gov/xml/current_obs/weather.php">provided by the the NWS</a>. These are sort of grouped into categories—there’s a pretty clear thunderstorm grouping, and one for hail—but it seems a bit ad hoc. My use requires classifying the observed weather into just four or five buckets with matching emoji; I just made a big list of terms that I’d take to mean “cloudy,” for example, and checked to see whether the observed weather phrase was on that list.</li>
+  <li>Then I pick emoji for the sky, and put the whole tweet together. If the weather is cloudy, I replace the sun emoji with a sun-behind-clouds emoji. Real scientific stuff.</li>
+</ul>
+
+<p>In case it’s useful, I’ve converted the NWS list of <a href="https://github.com/dariusk/corpora/pull/278">weather conditions to JSON</a> and submitted it to Darius Kazemi’s corpora project. Once that gets merged in, those weather conditions will all be available that way.</p>
+
+  </article>
+  
+  <article class="post">
+    <h2 class="post-title">
+      <a href="/dotnet/2017/09/a-mind-at-play-and-claude-shannons-grave/">
+        &#8220;A Mind At Play&#8221; and Claude Shannon&#8217;s grave
+      </a>
+    </h2>
+
+    <time datetime="2017-09-20T16:55:16-04:00" class="post-date">20 Sep 2017</time>
+
+    <p>As the “father of information theory,” Claude Shannon’s contributions to the development of modern digital technology are hard to overstate. That work puts him in the ranks of the Einsteins, Turings, and Feynmans of the world; somehow, though, he never seemed to get the credit and public recognition that those scientists received.</p>
+
+<p>A great new biography of Shannon, <a href="https://www.amazon.com/dp/B01M5IJN1P">“A Mind At Play,”</a> tells the story of his work and may provide an explanation. In contrast to the stereotype of a single-minded scholar who doggedly pursues a particular theory for an entire lifetime, Shannon seemed to hop around to whatever captured his imagination—and in more than a few cases, advanced the state of the art or provided entirely new frameworks with which to consider its thorniest problems. (I was fortunate enough to be sent a copy of this book by its author because I had <a href="https://twitter.com/xor/status/727008565278306304">previously posted about</a> a long <em>New Yorker</em> profile of Shannon commemorating the centennial of his birth.)</p>
+
+<p>That professional pathway meant he probably never had a dull moment, but also that he wasn’t around to lead the fields he revolutionized. Beyond that, it makes it difficult to distill his work down to an equation, or even a few sentences. If you had to, though, you could do worse than his formulation of information as entropy. One fascinating detail from the end of “A Mind At Play” was that that equation appears on his grave stone at the <a href="https://en.wikipedia.org/wiki/Mount_Auburn_Cemetery">Mount Auburn Cemetery</a> in Cambridge where he’s buried.</p>
+
+<blockquote>
+  <p>What’s concealed, however, is a message on the reverse: covered by a bush, the open section of the marble on the back of the tombstone holds Shannon’s entropy formula.Shannon’s children had hoped the formula would grace the front of the stone; their mother thought it more modest to engrave it on the back.</p>
+
+  <p>And so Claude Shannon’s resting place is marked by a kind of code: a message hidden from view, invisible except to those looking for it.</p>
+</blockquote>
+
+<p>This struck me as amazing, and I wanted to see how it was rendered. But, perhaps unsurprisingly, it is difficult to find a picture of the back of a tombstone—even one marking the grave of a person as notable as Claude Shannon. So <a href="https://twitter.com/xor/status/896411797447684096">I turned to Twitter</a>, posting that passage and asking if anybody in or around Cambridge was available to take a picture for me.</p>
+
+<p>Fortunately, it seems many people were as intrigued by that detail as I was, and the tweet was pretty widely circulated. To my surprise and delight, a few groups of people reached out to tell me they were available to go, and a few more just set out for there. I had inadvertently prompted a small flashmob at the grave of a scientist who had passed some 16 years earlier.</p>
+
+<blockquote>
+  <p>There it is! <a href="https://t.co/wjz7PqxVeN">pic.twitter.com/wjz7PqxVeN</a></p>
+
+  <p>— Space User 583 (@User583) <a href="https://twitter.com/User583/status/896496769923764224">August 12, 2017</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>The equation is in fact pretty well hidden, but a few folks were able to duck into the bush behind the grave and grab a shot. I love the way it looks, and I was very excited that this new book prompted me and a few nerds around the world to share a moment of appreciation for the great Claude Shannon over a network that his work made possible.</p>
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/dotnet/blog/page3/">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/blog/">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/poetry.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/poetry.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">New bot: @i_remember_txt, tweeting Joe Brainard’s “I Remember” (1975)</title><link href="https://thisisparker.github.io/dotnet/2017/01/new-bot-i-remember-txt-joe-brainard-i-remember/" rel="alternate" type="text/html" title="New bot: @i_remember_txt, tweeting Joe Brainard’s “I Remember” (1975)" /><published>2017-01-23T23:31:55-05:00</published><updated>2017-01-23T23:31:55-05:00</updated><id>https://thisisparker.github.io/dotnet/2017/01/new-bot-i-remember-txt-joe-brainard-i-remember</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2017/01/new-bot-i-remember-txt-joe-brainard-i-remember/"><![CDATA[<p>Joe Brainard’s 1975 book “I Remember” is an incredible work of poetry. The New Yorker called it <a href="http://www.newyorker.com/magazine/2008/11/03/the-nancy-book">“his miniaturist memoir-poem,”</a> and Paul Auster’s blurb for the 2001 edition gives a good sense of it:</p>
+
+<blockquote>
+  <p><em>I Remember</em> is a masterpiece. One by one, the so-called important books of our time will be forgotten, but Joe Brainard’s modest little gem will endure. In simple, forthright, declarative sentences, he charts the map of the human soul and permanently alters the way we look at the world. <em>I Remember</em> is both uproariously funny and deeply moving. It is also one of the few totally original books I have ever read.</p>
+</blockquote>
+
+<p>Those simple declarative sentences—almost all of which begin with “I remember…”—would have been a shock as a book, but today they have the strange familiarity of status updates from your most nostalgic friend.</p>
+
+<p>So when Avery Trufelman asked <a href="https://twitter.com/trufelman/status/820687962266402816">if somebody could make a bot</a> that tweeted his “memories,” I jumped at the chance. And the resulting bot, <a href="https://twitter.com/i_remember_txt">@i_remember_txt</a>, fits in great in between other tweets.</p>
+
+<p><a href="https://twitter.com/i_remember_txt/status/823404900193181696"><img src="https://parkerhiggins.net/wp-content/uploads/2017/01/Screenshot_2017-01-23_20-28-35.png" alt="" /></a></p>
+
+<p>Per usual, <a href="https://github.com/thisisparker/i-remember-txt">the code is online</a> and comments are welcome. It’s pretty straightforward. One thing I did this time which was pretty cool: in the case of memories that were longer than a single tweet, it does <a href="https://twitter.com/i_remember_txt/status/822229699153645568">threaded “tweetstorms”</a> of up to 4-5 in a row.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="avery trufeman" /><category term="bots" /><category term="joe brainard" /><category term="poetry" /><category term="programming" /><category term="python" /><category term="twitter" /><summary type="html"><![CDATA[Joe Brainard’s 1975 book “I Remember” is an incredible work of poetry. The New Yorker called it “his miniaturist memoir-poem,” and Paul Auster’s blurb for the 2001 edition gives a good sense of it:]]></summary></entry><entry><title type="html">Rhyming “who phrases” from New York Times obituary headlines</title><link href="https://thisisparker.github.io/dotnet/2016/10/rhyming-phrases-new-york-times-obituary-headlines/" rel="alternate" type="text/html" title="Rhyming “who phrases” from New York Times obituary headlines" /><published>2016-10-12T02:11:58-04:00</published><updated>2016-10-12T02:11:58-04:00</updated><id>https://thisisparker.github.io/dotnet/2016/10/rhyming-phrases-new-york-times-obituary-headlines</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2016/10/rhyming-phrases-new-york-times-obituary-headlines/"><![CDATA[<p>Many obituary headlines follow a standard formula: “Firstname Lastname, Who You Know From That One Thing, Dies at Age.” It’s a tendency I’ve counted on before when extracting names from obituaries for <a href="https://foiathedead.org/">FOIA The Dead</a>, but tonight it also got me thinking about the “who phrase”: the relative clause that condenses a lifetime of context into a handful of words.</p>
+
+<p>I decided to pull out the “who phrases” from about 1000 headlines over the past year, and using <a href="https://pypi.python.org/pypi/pronouncing"><code class="language-plaintext highlighter-rouge">pronouncing</code></a>, arrange them to rhyme (if not yet to meter). It’s poetry.</p>
+
+<blockquote>
+  <p>who made the dallas cowboys cheerleaders a global brand,<br />
+who built and ruled world soccer with firm hand,<br />
+whose radio show twanged for decades,<br />
+who fought racial barriers in building trades,<br />
+who delivered in the clutch,<br />
+who wrote adolescent novels with a personal touch,<br />
+whose b-1 bomber recast the cold war,<br />
+who fictionalized medicine’s absurdity and gore,<br />
+who promoted n.w.a. and gangsta rap,<br />
+who bridged racial gap,<br />
+who chronicled his cancer fight,<br />
+who set ‘the wicker man’ cult alight,<br />
+who embraced gonzo journalism,<br />
+who lost his prime to racism,<br />
+who led sicilian mafia clan,<br />
+who took aim at iran,<br />
+who shaped venture capitalism,<br />
+who shifted to optimism,<br />
+who wrote of colonialism and racism,<br />
+who preached pacifism,<br />
+who won a round-the-world race,<br />
+who quit in pentagon papers case,<br />
+who wrote of madness and isolation,<br />
+who helped turn wlir into a radio destination,<br />
+who helped pave way for head start,<br />
+who elevated blown glass to fine art,<br />
+whose furniture evoked sensuality,<br />
+who examined puerto rican identity,<br />
+who saw literary criticism as art,<br />
+who gave the rolling stones their start,<br />
+whose bleak fiction won the booker prize,<br />
+who shaped foreign ties,<br />
+who put the @ sign in email,<br />
+who shaped geometries on a bold scale.</p>
+</blockquote>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="new york times" /><category term="obituary" /><category term="poetry" /><category term="programming" /><category term="python" /><summary type="html"><![CDATA[Many obituary headlines follow a standard formula: “Firstname Lastname, Who You Know From That One Thing, Dies at Age.” It’s a tendency I’ve counted on before when extracting names from obituaries for FOIA The Dead, but tonight it also got me thinking about the “who phrase”: the relative clause that condenses a lifetime of context into a handful of words.]]></summary></entry></feed>

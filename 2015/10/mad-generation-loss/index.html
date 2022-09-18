@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Mad Generation Loss &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mad Generation Loss" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Mad generation! down on the rocks of Time!" />
+<meta property="og:description" content="Mad generation! down on the rocks of Time!" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2015/10/mad-generation-loss/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2015/10/mad-generation-loss/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-10-31T20:35:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mad Generation Loss" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2015-10-31T20:35:00-04:00","datePublished":"2015-10-31T20:35:00-04:00","description":"Mad generation! down on the rocks of Time!","headline":"Mad Generation Loss","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2015/10/mad-generation-loss/"},"url":"https://thisisparker.github.io/dotnet/2015/10/mad-generation-loss/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">Mad Generation Loss</h2>
+  <time datetime="2015-10-31T20:35:00-04:00" class="post-date">31 Oct 2015</time>
+  <blockquote>
+  <p>Mad generation! down on the rocks of Time!</p>
+</blockquote>
+
+<p>Mad Generation Loss is a project exploring media encoding and the ways in which imperfect copies can descend into a kind of digital madness. It takes an audio file—here, a recording of Allen Ginsberg reading an excerpt from <a href="https://en.wikipedia.org/wiki/Howl">his seminal poem “Howl”</a>—and adds another layer of mp3 encoding to each second of the sound. That is to say, the first second is encoded directly from the original, the next second is re-encoded from that first lossy copy, and the third encoded again.</p>
+
+<iframe frameborder="no" height="166" loading="lazy" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230756469&amp;color=000000&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false" width="100%"></iframe>
+
+<p>That sort of re-encoding from lossy originals, known as transcoding, is supposed to be avoided. The <a href="https://en.wikipedia.org/wiki/Generation_loss">generation loss</a> builds on itself, and the quality degrades quickly. That effect is exaggerated here by its second-by-second compounding. By the end of the 3:18 recording, Ginsberg’s voice is nearly impossible to pick out among the background noise.</p>
+
+<p>The last seconds of the recording have been transcoded nearly 200 times. All together, the recording represents nearly 20,000 individual mp3 encodes.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/10/ginsberg_glitch19-300x300.jpg" alt="Ginsberg, glitched" />This project takes inspiration from earlier efforts to explore generation loss. <a href="https://en.wikipedia.org/wiki/I_Am_Sitting_in_a_Room">“I Am Sitting In A Room” (1969)</a> by Alvin Lucier was perhaps the earliest, and featured a 4-sentence narration recorded on taped, and re-recorded over and over to hear the tape loss. As the narration notes, that process “smooths out” the irregularities of speech, reflecting instead the rhythm and resonant frequencies of the room of the recording.</p>
+
+<p>More recently, an artist named Canzona documented the process of <a href="http://gizmodo.com/5555359/the-weirdness-of-a-youtube-video-re-uploaded-1000-times">downloading and re-uploading a video to YouTube 1000 times</a>, and the effect of its compound video encoding. He described that project as a tribute to Alvin Lucier.</p>
+
+<p>Unlike those projects, Mad Generation Loss shows the effect of transcoding and loss on a linear recording, not a repeated phrase. The degredation is apparent not from comparing identical inputs and diminished outputs, but from hearing the creep of the telltale white noise and the regular pulse of the mp3s getting stitched together.</p>
+
+<p>The <a href="https://github.com/thisisparker/mad-generation-loss">code to create the Mad Generation Loss audio is freely available under the GPLv3</a>. It is written in Ruby and depends on free software like <code class="language-plaintext highlighter-rouge">lame</code>, <code class="language-plaintext highlighter-rouge">mp3splt</code>, and <code class="language-plaintext highlighter-rouge">mp3wrap</code>. Thanks are due to Eric Mill and Ben Gleitzman for technical assistance (though please do not attribute my sloppy code on them), and to Caroline Sinders and Ethan Chiel for their encouragement.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

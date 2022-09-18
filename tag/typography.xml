@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/typography.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/typography.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">How does Fraktur degrade across platforms?</title><link href="https://thisisparker.github.io/dotnet/2015/02/fraktur-degrade-across-platforms/" rel="alternate" type="text/html" title="How does Fraktur degrade across platforms?" /><published>2015-02-17T03:03:14-05:00</published><updated>2015-02-17T03:03:14-05:00</updated><id>https://thisisparker.github.io/dotnet/2015/02/fraktur-degrade-across-platforms</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2015/02/fraktur-degrade-across-platforms/"><![CDATA[<p>The Unicode Consortium, in its ∞ wisdom, decided a long time ago that the <a href="https://en.wikipedia.org/wiki/Fraktur">Fraktur script</a>—that weird old-fashioned German style of text—should <a href="https://en.wikipedia.org/wiki/Fraktur#Fraktur_in_Unicode">not be encoded in its own block</a>, but rather considered a font in which standard latin text can be rendered. That has some implications for ligatures, but that’s beyond the scope of this post and my knowledge.</p>
+
+<p>However, most of the Fraktur alphabet is available <a href="http://www.w3.org/TR/MathML2/1D5.html">deep in the math characters</a> code points. Using a simple conversion tool, like <a href="http://www.panix.com/~eli/unicode/convert.cgi">this text converter</a> I keep bookmarked, you can replace standard characters with those math symbols that resemble them. By doing that, you can copy and paste what looks like formatted text into plain text boxes, and—for example—make jokes with it on Twitter.</p>
+
+<p>Which raises the question of how various platforms support it, and how that support degrades. After all, we’re talking about pretty deep recesses of the Unicode character space, so it can vary pretty wildly.</p>
+
+<p>Earlier tonight I made a <a href="https://twitter.com/xor/status/567543759479373824">joke on Twitter</a> to my friend Noah that used these characters. Here’s how it appeared on my OS X box running Firefox:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/Screen-Shot-2015-02-16-at-11.47.46-PM.png" alt="" /></p>
+
+<p>But here’s how it looked to him on his iPhone:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/noahscreenshot.png" alt="noahscreenshot" /></p>
+
+<p>I wanted to see how it appears on different platforms, so I <a href="https://twitter.com/xor/status/567545787127578624">asked people to send me screenshots</a>, and got a whole bunch of responses. On multiple versions of Windows and different platforms, you get empty boxes:</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/B-BUhcGIUAA7TWZ.png" alt="B-BUhcGIUAA7TWZ" /></p>
+
+<p>While on Android, across many different apps, it degrades to the plain latin text!</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2015/02/androidscreenshot.png" alt="androidscreenshot" /></p>
+
+<p>I also got evidence that it worked fine on a range of GNU/Linux boxes, every OS X combination I saw, and a Chromebook.</p>
+
+<p>The frustrating result is that not only can you not count on all popular platforms to support these characters, you also can’t count on them to fail the same way. Android removes the context that these are “special” characters, while iOS, Windows, (and, incidentally, <a href="https://en.wikipedia.org/wiki/Sailfish_OS">Sailfish OS</a>) render it completely unreadable.</p>
+
+<p>So I guess don’t use it for mission-critical Twitter jokes.</p>
+
+<p>P.S. If you’ve read this far about Fraktur, you really ought to read about the <a href="https://en.wikipedia.org/wiki/Antiqua%E2%80%93Fraktur_dispute">Antiqua-Fraktur dispute</a>, which is an amazing piece of typographic history.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="fraktur" /><category term="germany" /><category term="twitter" /><category term="typography" /><category term="unicode" /><summary type="html"><![CDATA[The Unicode Consortium, in its ∞ wisdom, decided a long time ago that the Fraktur script—that weird old-fashioned German style of text—should not be encoded in its own block, but rather considered a font in which standard latin text can be rendered. That has some implications for ligatures, but that’s beyond the scope of this post and my knowledge.]]></summary></entry><entry><title type="html">Writing the Prince symbol in Unicode</title><link href="https://thisisparker.github.io/dotnet/2013/01/writing-the-prince-symbol-in-unicode/" rel="alternate" type="text/html" title="Writing the Prince symbol in Unicode" /><published>2013-01-25T11:54:45-05:00</published><updated>2013-01-25T11:54:45-05:00</updated><id>https://thisisparker.github.io/dotnet/2013/01/writing-the-prince-symbol-in-unicode</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2013/01/writing-the-prince-symbol-in-unicode/"><![CDATA[<p>In the early 90s, the musician Prince dropped his name and started going by an unpronounceable symbol. He called it “The Love Symbol,” and it’s a combination of the traditional male (♂) and female (♀) symbols.</p>
+
+<p><img src="https://parkerhiggins.net/wp-content/uploads/2013/01/Prince_logo.svg_.png" alt="Prince_logo.svg" /></p>
+
+<p>Apparently (at least according to Wikipedia) <a href="https://en.wikipedia.org/wiki/Prince_(musician)#The_New_Power_Generation.2C_Diamonds_and_Pearls_and_name_change:_1991.E2.80.9394">Warner Bros had to send out floppy disks with a custom font</a> to the music press they hoped would review his record. As a side note, this would be one of my all-time favorite collectibles. A purple (and you know it’d be purple) floppy disk with the Prince font? So great.</p>
+
+<p>Anyway, so the Prince symbol is not eligible for inclusion in Unicode, which “does not encode personal characters, nor does it encode logos.” Still, though, the Unicode geeks on mailing lists have talked about it, charmingly using the shorthand TAFKAP (for The Artist Formerly Known As Prince). <a href="http://www.unicode.org/mail-arch/unicode-ml/Archives-Old/UML019/0611.html">In one 1999 thread</a>, a guy named Marco Cimarosti (<a href="http://web.tiscali.it/marco.cimarosti/">personal homepage, in Italian, last updated 2006</a>) proposed a canonical encoding of the glyph, using these combining characters:</p>
+
+<blockquote>
+  <p>01AC LATIN CAPITAL LETTER T WITH HOOK<br />
+030A COMBINING RING ABOVE<br />
+0335 COMBINING SHORT STROKE OVERLAY<br />
+032C COMBINING CARON BELOW</p>
+</blockquote>
+
+<p>The end result, which will only work if you’re viewing this page in UTF-8 and have proper font support ((If you don’t have the right font, I can recommend <a href="http://users.teilar.gr/~g1951d/">Symbola</a>)) is Ƭ̵̬̊. Rendered large, that’s:<br />
+<span style="font-size: xx-large; line-height: 150%; font-family: Symbola, Helvetica, Arial, sans-serif;">Ƭ̵̬̊</span><br />
+It’s not perfect, and it isn’t very simple to type, but it beats writing out The Artist Formerly Known As Prince each time.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="prince" /><category term="typography" /><category term="unicode" /><summary type="html"><![CDATA[In the early 90s, the musician Prince dropped his name and started going by an unpronounceable symbol. He called it “The Love Symbol,” and it’s a combination of the traditional male (♂) and female (♀) symbols.]]></summary></entry></feed>

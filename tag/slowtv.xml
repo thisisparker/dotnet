@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/slowtv.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/slowtv.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">Subtitles for Norway’s SlowTV train ride to Oslo</title><link href="https://thisisparker.github.io/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo/" rel="alternate" type="text/html" title="Subtitles for Norway’s SlowTV train ride to Oslo" /><published>2018-04-04T22:24:12-04:00</published><updated>2018-04-04T22:24:12-04:00</updated><id>https://thisisparker.github.io/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo/"><![CDATA[<p><img src="https://parkerhiggins.net/wp-content/uploads/2018/04/Screenshot_2018-03-23_22-34-01.png" alt="" /></p>
+
+<p>One thing I enjoy is Norway’s public service broadcaster’s production of a train ride from Bergen to Oslo, which was first broadcast in real time, over seven or so hours, in 2009. It’s predictably pretty quiet stuff, but—at least now that it’s on Netflix—there are in fact subtitles of what little dialog there is.</p>
+
+<p>Netflix makes it pretty straightforward to extract the subtitles from a given program, and it stores them according to a very fun standard called <a href="https://en.wikipedia.org/wiki/Timed_Text_Markup_Language">the Timed Text Markup Language, or TTML</a>, which just missed adoption by the WHATWG in favor of a lighter-weight, less-XML spec called <a href="https://en.wikipedia.org/wiki/WebVTT">WebVTT</a>.</p>
+
+<p>Anyway, I pulled out the (very spare) subtitles in that format and wanted to convert them to something a little more usable. So first I converted them to JSON, and produced an array with <a href="https://gist.github.com/thisisparker/c9d42d1e10d7dd1420915ac090a41dd4">an object for every subtitle</a>, and then processed it a little further and created a version where <a href="https://gist.github.com/thisisparker/b03d94c7900415da2b616e1fac5d673d">“adjacent” subtitles are combined into single objects</a>.</p>
+
+<p>The result is nearly as hypnotic as the original video:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    {
+        "begin": "00:17:21",
+        "end": "00:17:23",
+        "text": [
+            "[metallic clang]"
+        ]
+    },
+    {
+        "begin": "00:19:40",
+        "end": "00:19:44",
+        "text": [
+            "[indistinct conversation / woman laughs]"
+        ]
+    },
+    {
+        "begin": "00:19:52",
+        "end": "00:19:54",
+        "text": [
+            "[woman laughs]"
+        ]
+    },
+    {
+        "begin": "00:19:57",
+        "end": "00:20:01",
+        "text": [
+            "[indistinct conversation]"
+        ]
+    },
+    {
+        "begin": "00:21:47",
+        "end": "00:21:48",
+        "text": [
+            "[metallic clang]"
+        ]
+    },
+    {
+        "begin": "00:22:10",
+        "end": "00:22:12",
+        "text": [
+            "[metallic clang]"
+        ]
+}
+</code></pre></div></div>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="slowtv" /><category term="subtitles" /><category term="trains" /><summary type="html"><![CDATA[]]></summary></entry></feed>

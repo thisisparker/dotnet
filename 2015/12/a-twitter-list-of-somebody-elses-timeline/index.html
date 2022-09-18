@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      A Twitter list of somebody else&#8217;s timeline &middot; parker higgins dot net
+    
+  </title>
+
+  <link rel="stylesheet" href="/dotnet/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dotnet/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/dotnet/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="parker higgins dot net" href="/dotnet/feed.xml">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="A Twitter list of somebody else’s timeline" />
+<meta name="author" content="Parker Higgins" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sometimes I wish I could use Twitter as a different account, and read all the conversations and references that result from the unique list of accounts a person has chosen to follow (sometimes over the course of years!) There’s no “use Twitter as @x” mode yet, so the next best thing is to create a list of all the accounts somebody follows. The public view of that list is, roughly, that person’s main timeline. This came in handy recently as I was trying to follow a basketball game, because I don’t yet follow the kinds of people who make insightful comments about basketball games. ((You could argue it’s like a DIY version of Twitter Moments, where you trust the curation done by an individual user is better than the algorithm, but I won’t be the one making that argument.))" />
+<meta property="og:description" content="Sometimes I wish I could use Twitter as a different account, and read all the conversations and references that result from the unique list of accounts a person has chosen to follow (sometimes over the course of years!) There’s no “use Twitter as @x” mode yet, so the next best thing is to create a list of all the accounts somebody follows. The public view of that list is, roughly, that person’s main timeline. This came in handy recently as I was trying to follow a basketball game, because I don’t yet follow the kinds of people who make insightful comments about basketball games. ((You could argue it’s like a DIY version of Twitter Moments, where you trust the curation done by an individual user is better than the algorithm, but I won’t be the one making that argument.))" />
+<link rel="canonical" href="https://thisisparker.github.io/dotnet/2015/12/a-twitter-list-of-somebody-elses-timeline/" />
+<meta property="og:url" content="https://thisisparker.github.io/dotnet/2015/12/a-twitter-list-of-somebody-elses-timeline/" />
+<meta property="og:site_name" content="parker higgins dot net" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-12-13T20:00:58-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A Twitter list of somebody else’s timeline" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parker Higgins"},"dateModified":"2015-12-13T20:00:58-05:00","datePublished":"2015-12-13T20:00:58-05:00","description":"Sometimes I wish I could use Twitter as a different account, and read all the conversations and references that result from the unique list of accounts a person has chosen to follow (sometimes over the course of years!) There’s no “use Twitter as @x” mode yet, so the next best thing is to create a list of all the accounts somebody follows. The public view of that list is, roughly, that person’s main timeline. This came in handy recently as I was trying to follow a basketball game, because I don’t yet follow the kinds of people who make insightful comments about basketball games. ((You could argue it’s like a DIY version of Twitter Moments, where you trust the curation done by an individual user is better than the algorithm, but I won’t be the one making that argument.))","headline":"A Twitter list of somebody else’s timeline","mainEntityOfPage":{"@type":"WebPage","@id":"https://thisisparker.github.io/dotnet/2015/12/a-twitter-list-of-somebody-elses-timeline/"},"url":"https://thisisparker.github.io/dotnet/2015/12/a-twitter-list-of-somebody-elses-timeline/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+
+        <ul id="navbar">
+  <li><a href="/dotnet//">about</a></li>
+  <li><a href="/dotnet//projects">projects</a></li>
+  <li><a href="/dotnet//blog">blog</a></li>
+  <li><a href="https://twitter.com/xor" target="_blank">twitter</a></li>
+  <li><a href="https://github.com/thisisparker" target="_blank">github</a></li>
+</ul>
+
+
+        <h1 class="masthead-title">
+          <a href="/dotnet//" title="Home">parker higgins dot net</a>
+          <!-- <small></small> -->
+        </h1>
+      </header>
+
+      <main>
+        <article class="post">
+  <h2 class="post-title">A Twitter list of somebody else&#8217;s timeline</h2>
+  <time datetime="2015-12-13T20:00:58-05:00" class="post-date">13 Dec 2015</time>
+  <p>Sometimes I wish I could use Twitter as a different account, and read all the conversations and references that result from the unique list of accounts a person has chosen to follow (sometimes over the course of years!) There’s no “use Twitter as @x” mode yet, so the next best thing is to create a list of all the accounts somebody follows. The public view of that list is, roughly, that person’s main timeline. This came in handy recently as I was <a href="https://twitter.com/xor/status/675514816618885120">trying to follow a basketball game</a>, because I don’t yet follow the kinds of people who make insightful comments about basketball games. ((You could argue it’s like a DIY version of Twitter Moments, where you trust the curation done by an individual user is better than the algorithm, but I won’t be the one making that argument.))</p>
+
+<p>Fortunately, this is a one-liner with the super handy command line program <code class="language-plaintext highlighter-rouge">t</code>. If you don’t have <code class="language-plaintext highlighter-rouge">t</code> installed, I <a href="https://github.com/sferik/t">strongly recommend downloading and configuring it</a> even if you don’t want to do the rest of these steps. It’s just a very useful tool to have in your Twitter toolbelt.</p>
+
+<p>Here’s the <code class="language-plaintext highlighter-rouge">t</code> command:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">t followings OTHERACCOUNT | xargs t list add LISTNAME</code></p>
+</blockquote>
+
+<p>Where <code class="language-plaintext highlighter-rouge">OTHERACCOUNT</code> should be replaced with the name of the account you want to use, and the <code class="language-plaintext highlighter-rouge">LISTNAME</code> should be the name of an existing list. I just made the list through the web interface, which allows me to set it as private.</p>
+
+<p>Important note! If you don’t set it as private, or if you ever make it public, members of the list will get a notification that they’ve been added. People <a href="https://twitter.com/theshrillest/status/675515014506156032">tend to think that’s very weird</a>.</p>
+
+<p>I also like to add the originating account to the list so you can see replies to and from that person.</p>
+
+<p>Finally, some caveats: obviously, you won’t get access to private accounts that user follows. You will see people that user has muted, unless you’ve already muted them. You won’t see notifications that user sees. And of course, if the user has something like Tweetdeck and uses columns other than the “main timeline,” you won’t know. Still, it’s a pretty good way to check out Twitter from somebody else’s point of view.</p>
+
+</article>
+
+<!-- 
+<aside class="related">
+  <h3>Related posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dotnet//2021/03/new-rossword-puzzle/">
+          New Rossword puzzle
+          <small><time datetime="2021-03-07T07:05:00-05:00">07 Mar 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/1923-zine-and-website-launch/">
+          1923 zine and website launch
+          <small><time datetime="2019-03-23T14:24:45-04:00">23 Mar 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dotnet//2019/03/cursewords-crossword-puzzle-solving-interface-terminal/">
+          Introducing: cursewords, a crossword puzzle solving interface for the terminal
+          <small><time datetime="2019-03-03T13:55:35-05:00">03 Mar 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+ -->
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2022-09-18T17:04:09-04:00">2022</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

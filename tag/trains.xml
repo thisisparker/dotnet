@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://thisisparker.github.io/dotnet/tag/trains.xml" rel="self" type="application/atom+xml" /><link href="https://thisisparker.github.io/dotnet/" rel="alternate" type="text/html" /><updated>2022-09-18T17:04:09-04:00</updated><id>https://thisisparker.github.io/dotnet/tag/trains.xml</id><title type="html">parker higgins dot net</title><subtitle></subtitle><author><name>Parker Higgins</name></author><entry><title type="html">Subtitles for Norway’s SlowTV train ride to Oslo</title><link href="https://thisisparker.github.io/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo/" rel="alternate" type="text/html" title="Subtitles for Norway’s SlowTV train ride to Oslo" /><published>2018-04-04T22:24:12-04:00</published><updated>2018-04-04T22:24:12-04:00</updated><id>https://thisisparker.github.io/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2018/04/subtitles-for-norways-slowtv-train-ride-to-oslo/"><![CDATA[<p><img src="https://parkerhiggins.net/wp-content/uploads/2018/04/Screenshot_2018-03-23_22-34-01.png" alt="" /></p>
+
+<p>One thing I enjoy is Norway’s public service broadcaster’s production of a train ride from Bergen to Oslo, which was first broadcast in real time, over seven or so hours, in 2009. It’s predictably pretty quiet stuff, but—at least now that it’s on Netflix—there are in fact subtitles of what little dialog there is.</p>
+
+<p>Netflix makes it pretty straightforward to extract the subtitles from a given program, and it stores them according to a very fun standard called <a href="https://en.wikipedia.org/wiki/Timed_Text_Markup_Language">the Timed Text Markup Language, or TTML</a>, which just missed adoption by the WHATWG in favor of a lighter-weight, less-XML spec called <a href="https://en.wikipedia.org/wiki/WebVTT">WebVTT</a>.</p>
+
+<p>Anyway, I pulled out the (very spare) subtitles in that format and wanted to convert them to something a little more usable. So first I converted them to JSON, and produced an array with <a href="https://gist.github.com/thisisparker/c9d42d1e10d7dd1420915ac090a41dd4">an object for every subtitle</a>, and then processed it a little further and created a version where <a href="https://gist.github.com/thisisparker/b03d94c7900415da2b616e1fac5d673d">“adjacent” subtitles are combined into single objects</a>.</p>
+
+<p>The result is nearly as hypnotic as the original video:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    {
+        "begin": "00:17:21",
+        "end": "00:17:23",
+        "text": [
+            "[metallic clang]"
+        ]
+    },
+    {
+        "begin": "00:19:40",
+        "end": "00:19:44",
+        "text": [
+            "[indistinct conversation / woman laughs]"
+        ]
+    },
+    {
+        "begin": "00:19:52",
+        "end": "00:19:54",
+        "text": [
+            "[woman laughs]"
+        ]
+    },
+    {
+        "begin": "00:19:57",
+        "end": "00:20:01",
+        "text": [
+            "[indistinct conversation]"
+        ]
+    },
+    {
+        "begin": "00:21:47",
+        "end": "00:21:48",
+        "text": [
+            "[metallic clang]"
+        ]
+    },
+    {
+        "begin": "00:22:10",
+        "end": "00:22:12",
+        "text": [
+            "[metallic clang]"
+        ]
+}
+</code></pre></div></div>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="slowtv" /><category term="subtitles" /><category term="trains" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">New bot: @choochoobot</title><link href="https://thisisparker.github.io/dotnet/2016/03/new-bot-choochoobot/" rel="alternate" type="text/html" title="New bot: @choochoobot" /><published>2016-03-14T02:58:31-04:00</published><updated>2016-03-14T02:58:31-04:00</updated><id>https://thisisparker.github.io/dotnet/2016/03/new-bot-choochoobot</id><content type="html" xml:base="https://thisisparker.github.io/dotnet/2016/03/new-bot-choochoobot/"><![CDATA[<p>It’s a goofy idea: After a few happy-hour drinks on Thursday, I decided to write a little Python script to make emoji “trains” of random length, combining the steam engine with the two styles of rail cars. Once I got that running, I <a href="http://www.cbc.ca/radio/spark/312-growth-and-the-start-up-economy-twitter-bot-art-and-more-1.3471294/these-bots-tweet-their-own-artwork-1.3471507">remembered reading</a> about Emma Winston’s <a href="https://twitter.com/thetinygallery">“Tiny Gallery” bot</a>, which tweets little scenes of generative emoji “art galleries.”</p>
+
+<p>In fact, there’s a whole <a href="https://twitter.com/hugovk/lists/tiny-universe">“tiny universe” of bots</a> that tweet emoji scenes—most prominently, Katie Rose Pipkin’s amazing <a href="https://twitter.com/tiny_star_field">“tiny star fields”</a>. But as far as I could tell, none of them have trains. So I set to work putting my trains into some tiny landscapes, and quickly got something together.</p>
+
+<blockquote>
+  <p>🌕 <br />
+ 🌳 🌳 🌲 🌲<br />
+ 🌳 🐇 <br />
+🚂🚋🚋🚋🚃🚋🚋🚋🚃🚃🚋<br />
+🌲 🌲 🌲 <br />
+ 🌲 🌳 🌳 🌲 🌳</p>
+
+  <p>— trains botting (@choochoobot) <a href="https://twitter.com/choochoobot/status/708336941586976768">March 11, 2016</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>Friday morning I “launched” the bot, by <a href="https://twitter.com/xor/status/708337788286992384">tweeting about it</a> from my own account. I’m not sure what reaction I expected, but it wasn’t this one: over the course of the next 24 hours, over a thousand people followed it. By 10 tweets in or so, it had surpassed <a href="https://twitter.com/pomological">@pomological</a> as my most popular bot. Over the weekend it climbed to 1,600 followers and it seems to still be on the rise.</p>
+
+<blockquote>
+  <p>☁<br />
+ 🌴 🌴 <br />
+ 🌴 🐢🐢 <br />
+ 🚂🚃🚃🚋🚃🚋🚃🚃🚋💨<br />
+ 🌴 🌴 <br />
+🌊🌊🌊🌊🌊🌊🌊🌊🐙🌊🌊🌊</p>
+
+  <p>— trains botting (@choochoobot) <a href="https://twitter.com/choochoobot/status/708759726922682369">March 12, 2016</a></p>
+</blockquote>
+
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+
+<p>Best of all though, I’m getting nice feedback from people speaking all different languages. That’s something I don’t usually get when I’m writing, but of course these “scenes”—if you can even call them that—are equally intelligible in any language. It feels really great to know that people around the world like this thing.</p>
+
+<p>The <a href="https://github.com/thisisparker/choochoobot">source code is online</a>, and I’ll write up more of a how-to soon. More excitingly, I want to keep developing out the possibilities here. Even out of the idea phase, it’s still a goofy project, but it’s a fun canvas to explore some more elaborate ideas.</p>]]></content><author><name>Parker Higgins</name></author><category term="Uncategorized" /><category term="bots" /><category term="emoji" /><category term="programming" /><category term="python" /><category term="trains" /><category term="twitter" /><summary type="html"><![CDATA[It’s a goofy idea: After a few happy-hour drinks on Thursday, I decided to write a little Python script to make emoji “trains” of random length, combining the steam engine with the two styles of rail cars. Once I got that running, I remembered reading about Emma Winston’s “Tiny Gallery” bot, which tweets little scenes of generative emoji “art galleries.”]]></summary></entry></feed>
